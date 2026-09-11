@@ -1,0 +1,30 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/Users/prakharagrawal/Source/myprojects/bs-notes/web/.next"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm run build"
+base = "/Users/prakharagrawal/Source/myprojects/bs-notes/web"
+
+[build.environment]
+NODE_VERSION = "22"
+NETLIFY_NEXT_SKEW_PROTECTION = "true"
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
