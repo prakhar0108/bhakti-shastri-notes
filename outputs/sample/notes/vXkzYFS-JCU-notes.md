@@ -156,7 +156,14 @@ Sudden, unguided jumps are described as unstable; the chanting example moves gra
 
 #### Purification by positive engagement [35:00 – 38:00, 62:00 – 64:00]
 
-Eyes — darshana of the Lord. Ears — hearing Krishna-katha and the holy name. Feet — walking to the temple. Hands — cleaning the temple and performing service. Mind — contemplating Krishna's lilas. Intelligence — planning service for Krishna. The senses become purified by being engaged in the service of Hrishikesha; positive engagement is therefore essential, especially in the beginning.
+- **Eyes** — darshana of the Lord.
+- **Ears** — hearing Krishna-katha and the holy name.
+- **Feet** — walking to the temple.
+- **Hands** — cleaning the temple and performing service.
+- **Mind** — contemplating Krishna's lilas.
+- **Intelligence** — planning service for Krishna.
+
+The senses become purified by being engaged in the service of Hrishikesha; positive engagement is therefore essential, especially in the beginning.
 
 <Callout type="idea" title="Takeaway">
 Krishna is discussing what is **better and practicable for Arjuna**, not merely ranking what is theoretically higher. [62:00]

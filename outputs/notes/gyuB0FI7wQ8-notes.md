@@ -80,11 +80,17 @@ All actions performed in the material world carry reactions — both good and ev
 
 #### The battlefield as a sacrifice [36:00 – 37:30]
 
-The Kurukshetra battle is also a sacrifice: the sacrificial arena (_yajna-kunda_) is the battlefield; the sacrificial fire is Arjuna's anger and resolve to fight; the oblation (_ahuti_) is the Kauravas; the sacrificial ladle is Arjuna's arrows.
+The Kurukshetra battle is also a sacrifice:
+
+- Sacrificial arena (_yajna-kunda_) — the battlefield.
+- Sacrificial fire — Arjuna's anger and resolve to fight.
+- Oblation (_ahuti_) — the Kauravas.
+- Sacrificial ladle — Arjuna's arrows.
 
 #### Distinctions & purport points [26:00 – 27:30, 34:30 – 36:30]
 
-Devotees focus primarily on _navadha-bhakti_ rather than diverting focus into demigod worship (_kuladevata_, _rudra-abhisheka_, Ganesh worship), knowing that worship of Vishnu includes all demigods. The soul identifies temporarily with a human, dog (Alsatian, German Shepherd), or buffalo body, constructing designations that vanish at death — only actions dedicated to Krishna remain permanent.
+- **Exclusive devotion vs. peripheral rituals:** devotees focus primarily on _navadha-bhakti_ rather than diverting focus into demigod worship (_kuladevata_, _rudra-abhisheka_, Ganesh worship), knowing that worship of Vishnu includes all demigods.
+- **Transmigration and forgetfulness:** the soul identifies temporarily with a human, dog (Alsatian, German Shepherd), or buffalo body, constructing designations that vanish at death — only actions dedicated to Krishna remain permanent.
 
 #### Teaching example: the forbidden wall [32:00 – 34:30]
 
@@ -155,7 +161,12 @@ Eating sanctified food purifies one's existential state, stabilizing the memory 
 
 #### Sankirtana-yajna as holistic engagement [48:30 – 50:50]
 
-In _sankirtana-yajna_, senses are offered in Krishna's service: the body is engaged by dancing in kirtan; hearing is engaged through _shravanam_; vision is engaged through deity _darshana_; the mind is engaged through meditation on the Lord.
+In _sankirtana-yajna_, senses are offered in Krishna's service:
+
+- **Body** — engaged by dancing in kirtan.
+- **Hearing** — engaged through _shravanam_.
+- **Vision** — engaged through deity _darshana_.
+- **Mind** — engaged through meditation on the Lord.
 
 <Callout type="idea" title="Takeaway">
 Performing sacrifice pleases the universal administrators, purifies food intake, and stabilizes the mind for spiritual progress. [46:00, 50:00]
@@ -180,7 +191,11 @@ Life necessities (sunlight, air, water) are supplied by cosmic administrators. C
 
 #### Progression through karma-kanda [53:30 – 56:00]
 
-Materialists seek refined sense pleasure (e.g., from fans to coolers to air conditioning). Eventually, they aspire for heavenly planets (_svarga_) where disease, aging, and bodily odors are absent. When their pious credits are exhausted ([exact Sanskrit omitted: auto-captions uncertain]), they are sent back down. Over many lifetimes, this cycle helps the soul realize the futility of fruitive desires and turn to pure devotion.
+1. Materialists seek refined sense pleasure (e.g., from fans to coolers to air conditioning).
+2. Eventually, they aspire for heavenly planets (_svarga_) where disease, aging, and bodily odors are absent.
+3. When their pious credits are exhausted ([exact Sanskrit omitted: auto-captions uncertain]), they are sent back down.
+
+Over many lifetimes, this cycle helps the soul realize the futility of fruitive desires and turn to pure devotion.
 
 <Callout type="idea" title="Takeaway">
 Enjoying material resources without offering sacrifice constitutes cosmic theft, binding the soul to repeated material entanglement. [51:45 – 52:30]
@@ -201,7 +216,10 @@ Enjoying material resources without offering sacrifice constitutes cosmic theft,
 
 #### Eating sacrificial remnants vs. eating for oneself [57:30 – 61:30]
 
-Devotees (_santah_) are liberated from all sins by eating only remnants offered to Vishnu (_yajna-shishta_). Anyone cooking purely for personal consumption (_atma-karanat_) ingests sin (_agham_), even if the food is vegetarian. **Exchange on Vegetarianism:** when a person told Srila Prabhupada that he was a vegetarian, Prabhupada replied that monkeys are also vegetarian — devotees do not merely eat vegetarian food, they eat sanctified _prasadam_. Avoiding onion and garlic in commercial restaurant food is not equivalent to _prasadam_; food must be offered to Krishna.
+Devotees (_santah_) are liberated from all sins by eating only remnants offered to Vishnu (_yajna-shishta_). Anyone cooking purely for personal consumption (_atma-karanat_) ingests sin (_agham_), even if the food is vegetarian.
+
+- **Exchange on Vegetarianism:** when a person told Srila Prabhupada that he was a vegetarian, Prabhupada replied that monkeys are also vegetarian — devotees do not merely eat vegetarian food, they eat sanctified _prasadam_.
+- **On commercial food:** avoiding onion and garlic in commercial restaurant food is not equivalent to _prasadam_; food must be offered to Krishna.
 
 #### Subtle energy transfer and dietary principles [62:00 – 68:50]
 

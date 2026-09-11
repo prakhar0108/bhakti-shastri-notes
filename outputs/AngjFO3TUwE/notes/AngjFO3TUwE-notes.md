@@ -88,7 +88,11 @@ A struggling _sādhaka_ may experience unwanted thoughts or encounter material s
 
 #### Three levels of senses & the mental gallery [26:40 – 29:00]
 
-Working senses (_karmendriyas_) are gross and noticeable to everyone (e.g., physically slapping someone in public). Knowledge-acquiring senses (_jñānendriyas_) are subtler (e.g., misdirected vision or improper tasting is less obvious). The mind (_manas_) is the subtlest level, known only to oneself and Krishna — the _Loudspeaker Example_ notes that if internal thoughts were broadcast through a loudspeaker on one's forehead, relationships in Kali-yuga would break down. The mind holds stored impressions (_saṁskāras_) of past sense gratification; if an unpurified, idle person enters a compromised situation, these dormant impressions awaken and the mind begins reliving them.
+- **Working senses (_karmendriyas_):** gross and noticeable to everyone (e.g., physically slapping someone in public).
+- **Knowledge-acquiring senses (_jñānendriyas_):** subtler (e.g., misdirected vision or improper tasting is less obvious).
+- **Mind (_manas_):** the subtlest level, known only to oneself and Krishna. The _Loudspeaker Example_ notes that if internal thoughts were broadcast through a loudspeaker on one's forehead, relationships in Kali-yuga would break down.
+
+The mind holds stored impressions (_saṁskāras_) of past sense gratification; if an unpurified, idle person enters a compromised situation, these dormant impressions awaken and the mind begins reliving them.
 
 #### High risk of hypocrisy in jnana-yoga [29:40 – 31:40]
 
@@ -96,7 +100,12 @@ The heart is not yet purified; there is an absence of active, practical physical
 
 #### Four levels of practitioners [33:00 – 36:00]
 
-Level 1 — external renunciation with internal purity (e.g., Haridasa Thakura, Tukarama), fully purified, without taste for sense gratification. Level 2 — external change accompanied by sincere, serious internal effort; attractions may appear, but the practitioner does not surrender to them and seeks shelter. Level 3 — external change without internal effort; the individual is lazy, insincere, and drifting. Level 4 (_Mithyācāra_) — external renounced garb used as a facade while actively planning and pursuing sense gratification ("the greatest cheater"). An inactive practitioner at Level 3 risks descending to Level 4 without active internal cultivation.
+- **Level 1:** external renunciation with internal purity (e.g., Haridasa Thakura, Tukarama), fully purified, without taste for sense gratification.
+- **Level 2:** external change accompanied by sincere, serious internal effort; attractions may appear, but the practitioner does not surrender to them and seeks shelter.
+- **Level 3:** external change without internal effort; the individual is lazy, insincere, and drifting.
+- **Level 4 (_Mithyācāra_):** external renounced garb used as a facade while actively planning and pursuing sense gratification ("the greatest cheater").
+
+An inactive practitioner at Level 3 risks descending to Level 4 without active internal cultivation.
 
 <Callout type="idea" title="Takeaway">
 Suppressing the physical senses while actively scheming for sense gratification in the mind is hypocrisy (_mithyācāra_). Practitioners must remain actively engaged in service and sincerely seek shelter rather than maintain a false external show. [21:40 – 35:20]
