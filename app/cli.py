@@ -42,42 +42,48 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def main() -> int:
-    args = parse_args()
-    output_dir = Path(args.output_dir).expanduser().resolve()
+def run_notes_pipeline(
+    youtube_url: str,
+    *,
+    output_dir: str | Path = "outputs",
+    language: str = "hi-orig,hi,en",
+    notes_mode: str = "auto",
+) -> dict[str, object]:
+    """Extract a transcript and build grounded notes, returning run metadata.
 
-    try:
-        result = extract_transcript(
-            args.youtube_url,
-            output_dir=output_dir,
-            language=args.language,
-        )
-        notes_path = output_dir / "notes" / (
-            result.transcript_path.name.replace("-clean-transcript.txt", "-notes.md")
-        )
-        use_gemini = args.notes_mode == "gemini" or (
-            args.notes_mode == "auto" and gemini_is_configured()
-        )
-        if use_gemini:
-            write_grounded_notes(
-                result.notes_source_path,
-                notes_path,
-                video_title=result.title,
-                video_url=result.video_url,
-            )
-            notes_generator = "gemini-draft-plus-grounding-audit"
-        else:
-            write_extractive_notes(
-                result.notes_source_path,
-                notes_path,
-                video_title=result.title,
-            )
-            notes_generator = "deterministic-extractive"
-    except (GeminiNotesError, TranscriptError) as exc:
-        print(f"Error: {exc}")
-        return 1
+    Shared by the CLI and the ADK agent so both paths use the identical
+    extraction + draft-plus-grounding-audit note pipeline.
+    """
 
-    metadata = {
+    output_root = Path(output_dir).expanduser().resolve()
+    result = extract_transcript(
+        youtube_url,
+        output_dir=output_root,
+        language=language,
+    )
+    notes_path = output_root / "notes" / (
+        result.transcript_path.name.replace("-clean-transcript.txt", "-notes.md")
+    )
+    use_gemini = notes_mode == "gemini" or (
+        notes_mode == "auto" and gemini_is_configured()
+    )
+    if use_gemini:
+        write_grounded_notes(
+            result.notes_source_path,
+            notes_path,
+            video_title=result.title,
+            video_url=result.video_url,
+        )
+        notes_generator = "gemini-draft-plus-grounding-audit"
+    else:
+        write_extractive_notes(
+            result.notes_source_path,
+            notes_path,
+            video_title=result.title,
+        )
+        notes_generator = "deterministic-extractive"
+
+    metadata: dict[str, object] = {
         "video_url": result.video_url,
         "title": result.title,
         "duration": result.duration,
@@ -89,11 +95,27 @@ def main() -> int:
         "notes_generator": notes_generator,
         "grounding_rule": "Notes are generated only from extracted captions/transcript.",
     }
-    metadata_path = output_dir / "metadata.json"
+    metadata_path = output_root / "metadata.json"
     metadata_path.write_text(
         json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    return metadata
+
+
+def main() -> int:
+    args = parse_args()
+
+    try:
+        metadata = run_notes_pipeline(
+            args.youtube_url,
+            output_dir=args.output_dir,
+            language=args.language,
+            notes_mode=args.notes_mode,
+        )
+    except (GeminiNotesError, TranscriptError) as exc:
+        print(f"Error: {exc}")
+        return 1
 
     print(json.dumps(metadata, ensure_ascii=False, indent=2))
     return 0

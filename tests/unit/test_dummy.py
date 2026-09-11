@@ -103,3 +103,53 @@ def test_model_notes_remove_reconstructed_sanskrit_and_add_grounding_notice() ->
     assert "*mithyācāra*" in grounded
     assert "Source discipline:" in grounded
     assert "## Transcript Verification Flags" in grounded
+
+
+def test_model_notes_strip_ascii_verse_split_across_spans() -> None:
+    notes = """# Notes
+
+- Preserved fragments: *Niyatam kuru karma*, *karma jyayo hy akarmanah*, *sharira-yatra pi cha te na prasiddhyed akarmanah* (`04:00`)
+- Sandhi form: *Yajnarthat karmano 'nyatra loko 'yam karma-bandhanah* (`23:50`)
+- Key term: *Niyatam karma* (`04:00`)
+- Key term: *Sharira-yatra* (`04:00`)
+"""
+
+    grounded = enforce_grounding_format(notes)
+
+    assert "akarmanah" not in grounded
+    assert "karma-bandhanah" not in grounded
+    assert "*Niyatam karma*" in grounded
+    assert "*Sharira-yatra*" in grounded
+    assert grounded.count("[exact Sanskrit omitted") == 2
+
+
+def test_model_notes_keep_short_glosses_in_prose_and_pairs() -> None:
+    notes = """# Notes
+
+- Prescribed duties (*niyatam karma*) are superior to inaction (*karma jyayo hy akarmanah*), and sacrifice (*yajna*) purifies the heart.
+| 3.11 | Cosmic Symbiosis | *Parasparam bhavayantah*, *Shreyah param* | Mutual nourishment |
+"""
+
+    grounded = enforce_grounding_format(notes)
+
+    assert "*niyatam karma*" in grounded
+    assert "*yajna*" in grounded
+    assert "*Parasparam bhavayantah*" in grounded
+    assert "*Shreyah param*" in grounded
+    assert "[exact Sanskrit omitted" not in grounded
+
+
+def test_model_notes_strip_short_ascii_verse_fragments_without_diacritics() -> None:
+    notes = """# Notes
+
+- Pious credit runs out (*ksine punye martya-lokam vishanti*) and one is sent back down.
+- Rupa Goswami explains (*pitta-taptasya rasana na rocikanu...*) that taste is lost.
+- As purification occurs, taste returns (*svadu kramad bhavati*).
+"""
+
+    grounded = enforce_grounding_format(notes)
+
+    assert "ksine punye" not in grounded
+    assert "rocikanu" not in grounded
+    assert "svadu kramad bhavati" not in grounded
+    assert grounded.count("[exact Sanskrit omitted") == 3

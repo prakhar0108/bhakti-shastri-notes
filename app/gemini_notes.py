@@ -64,6 +64,32 @@ without an audit report, code fence, or preamble.
 
 SANSKRIT_DIACRITICS = set("āīūṛṝḷṅñṭḍṇśṣṃḥĀĪŪṚṜḶṄÑṬḌṆŚṢṂḤ")
 
+# Matches sandhi-elision apostrophes (e.g. "loko 'yam", "vo 'stv") that are a
+# romanized-IAST convention and never appear in the Devanagari/Hindi transcript.
+SANDHI_ELISION_RE = re.compile(r"[A-Za-z]'[aeiouAEIOU]")
+
+# Common Sanskrit nominal case-ending patterns, used to flag ASCII (non-diacritic)
+# transliteration that reads like a quoted verse rather than a short gloss.
+SANSKRIT_CASE_SUFFIX_RE = re.compile(
+    r"\b\w+(?:ah|am|at|atha|ena|aya|asya|artham)\b", re.IGNORECASE
+)
+
+# Sanskrit third-person present-tense verb endings (e.g. "vishanti", "bhavati").
+# These almost never terminate an English word, so a single hit is enough signal
+# on its own, unlike the more ambiguous case-ending suffixes above.
+SANSKRIT_VERB_SUFFIX_RE = re.compile(r"\b\w+(?:anti|ante|ati)\b", re.IGNORECASE)
+
+ITALIC_SPAN_RE = re.compile(r"(?<!^)(?<!\*)\*([^*\n]+)\*(?!\*)")
+# Same span shape without the bold-avoidance lookarounds, safe to use on an
+# already-isolated chain substring (which itself starts with "*").
+PLAIN_SPAN_RE = re.compile(r"\*([^*\n]+)\*")
+
+# Two or more italic spans joined only by a comma/slash/semicolon (no other
+# prose in between) - the pattern a model uses to fragment one reconstructed
+# verse into several short-looking pieces to dodge a per-span length check.
+CHAINED_SPANS_RE = re.compile(r"\*[^*\n]+\*(?:\s*[,/;]\s*\*[^*\n]+\*)+")
+PLACEHOLDER = "[exact Sanskrit omitted: auto-captions uncertain]"
+
 
 class GeminiNotesError(RuntimeError):
     """Raised when model-backed note generation cannot be completed."""
@@ -218,23 +244,56 @@ def enforce_grounding_format(notes: str) -> str:
 
 
 def _strip_long_sanskrit_spans(line: str) -> str:
-    """Remove likely reconstructed multiword Sanskrit while retaining key terms."""
+    """Remove likely reconstructed Sanskrit verse text while keeping short glosses.
 
-    def replace(match: re.Match[str]) -> str:
+    Two passes, both script-agnostic (they do not require Unicode diacritics,
+    since plain-ASCII IAST like "karma-bandhanah" is just as ungrounded - the
+    transcript source is Devanagari/Hindi and never contains romanized Sanskrit):
+
+    1. Spans chained together with only a comma/slash/semicolon between them are
+       evaluated as one unit, because a model can dodge a per-span length check
+       by splitting one reconstructed verse into several short-looking pieces.
+    2. Any remaining standalone span is checked on its own with a stricter bar,
+       so an isolated 1-2 word key-term gloss (explicitly allowed by the writer
+       instructions) is never stripped.
+    """
+
+    def replace_chain(match: re.Match[str]) -> str:
+        spans = PLAIN_SPAN_RE.findall(match.group(0))
+        combined = " ".join(spans)
+        if SANDHI_ELISION_RE.search(combined) or len(spans) >= 3:
+            return PLACEHOLDER
+        if len(combined.split()) >= 6:
+            return PLACEHOLDER
+        return match.group(0)
+
+    line = CHAINED_SPANS_RE.sub(replace_chain, line)
+
+    def replace_span(match: re.Match[str]) -> str:
         value = match.group(1)
+        if SANDHI_ELISION_RE.search(value):
+            return PLACEHOLDER
+        if "..." in value or "…" in value:
+            return PLACEHOLDER
         words = value.split()
         diacritic_words = sum(
             1 for word in words if any(char in SANSKRIT_DIACRITICS for char in word)
         )
-        likely_long_transliteration = len(words) >= 5 and diacritic_words > 0
-        likely_short_transliteration = (
-            len(words) >= 3 and diacritic_words / len(words) >= 0.5
-        )
-        if likely_long_transliteration or likely_short_transliteration:
-            return "[exact Sanskrit omitted: auto-captions uncertain]"
+        if diacritic_words > 0 and (
+            len(words) >= 5
+            or (len(words) >= 3 and diacritic_words / len(words) >= 0.5)
+        ):
+            return PLACEHOLDER
+        case_suffix_hits = len(SANSKRIT_CASE_SUFFIX_RE.findall(value))
+        if len(words) >= 5 and case_suffix_hits >= 3:
+            return PLACEHOLDER
+        if len(words) >= 3 and case_suffix_hits >= 2:
+            return PLACEHOLDER
+        if len(words) >= 3 and SANSKRIT_VERB_SUFFIX_RE.search(value):
+            return PLACEHOLDER
         return match.group(0)
 
-    return re.sub(r"(?<!^)(?<!\*)\*([^*\n]+)\*(?!\*)", replace, line)
+    return ITALIC_SPAN_RE.sub(replace_span, line)
 
 
 def _last_timestamp(line: str) -> str | None:

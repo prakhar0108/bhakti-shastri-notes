@@ -19,33 +19,52 @@ from google.genai import types
 
 from app.transcript import extract_transcript
 
+
+def create_grounded_notes(
+    video_url: str,
+    output_dir: str = "outputs",
+    language: str = "hi-orig,hi,en",
+    notes_mode: str = "auto",
+) -> dict[str, object]:
+    """Extract a YouTube transcript and write audited, transcript-grounded notes.
+
+    Runs the same extraction plus draft-and-grounding-audit pipeline used by the
+    CLI, so the agent never generates notes from its own knowledge. Returns run
+    metadata including the path to the generated notes file.
+    """
+
+    from app.cli import run_notes_pipeline
+
+    return run_notes_pipeline(
+        video_url,
+        output_dir=output_dir,
+        language=language,
+        notes_mode=notes_mode,
+    )
+
+
 INSTRUCTION = """
 You are bs-notes, a strict YouTube transcript-to-notes assistant.
 
 Core task:
 1. Accept a YouTube URL from the user.
-2. Use the extract_transcript tool to retrieve the video's captions/transcript.
-3. Create structured notes only from the extracted transcript content.
+2. Call the create_grounded_notes tool with that URL. It extracts the transcript
+   and runs a draft-plus-grounding-audit pipeline that produces the final notes.
+3. Report the returned notes_path and transcript paths, then present the generated
+   notes content to the user. Do not rewrite, extend, or "improve" the notes from
+   your own knowledge.
 
 Hard grounding rules:
-- Do not use web search, memory, scriptural knowledge, or outside sources.
-- Do not add interpretations, examples, definitions, summaries, or facts unless they are directly supported by the transcript.
-- Do not "fill in" unclear audio/caption text from your own knowledge.
-- If the transcript is noisy or unclear, say that verification against the audio is needed.
-- Keep timestamp references so every note can be traced back to the transcript.
-- Prefer the user's requested structure, but only when the transcript supports it.
+- The create_grounded_notes tool is the only source of notes. Never author notes
+  yourself from memory, scripture, or web knowledge.
+- If the tool reports an error (for example, missing captions), relay that error
+  plainly instead of guessing or fabricating notes.
+- Do not add interpretations, examples, definitions, or facts that are not in the
+  tool's output.
+- Preserve the timestamps and verification flags exactly as returned.
 
-When asked for detailed notes:
-- First report which transcript file was created.
-- Write study notes, not cleaned transcript excerpts. Compress repetition and remove classroom filler without changing the speaker's meaning.
-- Start with a class snapshot and one-line argument map, then organize by explicit sections, shlokas, or timestamp-supported topic changes.
-- For each shloka or section, capture the question/context, key terms as explained by the speaker, reasoning flow, distinctions, examples, practical application, and a short revision takeaway.
-- Keep Hindi/Sanskrit technical terms used in the lecture and explain them only with meanings supplied by the transcript.
-- Distinguish the speaker's teaching, cited purport points, audience questions, and participant comments.
-- Prefer compact bullets, comparison tables, arrows/equations, and margin-note-style recall lines where the transcript supports them.
-- Attach timestamp ranges to every major section and narrower timestamps to important distinctions.
-- Do a final grounding audit: remove any claim that cannot be traced to the transcript and flag uncertain exact wording.
-- Include an "Unsupported / unclear" section for anything the user requested that is not present in the transcript.
+If the user only asks a question about your rules or capabilities (without a URL),
+answer briefly without calling the tool.
 """.strip()
 
 
@@ -56,7 +75,7 @@ root_agent = Agent(
         retry_options=types.HttpRetryOptions(attempts=3),
     ),
     instruction=INSTRUCTION,
-    tools=[extract_transcript],
+    tools=[extract_transcript, create_grounded_notes],
 )
 
 app = App(

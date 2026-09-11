@@ -1,0 +1,10 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=gyuB0FI7wQ8",
+  "title": "Day 31 | BG 3.8 - 3.13 | Karma - yoga | Bhakti Shastri Course",
+  "caption_language": "gyuB0FI7wQ8.hi-orig.vtt",
+  "transcript_path": "outputs/transcripts/gyuB0FI7wQ8-clean-transcript.txt",
+  "notes_source_path": "outputs/transcripts/gyuB0FI7wQ8-notes-source.md",
+  "notes_path": "outputs/notes/gyuB0FI7wQ8-notes.md",
+  "notes_generator": "gemini-draft-plus-grounding-audit-plus-manual-safeguard-fix-plus-vedabase-verse-references",
+  "grounding_rule": "Commentary is generated only from extracted captions/transcript; verse-reference blocks are explicitly sourced from vedabase.io (Bhaktivedanta VedaBase) at user request and are labeled as an exception."
+}
