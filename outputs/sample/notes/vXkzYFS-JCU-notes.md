@@ -7,7 +7,7 @@
 ## Class Snapshot & One-Line Argument Map
 
 - **Class Snapshot:** The class opens Chapter 3 and covers BG 3.1 through 3.4. The main subject is `कर्म-योग`, repeatedly narrowed by the speaker to `निष्काम कर्म-योग`. Arjuna carries forward his Chapter 2 confusion: he hears `बुद्धि-योग` as `ज्ञान-योग` and equates knowledge with retirement from action, seeing only (1) renunciation or (2) action that creates bondage. The lecture explains that Krishna is teaching a third option — action without fruitive bondage, described as `renunciation in work`.
-- **One-Line Argument Map:** `Arjuna: knowledge -> inactivity` | `Krishna's clarification in the lecture: knowledge-informed, unattached action -> no bondage`.
+- **One-Line Argument Map:** `Arjuna's assumption: knowledge -> stop acting` | `Krishna's teaching: knowledge-guided action, without attachment to results -> no bondage`.
 - **Source anchors:** chapter frame `04:00–22:00`; BG 3.1 `24:00–40:00`; BG 3.2 `40:00–48:00`; BG 3.3 `48:00–50:00`; BG 3.4 `50:00–62:00`; Q&A `62:00–76:00`.
 
 ---

@@ -126,6 +126,26 @@ function escapeMermaidLabel(label) {
     .trim();
 }
 
+/** Remove `mm:ss` timestamp anchors (bracketed, parenthesised, or inline-code) from a label. */
+function stripTimestamps(text) {
+  return text
+    .replace(
+      /[[(]\s*`?\d{1,2}:\d{2}`?(\s*[–-]\s*`?\d{1,2}:\d{2}`?)?\s*[\])]/g,
+      "",
+    )
+    .replace(/`\d{1,2}:\d{2}`(\s*[–-]\s*`\d{1,2}:\d{2}`)?/g, "")
+    .replace(/\b\d{1,2}:\d{2}\b(\s*[–-]\s*\d{1,2}:\d{2})?/g, "")
+    .replace(/\(\s*\)|\[\s*\]/g, "")
+    .replace(/\s+([,.;:])/g, "$1")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+/** Clean a clause for use as a node label: strip timestamps/markdown, keep full wording (verbose). */
+function conciseLabel(text) {
+  return stripTimestamps(text).replace(/[*`_]/g, "").trim();
+}
+
 function splitProse(text) {
   let parts = text.split(/;\s+/);
   if (parts.length < 2) parts = text.split(/,\s*(?:which|therefore|and)\s+/i);
@@ -133,15 +153,43 @@ function splitProse(text) {
   return parts.map((p) => p.trim()).filter(Boolean);
 }
 
-function buildFlowchart(nodeLabels, idPrefix = "N") {
-  const lines = ["flowchart TD"];
-  nodeLabels.forEach((label, i) => {
-    lines.push(`  ${idPrefix}${i + 1}["${escapeMermaidLabel(label)}"]`);
+/**
+ * Emit a Mermaid flowchart followed by a "how to read this" caption and a numbered
+ * step-by-step explanation list. `steps` is an array of `{ label, detail }`.
+ */
+function renderFlowchartWithExplanation(mermaidBody, caption, steps) {
+  const out = ["```mermaid", mermaidBody, "```", "", `_${caption}_`, ""];
+  steps.forEach((step, i) => {
+    const lead = step.label ? `**${step.label}** — ` : "";
+    const detail = step.detail.replace(/^([a-z])/, (m) => m.toUpperCase());
+    out.push(`${i + 1}. ${lead}${detail}`);
   });
-  for (let i = 0; i < nodeLabels.length - 1; i++) {
-    lines.push(`  ${idPrefix}${i + 1} --> ${idPrefix}${i + 2}`);
+  return out.join("\n");
+}
+
+/** Build a single vertical arrow-chain flowchart + explanation from a list of node sentences. */
+function buildArrowChainDiagram(nodes) {
+  const mermaidLines = ["flowchart TD"];
+  const steps = [];
+  nodes.forEach((node, i) => {
+    const verseMatch = /^(BG\s*\d+\.\d+)\s*[:\-–]\s*(.*)$/i.exec(node.trim());
+    const label = verseMatch
+      ? `${verseMatch[1]}: ${conciseLabel(verseMatch[2])}`
+      : conciseLabel(node);
+    mermaidLines.push(`  N${i + 1}["${escapeMermaidLabel(label)}"]`);
+    steps.push({
+      label: verseMatch ? verseMatch[1].replace(/\s+/g, " ") : null,
+      detail: (verseMatch ? verseMatch[2] : node).trim(),
+    });
+  });
+  for (let i = 0; i < nodes.length - 1; i++) {
+    mermaidLines.push(`  N${i + 1} --> N${i + 2}`);
   }
-  return lines.join("\n");
+  return renderFlowchartWithExplanation(
+    mermaidLines.join("\n"),
+    "How to read this: each box is one step in the lecture's argument; follow the arrows from the opening premise down to the conclusion. Full wording for every step is listed below.",
+    steps,
+  );
 }
 
 /** Turn plain (unlabelled) ASCII "│ / ▼" arrow-chain code fences into Mermaid flowcharts. */
@@ -165,7 +213,7 @@ function convertAsciiArrowDiagrams(body) {
     if (buffer.length > 0) nodes.push(buffer.join(" "));
     if (nodes.length < 2) return full;
 
-    return "```mermaid\n" + buildFlowchart(nodes) + "\n```";
+    return buildArrowChainDiagram(nodes);
   });
 }
 
@@ -219,29 +267,70 @@ function injectArgumentMapFlowchart(body) {
     .map((t) => t.trim())
     .filter(Boolean);
 
-  const mermaidLines = ["flowchart TD"];
+  const multiTrack = tracks.length > 1;
+  const mermaidLines = [multiTrack ? "flowchart LR" : "flowchart TD"];
+  const steps = [];
   tracks.forEach((track, trackIdx) => {
-    const segments = track.includes("->")
-      ? track.split("->").map((s) => s.trim())
-      : splitProse(track);
+    const segments = (
+      track.includes("->")
+        ? track.split("->").map((s) => s.trim())
+        : splitProse(track)
+    ).map((s) => s.replace(/(?<!\d)`(?!\d)/g, "").trim());
+
+    // In a multi-track (contrasting) map, lift a leading "Speaker:" prefix into a
+    // column header so each reasoning chain is clearly attributed.
+    let title = null;
+    if (multiTrack) {
+      const colon = segments[0].indexOf(":");
+      if (colon > 0 && colon <= 42) {
+        title = segments[0].slice(0, colon).trim();
+        segments[0] = segments[0].slice(colon + 1).trim();
+      } else {
+        title = `Line ${trackIdx + 1}`;
+      }
+    }
+
     const idPrefix = `T${trackIdx + 1}N`;
+    const indent = multiTrack ? "    " : "  ";
+    const chain = [];
     segments.forEach((seg, segIdx) => {
-      mermaidLines.push(
-        `  ${idPrefix}${segIdx + 1}["${escapeMermaidLabel(seg)}"]`,
+      chain.push(
+        `${indent}${idPrefix}${segIdx + 1}["${escapeMermaidLabel(conciseLabel(seg))}"]`,
       );
     });
     for (let i = 0; i < segments.length - 1; i++) {
-      mermaidLines.push(`  ${idPrefix}${i + 1} --> ${idPrefix}${i + 2}`);
+      chain.push(`${indent}${idPrefix}${i + 1} --> ${idPrefix}${i + 2}`);
+    }
+
+    if (multiTrack) {
+      mermaidLines.push(
+        `  subgraph G${trackIdx + 1}["${escapeMermaidLabel(title)}"]`,
+      );
+      mermaidLines.push("    direction TB");
+      mermaidLines.push(...chain, "  end");
+      steps.push({ label: title, detail: segments.join(" → ") });
+    } else {
+      mermaidLines.push(...chain);
+      segments.forEach((seg) => steps.push({ label: null, detail: seg }));
     }
   });
+
+  // Invisible links keep the contrasting columns laid out side by side (LR).
+  if (multiTrack) {
+    for (let i = 1; i < tracks.length; i++) {
+      mermaidLines.push(`  G${i} ~~~ G${i + 1}`);
+    }
+  }
+
+  const caption = multiTrack
+    ? "How to read this: each labelled column is a separate line of reasoning contrasted in the class — read each column top to bottom. The columns are compared side by side below."
+    : "How to read this: each box is one link in the class's core argument; follow the arrows from premise to conclusion. Full wording for every step is listed below.";
 
   const flowchartBlock = [
     "",
     "#### Argument Map Flowchart",
     "",
-    "```mermaid",
-    mermaidLines.join("\n"),
-    "```",
+    renderFlowchartWithExplanation(mermaidLines.join("\n"), caption, steps),
     "",
   ];
 

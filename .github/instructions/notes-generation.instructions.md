@@ -1,0 +1,203 @@
+---
+applyTo: "outputs/**,web/scripts/sync-notes.mjs,web/src/components/mdx/**"
+---
+
+# Bhakti Shastri Notes — Generation & Formatting Rules
+
+This file is the canonical reference for producing and editing lecture notes under `outputs/`.
+It captures conventions established while building the Day 29–31 (BG 3.1–3.13) notes and the
+Fumadocs site in `web/`. Read this before generating, restructuring, or reformatting any note.
+
+## Two separate passes — do not conflate them
+
+1. **Transcript-grounded draft** (automated, `app/gemini_notes.py` + `app/notes.py` via
+   `uv run bs-notes <url>`). Governed by `WRITER_INSTRUCTION` / `AUDITOR_INSTRUCTION` in
+   `app/gemini_notes.py`. This pass **must never** reconstruct, complete, or "correct" a Sanskrit
+   verse from memory — see the grounding contract in `README.md` and the regex-based
+   fabrication guards (`SANSKRIT_CASE_SUFFIX_RE`, `CHAINED_SPANS_RE`, etc.) in that file. Do not
+   weaken or bypass that contract.
+2. **Verse-verification & restructuring pass** (this document). A deliberate, separate step —
+   performed only with live access to vedabase.io — that (a) adds a verified scripture reference
+   for each shloka and (b) restructures the grounded draft into the template below. Run this
+   only after the grounded draft exists; never invent verse text here either — always fetch it.
+
+## Required note structure ("Day 31" template)
+
+Every `outputs/**/notes/*.md` file should follow this section order:
+
+````
+# Day N | BG X.X – X.X | Karma-yoga | Bhakti Shastri Course
+
+> **Source note:** <one consolidated disclaimer — see below>
+
+---
+
+## Class Snapshot & One-Line Argument Map
+
+---
+
+## Continuity & Recap from Preceding Class [...]
+
+---
+
+## Shloka-Wise Notes & Analytical Commentary
+
+### Bhagavad-gita X.X [start – end]
+
+<!-- verse:X.X -->
+
+**Context.** ...
+
+**Key Terms Explained by the Teacher**
+- ...
+
+#### <Reasoning sub-topic> [timestamps]
+<one short paragraph>
+
+<Callout type="idea" title="Takeaway">
+... [timestamps]
+</Callout>
+
+---
+(repeat per verse)
+
+## Cross-Shloka Conceptual Progression (BG X.X – X.X)
+```ascii arrow chain — auto-converted to a Mermaid flowchart by sync-notes.mjs```
+
+### Comparative Summary Table
+| Verse | Primary Theme | Core Sanskrit Terms Explained | Central Mechanism / Principle | Practical Imperative |
+
+## Audience Q&A & Clarifications
+
+## Last-Page Revision Sheet
+### High-Yield Facts & Terminological Anchors
+### Core Analogies & Metaphors
+
+## Transcript Verification Flags
+````
+
+Notes on this template:
+
+- Title uses an en dash (`–`) and `Karma-yoga` (one hyphenated word), matching
+  `metadata.json`'s `title` field (which is what the sidebar/page title actually renders —
+  see `extractDayNumber` / `loadMetadata` in `web/scripts/sync-notes.mjs`).
+- The `> **Source note:**` blockquote is the **only** disclaimer in the file. State once that
+  commentary is transcript-only and that verse text is separately verified against vedabase.io —
+  do not repeat a disclaimer per verse.
+- Each verse gets exactly one `<Callout type="idea" title="Takeaway">`. Do not box every
+  paragraph in a callout.
+- Use `####` sub-headings for each reasoning sub-topic instead of bold lead-ins buried inside one
+  long bullet (e.g. prefer `#### Four levels of practitioners` + a bullet list over a single
+  paragraph starting "Level 1 — ... Level 2 — ...").
+
+## Verse sourcing protocol (strict)
+
+- Every shloka reference **must be fetched and verified directly from**
+  `https://vedabase.io/en/library/bg/<chapter>/<verse>/` at the time of writing. Never
+  reconstruct Sanskrit, transliteration, word-for-word meanings, or the translation from memory,
+  and never trust a previously-generated note's verse block as authoritative without
+  re-checking it — verify verse-by-verse.
+- Store each verified verse **once**, in `outputs/shared/verses/bg-<chapter>-<verse two-digit>.md`
+  (e.g. `bg-3-07.md`), as a single self-closing component:
+
+  ```mdx
+  <Shloka
+    number="3.7"
+    href="https://vedabase.io/en/library/bg/3/7/"
+    sanskrit={["...", "..."]}
+    transliteration={["...", "..."]}
+    synonyms={[["term", "meaning"], ...]}
+    translation="..."
+  />
+  ```
+
+  Preserve vedabase's exact line breaks, diacritics, word order, and speaker labels (e.g.
+  `arjuna uvāca`) in each field. If any field can't be verified, leave the verse flagged as
+  pending rather than filling it in.
+
+- Reference the shared file from the lecture note with a placeholder comment —
+  `<!-- verse:3.7 -->` — never inline the Sanskrit/translation text directly in a lecture note.
+  `web/scripts/sync-notes.mjs` (`injectVerses` / `loadVerseBlock`) substitutes the shared block at
+  sync time, so scripture text is stored exactly once even when a verse spans two lectures
+  (e.g. BG 3.8 is covered at the end of Day 30 and the start of Day 31 — both notes reference
+  the same `bg-3-08.md`, never a duplicate copy).
+
+## Formatting rules
+
+- **Lists over paragraphs:** whenever a passage names two or more parallel items (levels,
+  senses, steps, examples, equivalences — "Level 1 — ...", "Eyes — ...", "the sacrificial fire is
+  ..."), write it as a bullet or numbered list. Never flatten enumerable items into one prose
+  paragraph.
+- **Sanskrit/Hindi vocabulary in commentary** should be italic (`_term_`), not inline code
+  (`` `term` ``) — inline code renders as a colored "chip" in the web UI
+  (`web/src/app/globals.css`, `.prose :not(pre) > code`), which is meant for real code, not
+  scripture vocabulary.
+- **Timestamps** are unobtrusive anchors — `` `mm:ss` `` or `[mm:ss – mm:ss]` — placed near the
+  claim or heading they support. Never invent a narrower timestamp than the transcript/prior
+  note actually supports.
+- Keep `[exact Sanskrit omitted: auto-captions uncertain]`-style flags from the grounded draft
+  wherever the transcript itself was uncertain; do not silently resolve them during restructuring.
+
+## File & directory conventions
+
+```
+outputs/
+├── <VIDEO_ID>/
+│   ├── metadata.json        # video_url, title ("Day N | BG X.X - X.X | Karma - yoga | ..."),
+│   │                         # duration, caption_language, transcript_path, notes_source_path,
+│   │                         # notes_path, grounding_rule
+│   ├── transcripts/         # *-clean-transcript.txt, *-notes-source.md
+│   ├── notes/               # *-notes.md  <- the file this document governs
+│   └── work/                # raw caption files (*.vtt)
+└── shared/
+    └── verses/               # bg-<chapter>-<verse>.md, one canonical `<Shloka>` per verse
+```
+
+`metadata.json`'s `title` (not the note's own `#` heading) is what actually renders as the page
+title and drives sidebar day-ordering (`extractDayNumber` in `web/scripts/sync-notes.mjs`) —
+keep it in the `Day N | BG X.X - X.X | Karma - yoga | Bhakti Shastri Course` shape.
+
+## Web rendering pipeline — things not to break
+
+- `web/content/docs/` is **generated** by `npm run sync-notes` (also runs via `predev`/`prebuild`)
+  from `outputs/**/notes/*.md`. Never hand-edit files under `content/docs/`.
+- Available MDX components (registered in `web/src/components/mdx.tsx`): `Shloka`, `Callout`
+  (+ `CalloutTitle`/`CalloutDescription`), `Mermaid`, `Cards`/`Card`, and standard Fumadocs
+  defaults. Don't invent a new component name in a note without registering it there first.
+- ASCII `│ / ▼` arrow-chain code fences and the Class-Snapshot "Argument Map" line are
+  auto-converted to Mermaid flowcharts by `convertAsciiArrowDiagrams` /
+  `injectArgumentMapFlowchart` in `sync-notes.mjs` — keep that shape when writing a
+  Cross-Shloka Conceptual Progression block. The generator (a) keeps each node's **full wording**
+  (verbose — timestamps and markdown are stripped from the box text, but sentences are never
+  truncated or cut with an ellipsis) and (b) appends a `_How to read this: …_` caption plus a
+  **numbered step-by-step explanation list** that repeats the full wording (with timestamps) for
+  every box, so the reader always has an unambiguous, spelled-out reading of the diagram. Don't
+  hand-write the caption or explanation list; the sync step generates them.
+  - **Single-chain diagrams:** author each arrow-chain node as `BG X.X: <one clear sentence>` —
+    the leading `BG X.X:` becomes the node/list label, the rest becomes the node body.
+  - **Contrasting/multi-line arguments** (One-Line Argument Map with a `|`-separated second
+    track) render as side-by-side Mermaid subgraphs, one column per track. Prefix each track with
+    `Speaker or viewpoint: clause -> clause` (e.g. `Arjuna's assumption: knowledge -> stop
+acting`) — the part before the first `:` becomes the column header, so pick a phrase that
+    names _whose_ reasoning or _which_ position the column represents.
+  - **Avoid ambiguous phrasing in the Argument Map line itself** — it is copied verbatim into
+    both the flowchart nodes and the explanation list, so a vague clause (e.g. "knowledge-informed,
+    unattached action") will confuse the reader in both places. Prefer explicit contrastive
+    wording (e.g. "knowledge-guided action, without attachment to results") that stands on its own
+    without the surrounding paragraph for context.
+- After editing anything under `outputs/`, run `npm run sync-notes`, then `npm run build` and
+  `npm run lint` from `web/` before considering the change done.
+
+## Checklist for a new lecture
+
+1. Extract transcript + run the grounded generator (`uv run bs-notes <url> --output-dir outputs`).
+2. Confirm/normalize `metadata.json.title` to the `Day N | BG X.X - X.X | ...` shape.
+3. Restructure the grounded draft into the template above (Class Snapshot → Continuity →
+   Shloka-Wise Notes → Cross-Shloka Progression + table → Q&A → Revision Sheet →
+   Verification Flags).
+4. For each shloka: fetch and verify it from vedabase.io, add/reuse its
+   `outputs/shared/verses/bg-<chapter>-<verse>.md`, and reference it via `<!-- verse:X.X -->`.
+   Reuse the shared file for any verse already covered by a prior lecture.
+5. Apply the formatting rules above (lists over paragraphs, italics for vocabulary, one
+   Takeaway callout per verse).
+6. From `web/`: `npm run sync-notes && npm run build && npm run lint`; fix anything that breaks.
