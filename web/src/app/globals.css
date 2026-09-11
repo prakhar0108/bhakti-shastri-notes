@@ -1,6 +1,6 @@
-@import 'tailwindcss';
-@import 'fumadocs-ui/css/preset.css';
-@import 'katex/dist/katex.min.css';
+@import "tailwindcss";
+@import "fumadocs-ui/css/preset.css";
+@import "katex/dist/katex.min.css";
 
 /*
  * "Gita Editorial" theme — saffron/gold/peacock palette over a warm
@@ -88,8 +88,8 @@ h2,
 h3,
 #nd-nav h1,
 #nd-nav h2,
-[class*='fd-'] h1,
-[class*='fd-'] h2 {
+[class*="fd-"] h1,
+[class*="fd-"] h2 {
   font-family: var(--font-heading), var(--font-devanagari), ui-serif, serif;
   letter-spacing: 0.01em;
 }
@@ -108,25 +108,30 @@ h3,
 }
 
 .prose h2 {
-  border-bottom: 1px solid color-mix(in srgb, var(--color-gold) 40%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--color-gold) 40%, transparent);
   padding-bottom: 0.3em;
 }
 
 .prose blockquote {
   border-left: 3px solid var(--color-gold);
-  background: color-mix(in srgb, var(--color-fd-card) 92%, var(--color-gold) 8%);
+  background: color-mix(
+    in srgb,
+    var(--color-fd-card) 92%,
+    var(--color-gold) 8%
+  );
   border-radius: 0 0.5rem 0.5rem 0;
   font-style: italic;
   padding: 0.6em 1em;
 }
 
 .prose :not(pre) > code {
-  background: color-mix(in srgb, var(--color-fd-primary) 12%, var(--color-fd-card));
+  background: none;
+  border: none;
   color: var(--color-fd-primary);
-  border: 1px solid color-mix(in srgb, var(--color-fd-primary) 25%, transparent);
-  border-radius: 0.4rem;
-  padding: 0.1em 0.45em;
+  font-style: italic;
   font-weight: 500;
+  padding: 0;
 }
 
 .prose table {
@@ -136,11 +141,96 @@ h3,
 }
 
 .prose thead {
-  background: color-mix(in srgb, var(--color-brand-accent) 16%, var(--color-fd-card));
+  background: color-mix(
+    in srgb,
+    var(--color-brand-accent) 16%,
+    var(--color-fd-card)
+  );
 }
 
 .prose tbody tr:nth-child(even) {
   background: color-mix(in srgb, var(--color-fd-muted) 60%, transparent);
+}
+
+.prose :where(table) {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* ---------- Verified scripture reference (Shloka component) ---------- */
+
+.shloka {
+  margin: 2rem 0;
+  padding: 1.75rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--color-gold) 45%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--color-gold) 45%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.shloka-source {
+  align-self: center;
+  font-size: 0.75rem;
+  color: var(--color-fd-muted-foreground);
+  text-decoration: none;
+  order: -1;
+}
+
+.shloka-source:hover,
+.shloka-source:focus-visible {
+  color: var(--color-brand-accent);
+  text-decoration: underline;
+}
+
+.shloka-sanskrit {
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.9;
+  color: var(--color-fd-foreground);
+}
+
+.shloka-transliteration {
+  text-align: center;
+  font-style: italic;
+  color: var(--color-fd-muted-foreground);
+  line-height: 1.8;
+}
+
+.shloka-synonyms h4,
+.shloka-translation h4 {
+  font-family: var(--font-heading), var(--font-devanagari), ui-serif, serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--color-brand-accent);
+}
+
+.shloka-synonyms p {
+  text-align: left;
+  line-height: 1.85;
+  color: var(--color-fd-foreground);
+  max-width: 72ch;
+}
+
+.shloka-term {
+  color: var(--color-fd-primary);
+  font-style: italic;
+}
+
+.shloka-translation p {
+  text-align: left;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 72ch;
+}
+
+@media (max-width: 640px) {
+  .shloka-sanskrit {
+    font-size: 1.1rem;
+  }
 }
 
 /* ---------- Cards (landing page lecture list) ---------- */
@@ -165,15 +255,14 @@ h3,
 
 /* ---------- Sidebar ---------- */
 
-#nd-sidebar [data-active='true'] {
+#nd-sidebar [data-active="true"] {
   border-left: 2px solid var(--color-fd-primary);
   background: color-mix(in srgb, var(--color-fd-primary) 10%, transparent);
 }
 
 /* ---------- Table of contents ---------- */
 
-#nd-toc a[data-active='true'] {
+#nd-toc a[data-active="true"] {
   color: var(--color-fd-primary);
   font-weight: 600;
 }
-

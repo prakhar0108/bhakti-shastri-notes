@@ -1,8 +1,6 @@
 # Day 30 | BG 3.5 – 3.8 | Karma-yoga | Bhakti Shastri Course
 
-> **Source discipline:** These notes use only the extracted auto-caption transcript. Exact Sanskrit is not reconstructed from memory; uncertain wording remains flagged for audio verification.
-
-> **Verse-reference exception:** Each shloka below includes a "Verse Reference (vedabase.io)" block. Unlike the rest of this document, that block is _not_ sourced from the transcript — it is quoted, at the user's explicit request, from [vedabase.io](https://vedabase.io/en/library/bg/) (Bhaktivedanta VedaBase™, Bhagavad-gītā As It Is, © Bhaktivedanta Book Trust International, Inc., used with permission). Devanagari is given in standard Unicode; a dedicated Balaram-font PDF cannot be reproduced in Markdown, but this is the same text that typesetting is based on.
+> **Source note:** Lecture commentary below is condensed only from the extracted transcript; exact Sanskrit is not reconstructed from memory, and uncertain wording remains flagged for audio verification. Each shloka's Sanskrit, transliteration, word-for-word meanings, and translation are verified directly against [vedabase.io](https://vedabase.io/en/library/bg/) (Bhaktivedanta VedaBase™, Bhagavad-gītā As It Is, © Bhaktivedanta Book Trust International, Inc.) rather than the transcript — a source link is given with every verse.
 
 ---
 
@@ -35,110 +33,128 @@
 
 ### Bhagavad-gita 3.5 [06:00 – 18:00]
 
-> **Verse Reference ([vedabase.io](https://vedabase.io/en/library/bg/3/5/)):**
->
-> न हि कश्चित्क्षणमपि जातु तिष्ठत्यकर्मकृत् ।
-> कार्यते ह्यवशः कर्म सर्वः प्रकृतिजैर्गुणैः ॥ ५ ॥
->
-> _na hi kaścit kṣaṇam api jātu tiṣṭhaty akarma-kṛt_
-> _kāryate hy avaśaḥ karma sarvaḥ prakṛti-jair guṇaiḥ_
->
-> **Translation:** "Everyone is forced to act helplessly according to the qualities he has acquired from the modes of material nature; therefore no one can refrain from doing something, not even for a moment."
+<!-- verse:3.5 -->
 
-- **Context & Krishna's Injunction:** Krishna explains that total cessation of activity is impossible: no living entity can remain inactive (_akarmakṛt_) even for a moment (`06:40`). Conditioned souls are driven helplessly (_avaśaḥ_ / _vivaśa_) by the three modes of material nature (_prakṛti-jaiḥ guṇaiḥ_) (`07:20`). Even breathing or sleeping on a weekend (an activity influenced by _tamo-guṇa_) constitutes action (`08:40`).
-- **Key Terms Explained by the Teacher:**
-  - **Akarmakṛt (अकर्मकृत):** Remaining completely free from performing any work (`06:40`).
-  - **Avaśaḥ (अवश):** Helplessly or involuntarily compelled by the modes (`07:20`, `18:40`).
-  - _[exact Sanskrit omitted: auto-captions uncertain]:_ The modes born of material nature (_sattva_, _rajas_, _tamas_) that force one to act (`07:40`).
-  - **Anusandhāna (अनुसंधान):** Deliberate research, planning, or scheming for sense objects (`09:40`–`10:40`).
-- **Reasoning Flow:**
-  - **Activity of the Soul vs. Body [10:40 – 11:20]:** The soul is active by nature. Even when the bodily vehicle is discarded, the soul remains active.
-  - **Jnana-marga in the 11th Canto of Srimad-Bhagavatam [09:40 – 10:40]:** The _jñānī_ avoids _anusandhāna_ (he moves in whichever direction he sees upon waking and eats dry leaves on the ground without planning fruit salads or custards), but physical actions such as walking and eating still take place.
-  - **The 30–40 Lakh vs. 30 Crore Example [08:00]:** A person may resolve to stop working after saving 30–40 lakhs, but someone with 30 crores continues to hustle because _rajo-guṇa_ continuously drives them.
-  - **Tractors and Mobile Usage [13:00]:** When traditional physical farm labor with bullocks decreased due to tractors, spare idle time without spiritual engagement turned into idle mobile screen time.
-  - **Cited Purport Points (Srila Prabhupada):**
-    - _Nature of the Soul [10:40 – 11:20]:_ Activity is the constitutional nature of the soul; the body is merely a dead vehicle.
-    - _Māyā's Default Plan [11:40 – 13:40]:_ If the soul is not deliberately engaged in Krishna consciousness, it is automatically engaged by the illusory energy.
-    - _Bhakti-yoga Comparison [14:40 – 15:40]:_ Engaging in devotional service is beneficial even if prescribed duties of _varṇāśrama_ are incomplete. The purport cites: _svadharmam caraṇāmbujam harer bhajann apakvo 'tha patet tato yadi_.
-- **Compact Takeaway [06:40 – 13:40]:** Inaction is unnatural and impossible. Because the soul is constitutionally active and the modes force action in conditioned life, one must consciously engage in spiritual duties to avoid being driven by Māyā.
+**Context.** Krishna explains that total cessation of activity is impossible: no living entity can remain inactive (_akarmakṛt_) even for a moment (`06:40`). Conditioned souls are driven helplessly (_avaśaḥ_ / _vivaśa_) by the three modes of material nature (_prakṛti-jaiḥ guṇaiḥ_) (`07:20`). Even breathing or sleeping on a weekend (an activity influenced by _tamo-guṇa_) constitutes action (`08:40`).
+
+**Key Terms Explained by the Teacher**
+
+- **Akarmakṛt (अकर्मकृत):** Remaining completely free from performing any work (`06:40`).
+- **Avaśaḥ (अवश):** Helplessly or involuntarily compelled by the modes (`07:20`, `18:40`).
+- _[exact Sanskrit omitted: auto-captions uncertain]:_ The modes born of material nature (_sattva_, _rajas_, _tamas_) that force one to act (`07:40`).
+- **Anusandhāna (अनुसंधान):** Deliberate research, planning, or scheming for sense objects (`09:40`–`10:40`).
+
+#### Activity of the soul vs. the body [10:40 – 11:20]
+
+The soul is active by nature. Even when the bodily vehicle is discarded, the soul remains active.
+
+#### Jnana-marga in the 11th Canto of Srimad-Bhagavatam [09:40 – 10:40]
+
+The _jñānī_ avoids _anusandhāna_ (he moves in whichever direction he sees upon waking and eats dry leaves on the ground without planning fruit salads or custards), but physical actions such as walking and eating still take place.
+
+#### Examples: the 30–40 lakh vs. 30 crore person, and tractors [08:00, 13:00]
+
+A person may resolve to stop working after saving 30–40 lakhs, but someone with 30 crores continues to hustle because _rajo-guṇa_ continuously drives them. Similarly, when traditional physical farm labor with bullocks decreased due to tractors, spare idle time without spiritual engagement turned into idle mobile screen time.
+
+#### Cited purport points (Srila Prabhupada)
+
+- _Nature of the Soul [10:40 – 11:20]:_ Activity is the constitutional nature of the soul; the body is merely a dead vehicle.
+- _Māyā's Default Plan [11:40 – 13:40]:_ If the soul is not deliberately engaged in Krishna consciousness, it is automatically engaged by the illusory energy.
+- _Bhakti-yoga Comparison [14:40 – 15:40]:_ Engaging in devotional service is beneficial even if prescribed duties of _varṇāśrama_ are incomplete. The purport cites: _svadharmam caraṇāmbujam harer bhajann apakvo 'tha patet tato yadi_.
+
+<Callout type="idea" title="Takeaway">
+Inaction is unnatural and impossible. Because the soul is constitutionally active and the modes force action in conditioned life, one must consciously engage in spiritual duties to avoid being driven by Māyā. [06:40 – 13:40]
+</Callout>
 
 ---
 
 ### Bhagavad-gita 3.6 [18:00 – 36:00]
 
-> **Verse Reference ([vedabase.io](https://vedabase.io/en/library/bg/3/6/)):**
->
-> कर्मेन्द्रियाणि संयम्य य आस्ते मनसा स्मरन् ।
-> इन्द्रियार्थान्विमूढात्मा मिथ्याचारः स उच्यते ॥ ६ ॥
->
-> _karmendriyāṇi saṁyamya ya āste manasā smaran_
-> _indriyārthān vimūḍhātmā mithyācāraḥ sa ucyate_
->
-> **Translation:** "One who restrains the senses of action but whose mind dwells on sense objects certainly deludes himself and is called a pretender."
+<!-- verse:3.6 -->
 
-- **Context & Krishna's Injunction:** When an individual externally restrains the physical working senses without purifying the heart, while mentally dwelling on sense objects, that person is a deluded pretender (_mithyācāra_) (`19:40`–`21:00`).
-- **Key Terms Explained by the Teacher:**
-  - **Karmendriyāṇi saṁyamya (कर्मेन्द्रियाणि संयम्य):** Restraining the external working senses (hands, legs, speech, etc.) from physical indulgence (`20:00`, `22:20`).
-  - **Manasā smaran (मनसा स्मरण):** Actively cultivating and dwelling upon sense gratification in the mind (`20:00`, `23:20`).
-  - **Indriyārthān (इन्द्रियार्थान्):** Sense objects (`20:00`, `21:00`).
-  - _[exact Sanskrit omitted: auto-captions uncertain]:_ A foolish, bewildered, or deluded person (`20:20`).
-  - **Mithyācāra (मिथ्याचार):** A pretender or hypocrite (`20:40`). **Hypocrisy (Teacher's Definition):** Taking advantage of the facilities of a renounced status without accepting its responsibilities (`21:40`–`22:20`).
-- **Reasoning Flow:**
-  - **Distinctions: Sadhaka vs. Mithyācāra [23:20 – 26:20]:** A struggling _sādhaka_ may experience unwanted thoughts or encounter material sights, but does not intentionally foster them; recognizing personal weakness, the sādhaka seeks shelter at Krishna's lotus feet. A _mithyācāra_ deliberately and actively plans, schemes, and meditates upon sense gratification while maintaining an outward appearance of renunciation.
-  - **Three Levels of Senses & the Mental Gallery [26:40 – 29:00]:** Working senses (_karmendriyas_) are gross and noticeable to everyone (e.g., physically slapping someone in public). Knowledge-acquiring senses (_jñānendriyas_) are subtler (e.g., misdirected vision or improper tasting is less obvious). The mind (_manas_) is the subtlest level, known only to oneself and Krishna — the _Loudspeaker Example_ notes that if internal thoughts were broadcast through a loudspeaker on one's forehead, relationships in Kali-yuga would break down. The mind holds stored impressions (_saṁskāras_) of past sense gratification; if an unpurified, idle person enters a compromised situation, these dormant impressions awaken and the mind begins reliving them.
-  - **High Risk of Hypocrisy in Jnana-yoga [29:40 – 31:40]:** the heart is not yet purified; there is an absence of active, practical physical service; the senses remain strong and unyielding. By contrast, bhakti-yoga provides engagements at both physical and mental levels (reading, chanting, hearing, practical service), keeping the practitioner protected while purification occurs.
-  - **Four Levels of Practitioners [33:00 – 36:00]:** Level 1 — external renunciation with internal purity (e.g., Haridasa Thakura, Tukarama), fully purified, without taste for sense gratification. Level 2 — external change accompanied by sincere, serious internal effort; attractions may appear, but the practitioner does not surrender to them and seeks shelter. Level 3 — external change without internal effort; the individual is lazy, insincere, and drifting. Level 4 (_Mithyācāra_) — external renounced garb used as a facade while actively planning and pursuing sense gratification ("the greatest cheater"). An inactive practitioner at Level 3 risks descending to Level 4 without active internal cultivation.
-- **Compact Takeaway [21:40 – 35:20]:** Suppressing the physical senses while actively scheming for sense gratification in the mind is hypocrisy (_mithyācāra_). Practitioners must remain actively engaged in service and sincerely seek shelter rather than maintain a false external show.
+**Context.** When an individual externally restrains the physical working senses without purifying the heart, while mentally dwelling on sense objects, that person is a deluded pretender (_mithyācāra_) (`19:40`–`21:00`).
+
+**Key Terms Explained by the Teacher**
+
+- **Karmendriyāṇi saṁyamya (कर्मेन्द्रियाणि संयम्य):** Restraining the external working senses (hands, legs, speech, etc.) from physical indulgence (`20:00`, `22:20`).
+- **Manasā smaran (मनसा स्मरण):** Actively cultivating and dwelling upon sense gratification in the mind (`20:00`, `23:20`).
+- **Indriyārthān (इन्द्रियार्थान्):** Sense objects (`20:00`, `21:00`).
+- _[exact Sanskrit omitted: auto-captions uncertain]:_ A foolish, bewildered, or deluded person (`20:20`).
+- **Mithyācāra (मिथ्याचार):** A pretender or hypocrite (`20:40`). **Hypocrisy (Teacher's Definition):** Taking advantage of the facilities of a renounced status without accepting its responsibilities (`21:40`–`22:20`).
+
+#### Distinctions: sadhaka vs. mithyācāra [23:20 – 26:20]
+
+A struggling _sādhaka_ may experience unwanted thoughts or encounter material sights, but does not intentionally foster them; recognizing personal weakness, the sādhaka seeks shelter at Krishna's lotus feet. A _mithyācāra_ deliberately and actively plans, schemes, and meditates upon sense gratification while maintaining an outward appearance of renunciation.
+
+#### Three levels of senses & the mental gallery [26:40 – 29:00]
+
+Working senses (_karmendriyas_) are gross and noticeable to everyone (e.g., physically slapping someone in public). Knowledge-acquiring senses (_jñānendriyas_) are subtler (e.g., misdirected vision or improper tasting is less obvious). The mind (_manas_) is the subtlest level, known only to oneself and Krishna — the _Loudspeaker Example_ notes that if internal thoughts were broadcast through a loudspeaker on one's forehead, relationships in Kali-yuga would break down. The mind holds stored impressions (_saṁskāras_) of past sense gratification; if an unpurified, idle person enters a compromised situation, these dormant impressions awaken and the mind begins reliving them.
+
+#### High risk of hypocrisy in jnana-yoga [29:40 – 31:40]
+
+The heart is not yet purified; there is an absence of active, practical physical service; the senses remain strong and unyielding. By contrast, bhakti-yoga provides engagements at both physical and mental levels (reading, chanting, hearing, practical service), keeping the practitioner protected while purification occurs.
+
+#### Four levels of practitioners [33:00 – 36:00]
+
+Level 1 — external renunciation with internal purity (e.g., Haridasa Thakura, Tukarama), fully purified, without taste for sense gratification. Level 2 — external change accompanied by sincere, serious internal effort; attractions may appear, but the practitioner does not surrender to them and seeks shelter. Level 3 — external change without internal effort; the individual is lazy, insincere, and drifting. Level 4 (_Mithyācāra_) — external renounced garb used as a facade while actively planning and pursuing sense gratification ("the greatest cheater"). An inactive practitioner at Level 3 risks descending to Level 4 without active internal cultivation.
+
+<Callout type="idea" title="Takeaway">
+Suppressing the physical senses while actively scheming for sense gratification in the mind is hypocrisy (_mithyācāra_). Practitioners must remain actively engaged in service and sincerely seek shelter rather than maintain a false external show. [21:40 – 35:20]
+</Callout>
 
 ---
 
 ### Bhagavad-gita 3.7 [36:00 – 44:00]
 
-> **Verse Reference ([vedabase.io](https://vedabase.io/en/library/bg/3/7/)):**
->
-> यस्त्विन्द्रियाणि मनसा नियम्यारभतेऽर्जुन ।
-> कर्मेन्द्रियैः कर्मयोगमसक्तः स विशिष्यते ॥ ७ ॥
->
-> _yas tv indriyāṇi manasā niyamyārabhate 'rjuna_
-> _karmendriyaiḥ karma-yogam asaktaḥ sa viśiṣyate_
->
-> **Translation:** "On the other hand, if a sincere person tries to control the active senses by the mind and begins karma-yoga [in Krishna consciousness] without attachment, he is by far superior."
+<!-- verse:3.7 -->
 
-- **Context & Krishna's Injunction:** In contrast to the hypocrite described in 3.6, Krishna identifies one who is superior (_viśiṣyate_): a person who controls the senses with the mind and engages the working senses in _karma-yoga_ without fruitive attachment (`36:40`–`37:40`).
-- **Key Terms Explained by the Teacher:**
-  - **Niyamya (नियम्य):** Controlling or regulating the senses with the mind (`37:00`).
-  - **Asaktaḥ (असक्तः):** Unattached, without personal fruitive desires (`37:20`, `38:40`).
-  - **Viśiṣyate (विशिष्यते):** Far superior (specifically in comparison to the pretender in 3.6) (`37:20`).
-- **Reasoning Flow:**
-  - **Karmendriyas vs. Jñānendriyas [38:00 – 38:50]:** Knowledge-acquiring senses (eyes, nose, ears) inevitably receive input. Entanglement intensifies when the working senses (_karmendriyas_) physically execute sense gratification. Engaging the _karmendriyas_ in dutiful work without attachment prevents this bondage.
-  - **Householders in Bhakti-yoga vs. Jnana-yoga Sannyasa [39:20 – 41:40]:** In _jñāna-yoga_, spiritual pursuit requires renouncing family life and material ties completely. In _bhakti-yoga_, a householder (_gṛhastha_) engaged in regulated devotional duty can attain the spiritual destination. Abandoning household duties simply out of frustration with work or family is an illusion; reducing physical engagement without spiritual absorption leaves the idle mind agitated and vulnerable.
-  - **Purport Points & Commentary [40:40 – 43:00]:** Srila Prabhupada's purport states that remaining in one's position and executing the purpose of life is far better than becoming a pseudo-transcendentalist. Famous dictum: a sincere street sweeper is far better than a charlatan meditator who meditates only for a livelihood. Commentary reference (Visvanatha Cakravarti Thakura and Bhaktivinoda Thakura): the path of _jñāna-yoga_ (complete inactivity) is not feasible for most people; therefore, Krishna repeatedly instructs Arjuna to perform active work.
-- **Compact Takeaway [41:40 – 42:20]:** A sincere practitioner who engages their working senses in regulated, unattached service is far superior to a false meditator seeking prestige or maintenance through renunciation.
+**Context.** In contrast to the hypocrite described in 3.6, Krishna identifies one who is superior (_viśiṣyate_): a person who controls the senses with the mind and engages the working senses in _karma-yoga_ without fruitive attachment (`36:40`–`37:40`).
+
+**Key Terms Explained by the Teacher**
+
+- **Niyamya (नियम्य):** Controlling or regulating the senses with the mind (`37:00`).
+- **Asaktaḥ (असक्तः):** Unattached, without personal fruitive desires (`37:20`, `38:40`).
+- **Viśiṣyate (विशिष्यते):** Far superior (specifically in comparison to the pretender in 3.6) (`37:20`).
+
+#### Karmendriyas vs. jñānendriyas [38:00 – 38:50]
+
+Knowledge-acquiring senses (eyes, nose, ears) inevitably receive input. Entanglement intensifies when the working senses (_karmendriyas_) physically execute sense gratification. Engaging the _karmendriyas_ in dutiful work without attachment prevents this bondage.
+
+#### Householders in bhakti-yoga vs. jnana-yoga sannyasa [39:20 – 41:40]
+
+In _jñāna-yoga_, spiritual pursuit requires renouncing family life and material ties completely. In _bhakti-yoga_, a householder (_gṛhastha_) engaged in regulated devotional duty can attain the spiritual destination. Abandoning household duties simply out of frustration with work or family is an illusion; reducing physical engagement without spiritual absorption leaves the idle mind agitated and vulnerable.
+
+#### Purport points & commentary [40:40 – 43:00]
+
+Srila Prabhupada's purport states that remaining in one's position and executing the purpose of life is far better than becoming a pseudo-transcendentalist. Famous dictum: a sincere street sweeper is far better than a charlatan meditator who meditates only for a livelihood. Commentary reference (Visvanatha Cakravarti Thakura and Bhaktivinoda Thakura): the path of _jñāna-yoga_ (complete inactivity) is not feasible for most people; therefore, Krishna repeatedly instructs Arjuna to perform active work.
+
+<Callout type="idea" title="Takeaway">
+A sincere practitioner who engages their working senses in regulated, unattached service is far superior to a false meditator seeking prestige or maintenance through renunciation. [41:40 – 42:20]
+</Callout>
 
 ---
 
 ### Bhagavad-gita 3.8 [44:00 – 47:30]
 
-> **Verse Reference ([vedabase.io](https://vedabase.io/en/library/bg/3/8/)):**
->
-> नियतं कुरु कर्म त्वं कर्म ज्यायो ह्यकर्मणः ।
-> शरीरयात्रापि च ते न प्रसिद्ध्येदकर्मणः ॥ ८ ॥
->
-> _niyataṁ kuru karma tvaṁ karma jyāyo hy akarmaṇaḥ_
-> _śarīra-yātrāpi ca te na prasidhyed akarmaṇaḥ_
->
-> **Translation:** "Perform your prescribed duty, for doing so is better than not working. One cannot even maintain one's physical body without work."
+<!-- verse:3.8 -->
 
-- **Context & Krishna's Injunction:** Krishna instructs Arjuna to execute his prescribed duty (_niyataṁ kuru karma tvam_) because action is superior to inaction (_karma jyāyo hy akarmaṇaḥ_). A practical reason is presented: without work, even basic maintenance of the physical body (_śarīra-yātrā_) cannot take place (`44:40`–`45:40`).
-- **Key Terms Explained by the Teacher:**
-  - **Niyatam karma (नियतं कर्म):** Prescribed duties designated by scripture (`44:40`).
-  - **Karma jyāyo hy akarmaṇaḥ (कर्म ज्यायो ह्यकर्मणः):** Work is superior to inaction (`44:50`).
-  - **Śarīra-yātrā (शरीर-यात्रा):** Bodily maintenance (procuring sustenance, cooking, maintaining life) (`45:00`).
-- **Reasoning Flow — Summary of Three Reasons for Prescribed Work (BG 3.4–3.8 Synthesis):**
-  1. **Constitutional [45:50]:** Inaction is unnatural for the soul and fails to award purification or perfection (BG 3.4–3.5).
-  2. **Psychological & Social [46:00 – 46:30]:** Inaction with an unpurified heart produces hypocrisy (_mithyācāra_). Furthermore, renunciation by leaders disturbs social order by setting a wrong precedent (BG 3.6–3.7).
-  3. **Physical [46:30]:** Maintenance of the body (_śarīra-yātrā_) is impossible without performing work (BG 3.8).
-- **Compact Takeaway [46:30]:** Prescribed duty must be performed. It prevents hypocrisy, maintains social order, facilitates spiritual purification, and sustains basic bodily life.
+**Context.** Krishna instructs Arjuna to execute his prescribed duty (_niyataṁ kuru karma tvam_) because action is superior to inaction (_karma jyāyo hy akarmaṇaḥ_). A practical reason is presented: without work, even basic maintenance of the physical body (_śarīra-yātrā_) cannot take place (`44:40`–`45:40`).
+
+**Key Terms Explained by the Teacher**
+
+- **Niyatam karma (नियतं कर्म):** Prescribed duties designated by scripture (`44:40`).
+- **Karma jyāyo hy akarmaṇaḥ (कर्म ज्यायो ह्यकर्मणः):** Work is superior to inaction (`44:50`).
+- **Śarīra-yātrā (शरीर-यात्रा):** Bodily maintenance (procuring sustenance, cooking, maintaining life) (`45:00`).
+
+#### Three reasons for prescribed work (BG 3.4–3.8 synthesis)
+
+1. **Constitutional [45:50]:** Inaction is unnatural for the soul and fails to award purification or perfection (BG 3.4–3.5).
+2. **Psychological & Social [46:00 – 46:30]:** Inaction with an unpurified heart produces hypocrisy (_mithyācāra_). Furthermore, renunciation by leaders disturbs social order by setting a wrong precedent (BG 3.6–3.7).
+3. **Physical [46:30]:** Maintenance of the body (_śarīra-yātrā_) is impossible without performing work (BG 3.8).
+
+<Callout type="idea" title="Takeaway">
+Prescribed duty must be performed. It prevents hypocrisy, maintains social order, facilitates spiritual purification, and sustains basic bodily life. [46:30]
+</Callout>
 
 ---
 

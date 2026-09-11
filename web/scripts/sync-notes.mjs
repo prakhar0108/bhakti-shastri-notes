@@ -2,15 +2,51 @@
 // Syncs Bhakti Shastri lecture notes from ../outputs/**/notes/*.md into content/docs/*.mdx.
 // The markdown files under outputs/ remain the single source of truth; this script
 // (re)generates the Fumadocs content directory from them on every `dev`/`build`.
-import { readFile, writeFile, mkdir, rm, readdir, stat } from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import {
+  readFile,
+  writeFile,
+  mkdir,
+  rm,
+  readdir,
+  stat,
+} from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const WEB_ROOT = path.resolve(__dirname, '..');
-const REPO_ROOT = path.resolve(WEB_ROOT, '..');
-const OUTPUTS_DIR = path.join(REPO_ROOT, 'outputs');
-const CONTENT_DIR = path.join(WEB_ROOT, 'content', 'docs');
+const WEB_ROOT = path.resolve(__dirname, "..");
+const REPO_ROOT = path.resolve(WEB_ROOT, "..");
+const OUTPUTS_DIR = path.join(REPO_ROOT, "outputs");
+const CONTENT_DIR = path.join(WEB_ROOT, "content", "docs");
+const VERSES_DIR = path.join(OUTPUTS_DIR, "shared", "verses");
+
+const verseCache = new Map();
+
+/** Load a canonical, vedabase.io-verified `<Shloka .../>` block for e.g. "3.7". */
+async function loadVerseBlock(verseKey) {
+  if (verseCache.has(verseKey)) return verseCache.get(verseKey);
+  const [chapter, verse] = verseKey.split(".");
+  const filePath = path.join(
+    VERSES_DIR,
+    `bg-${chapter}-${verse.padStart(2, "0")}.md`,
+  );
+  const content = (await pathExists(filePath))
+    ? (await readFile(filePath, "utf8")).trim()
+    : null;
+  verseCache.set(verseKey, content);
+  return content;
+}
+
+/** Replace `<!-- verse:3.7 -->` markers with the shared, verified verse reference. */
+async function injectVerses(body) {
+  const matches = [...body.matchAll(/<!--\s*verse:(\d+\.\d+)\s*-->/g)];
+  let result = body;
+  for (const match of matches) {
+    const block = await loadVerseBlock(match[1]);
+    if (block) result = result.replace(match[0], block);
+  }
+  return result;
+}
 
 async function pathExists(p) {
   try {
@@ -30,10 +66,10 @@ async function findNoteGroups(dir, groups = []) {
     return groups;
   }
 
-  const notesDir = entries.find((e) => e.isDirectory() && e.name === 'notes');
+  const notesDir = entries.find((e) => e.isDirectory() && e.name === "notes");
   if (notesDir) {
-    const notesPath = path.join(dir, 'notes');
-    const files = (await readdir(notesPath)).filter((f) => f.endsWith('.md'));
+    const notesPath = path.join(dir, "notes");
+    const files = (await readdir(notesPath)).filter((f) => f.endsWith(".md"));
     if (files.length > 0) {
       groups.push({ parentDir: dir, notesDir: notesPath, files });
     }
@@ -41,7 +77,8 @@ async function findNoteGroups(dir, groups = []) {
 
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-    if (['notes', 'transcripts', 'work'].includes(entry.name)) continue;
+    if (["notes", "transcripts", "work", "shared"].includes(entry.name))
+      continue;
     await findNoteGroups(path.join(dir, entry.name), groups);
   }
 
@@ -49,43 +86,43 @@ async function findNoteGroups(dir, groups = []) {
 }
 
 function yamlString(value) {
-  return `"${String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
+  return `"${String(value).replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`;
 }
 
 function slugify(text) {
   return text
     .toLowerCase()
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 function extractDayNumber(title) {
-  const match = /day\s+(\d+)/i.exec(title ?? '');
+  const match = /day\s+(\d+)/i.exec(title ?? "");
   return match ? Number(match[1]) : null;
 }
 
 function stripLeadingHeading(body) {
-  const lines = body.split('\n');
+  const lines = body.split("\n");
   let i = 0;
-  while (i < lines.length && lines[i].trim() === '') i++;
+  while (i < lines.length && lines[i].trim() === "") i++;
   if (i < lines.length && /^#\s+/.test(lines[i])) {
     i++;
-    while (i < lines.length && lines[i].trim() === '') i++;
-    return lines.slice(i).join('\n');
+    while (i < lines.length && lines[i].trim() === "") i++;
+    return lines.slice(i).join("\n");
   }
   return body;
 }
 
 function escapeMermaidLabel(label) {
   return label
-    .replace(/\*\*/g, '')
-    .replace(/\*/g, '')
-    .replace(/`/g, '')
-    .replace(/_/g, '')
+    .replace(/\*\*/g, "")
+    .replace(/\*/g, "")
+    .replace(/`/g, "")
+    .replace(/_/g, "")
     .replace(/"/g, "'")
-    .replace(/\s+/g, ' ')
+    .replace(/\s+/g, " ")
     .trim();
 }
 
@@ -96,15 +133,15 @@ function splitProse(text) {
   return parts.map((p) => p.trim()).filter(Boolean);
 }
 
-function buildFlowchart(nodeLabels, idPrefix = 'N') {
-  const lines = ['flowchart TD'];
+function buildFlowchart(nodeLabels, idPrefix = "N") {
+  const lines = ["flowchart TD"];
   nodeLabels.forEach((label, i) => {
     lines.push(`  ${idPrefix}${i + 1}["${escapeMermaidLabel(label)}"]`);
   });
   for (let i = 0; i < nodeLabels.length - 1; i++) {
     lines.push(`  ${idPrefix}${i + 1} --> ${idPrefix}${i + 2}`);
   }
-  return lines.join('\n');
+  return lines.join("\n");
 }
 
 /** Turn plain (unlabelled) ASCII "│ / ▼" arrow-chain code fences into Mermaid flowcharts. */
@@ -114,27 +151,27 @@ function convertAsciiArrowDiagrams(body) {
 
     const nodes = [];
     let buffer = [];
-    for (const rawLine of content.split('\n')) {
+    for (const rawLine of content.split("\n")) {
       const line = rawLine.trim();
-      if (line === '' || line === '│' || line === '▼') {
+      if (line === "" || line === "│" || line === "▼") {
         if (buffer.length > 0) {
-          nodes.push(buffer.join(' '));
+          nodes.push(buffer.join(" "));
           buffer = [];
         }
         continue;
       }
       buffer.push(line);
     }
-    if (buffer.length > 0) nodes.push(buffer.join(' '));
+    if (buffer.length > 0) nodes.push(buffer.join(" "));
     if (nodes.length < 2) return full;
 
-    return '```mermaid\n' + buildFlowchart(nodes) + '\n```';
+    return "```mermaid\n" + buildFlowchart(nodes) + "\n```";
   });
 }
 
 /** Find the "Class Snapshot / Argument Map" section and append a Mermaid flowchart of its argument chain. */
 function injectArgumentMapFlowchart(body) {
-  const lines = body.split('\n');
+  const lines = body.split("\n");
   const headingRe = /^(#{2,4})\s+.*(class snapshot|argument)/i;
 
   let sectionStart = -1;
@@ -152,7 +189,7 @@ function injectArgumentMapFlowchart(body) {
   let sectionEnd = lines.length;
   const nextHeadingRe = new RegExp(`^#{1,${level}}\\s+`);
   for (let i = sectionStart + 1; i < lines.length; i++) {
-    if (nextHeadingRe.test(lines[i]) || lines[i].trim() === '---') {
+    if (nextHeadingRe.test(lines[i]) || lines[i].trim() === "---") {
       sectionEnd = i;
       break;
     }
@@ -162,54 +199,73 @@ function injectArgumentMapFlowchart(body) {
   let argumentText = null;
   for (let i = 0; i < section.length; i++) {
     const line = section[i];
-    const boldMatch = /^\s*-?\s*\*\*([^*]*argument[^*]*)\*\*:?\s*(.*)$/i.exec(line);
+    const boldMatch = /^\s*-?\s*\*\*([^*]*argument[^*]*)\*\*:?\s*(.*)$/i.exec(
+      line,
+    );
     if (boldMatch) {
       argumentText = boldMatch[2]?.trim() || section[i + 1]?.trim() || null;
       break;
     }
     if (/^#{2,4}\s*argument in one line/i.test(line)) {
-      const next = section.slice(i + 1).find((l) => l.trim() !== '');
-      if (next) argumentText = next.replace(/`/g, '').trim();
+      const next = section.slice(i + 1).find((l) => l.trim() !== "");
+      if (next) argumentText = next.replace(/`/g, "").trim();
       break;
     }
   }
   if (!argumentText) return body;
 
   const tracks = argumentText
-    .split('|')
+    .split("|")
     .map((t) => t.trim())
     .filter(Boolean);
 
-  const mermaidLines = ['flowchart TD'];
+  const mermaidLines = ["flowchart TD"];
   tracks.forEach((track, trackIdx) => {
-    const segments = track.includes('->') ? track.split('->').map((s) => s.trim()) : splitProse(track);
+    const segments = track.includes("->")
+      ? track.split("->").map((s) => s.trim())
+      : splitProse(track);
     const idPrefix = `T${trackIdx + 1}N`;
     segments.forEach((seg, segIdx) => {
-      mermaidLines.push(`  ${idPrefix}${segIdx + 1}["${escapeMermaidLabel(seg)}"]`);
+      mermaidLines.push(
+        `  ${idPrefix}${segIdx + 1}["${escapeMermaidLabel(seg)}"]`,
+      );
     });
     for (let i = 0; i < segments.length - 1; i++) {
       mermaidLines.push(`  ${idPrefix}${i + 1} --> ${idPrefix}${i + 2}`);
     }
   });
 
-  const flowchartBlock = ['', '#### Argument Map Flowchart', '', '```mermaid', mermaidLines.join('\n'), '```', ''];
+  const flowchartBlock = [
+    "",
+    "#### Argument Map Flowchart",
+    "",
+    "```mermaid",
+    mermaidLines.join("\n"),
+    "```",
+    "",
+  ];
 
-  const newLines = [...lines.slice(0, sectionEnd), ...flowchartBlock, ...lines.slice(sectionEnd)];
-  return newLines.join('\n');
+  const newLines = [
+    ...lines.slice(0, sectionEnd),
+    ...flowchartBlock,
+    ...lines.slice(sectionEnd),
+  ];
+  return newLines.join("\n");
 }
 
-function transformBody(rawBody) {
+async function transformBody(rawBody) {
   let body = stripLeadingHeading(rawBody);
   body = convertAsciiArrowDiagrams(body);
   body = injectArgumentMapFlowchart(body);
+  body = await injectVerses(body);
   return body.trim();
 }
 
 async function loadMetadata(parentDir) {
-  const metadataPath = path.join(parentDir, 'metadata.json');
+  const metadataPath = path.join(parentDir, "metadata.json");
   if (!(await pathExists(metadataPath))) return null;
   try {
-    return JSON.parse(await readFile(metadataPath, 'utf8'));
+    return JSON.parse(await readFile(metadataPath, "utf8"));
   } catch {
     return null;
   }
@@ -224,26 +280,32 @@ async function main() {
   await rm(CONTENT_DIR, { recursive: true, force: true });
   await mkdir(CONTENT_DIR, { recursive: true });
 
-  const groups = (await pathExists(OUTPUTS_DIR)) ? await findNoteGroups(OUTPUTS_DIR) : [];
+  const groups = (await pathExists(OUTPUTS_DIR))
+    ? await findNoteGroups(OUTPUTS_DIR)
+    : [];
   const entries = [];
 
   for (const group of groups) {
     const metadata = await loadMetadata(group.parentDir);
     for (const file of group.files) {
-      const rawBody = await readFile(path.join(group.notesDir, file), 'utf8');
-      const baseName = file.replace(/\.md$/, '');
-      const slug = slugify(baseName.replace(/-notes$/, ''));
+      const rawBody = await readFile(path.join(group.notesDir, file), "utf8");
+      const baseName = file.replace(/\.md$/, "");
+      const slug = slugify(baseName.replace(/-notes$/, ""));
       const title = metadata?.title ?? firstHeading(rawBody) ?? baseName;
       const description = metadata?.duration
         ? `Bhakti Shastri lecture notes (${metadata.duration}).`
-        : 'Bhakti Shastri lecture notes.';
+        : "Bhakti Shastri lecture notes.";
 
-      const frontmatter = ['---', `title: ${yamlString(title)}`, `description: ${yamlString(description)}`, '---', ''].join(
-        '\n',
-      );
+      const frontmatter = [
+        "---",
+        `title: ${yamlString(title)}`,
+        `description: ${yamlString(description)}`,
+        "---",
+        "",
+      ].join("\n");
 
-      const content = `${frontmatter}${transformBody(rawBody)}\n`;
-      await writeFile(path.join(CONTENT_DIR, `${slug}.mdx`), content, 'utf8');
+      const content = `${frontmatter}${await transformBody(rawBody)}\n`;
+      await writeFile(path.join(CONTENT_DIR, `${slug}.mdx`), content, "utf8");
 
       entries.push({ slug, title, day: extractDayNumber(title) });
     }
@@ -257,29 +319,37 @@ async function main() {
   });
 
   const indexBody = [
-    '---',
-    `title: ${yamlString('Bhakti Shastri Notes')}`,
-    `description: ${yamlString('All lecture notes, generated from the outputs/ transcripts.')}`,
-    '---',
-    '',
+    "---",
+    `title: ${yamlString("Bhakti Shastri Notes")}`,
+    `description: ${yamlString("All lecture notes, generated from the outputs/ transcripts.")}`,
+    "---",
+    "",
     entries.length === 0
-      ? 'No notes have been generated yet. Run the note generator, then re-run `npm run sync-notes`.'
-      : 'Browse every lecture below, or use the search bar in the sidebar to jump to a topic.',
-    '',
-    '<Cards>',
-    ...entries.map((e) => `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`),
-    '</Cards>',
-    '',
-  ].join('\n');
-  await writeFile(path.join(CONTENT_DIR, 'index.mdx'), indexBody, 'utf8');
+      ? "No notes have been generated yet. Run the note generator, then re-run `npm run sync-notes`."
+      : "Browse every lecture below, or use the search bar in the sidebar to jump to a topic.",
+    "",
+    "<Cards>",
+    ...entries.map(
+      (e) => `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
+    ),
+    "</Cards>",
+    "",
+  ].join("\n");
+  await writeFile(path.join(CONTENT_DIR, "index.mdx"), indexBody, "utf8");
 
   const meta = {
-    title: 'Bhakti Shastri Notes',
-    pages: ['index', ...entries.map((e) => e.slug)],
+    title: "Bhakti Shastri Notes",
+    pages: ["index", ...entries.map((e) => e.slug)],
   };
-  await writeFile(path.join(CONTENT_DIR, 'meta.json'), `${JSON.stringify(meta, null, 2)}\n`, 'utf8');
+  await writeFile(
+    path.join(CONTENT_DIR, "meta.json"),
+    `${JSON.stringify(meta, null, 2)}\n`,
+    "utf8",
+  );
 
-  console.log(`Synced ${entries.length} note(s) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`);
+  console.log(
+    `Synced ${entries.length} note(s) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
+  );
 }
 
 main().catch((error) => {
