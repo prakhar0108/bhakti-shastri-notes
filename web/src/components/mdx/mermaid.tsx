@@ -30,13 +30,39 @@ function MermaidContent({ chart }: { chart: string }) {
   const id = useId();
   const { resolvedTheme } = useTheme();
   const { default: mermaid } = use(cachePromise('mermaid', () => import('mermaid')));
+  const isDark = resolvedTheme === 'dark';
 
   mermaid.initialize({
     startOnLoad: false,
     securityLevel: 'loose',
     fontFamily: 'inherit',
     themeCSS: 'margin: 1.5rem auto 0;',
-    theme: resolvedTheme === 'dark' ? 'dark' : 'default',
+    theme: 'base',
+    themeVariables: isDark
+      ? {
+          background: '#14121c',
+          primaryColor: '#3a2c1a',
+          primaryTextColor: '#ede6d8',
+          primaryBorderColor: '#f0a860',
+          secondaryColor: '#1b2f31',
+          secondaryTextColor: '#ede6d8',
+          secondaryBorderColor: '#5cc2ba',
+          lineColor: '#d9a94a',
+          tertiaryColor: '#1b1826',
+          nodeTextColor: '#ede6d8',
+        }
+      : {
+          background: '#fbf7ef',
+          primaryColor: '#f6ddb8',
+          primaryTextColor: '#2a2320',
+          primaryBorderColor: '#c2410c',
+          secondaryColor: '#dcefee',
+          secondaryTextColor: '#2a2320',
+          secondaryBorderColor: '#1f6f78',
+          lineColor: '#b8860b',
+          tertiaryColor: '#fffbf2',
+          nodeTextColor: '#2a2320',
+        },
   });
 
   const { svg, bindFunctions } = use(

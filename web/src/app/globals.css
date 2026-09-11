@@ -1,7 +1,71 @@
 @import 'tailwindcss';
-@import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 @import 'katex/dist/katex.min.css';
+
+/*
+ * "Gita Editorial" theme — saffron/gold/peacock palette over a warm
+ * parchment (light) / midnight-indigo (dark) base. These override the
+ * fd-* tokens that fumadocs-ui components (nav, sidebar, cards, callouts,
+ * tables, TOC, ...) already consume, so no component internals are forked.
+ */
+@theme {
+  --color-fd-background: #fbf7ef;
+  --color-fd-foreground: #2a2320;
+  --color-fd-muted: #f1e9d8;
+  --color-fd-muted-foreground: #6b5d4f;
+  --color-fd-popover: #fffdf8;
+  --color-fd-popover-foreground: #2a2320;
+  --color-fd-card: #fffbf2;
+  --color-fd-card-foreground: #2a2320;
+  --color-fd-border: #e4d5b7;
+  --color-fd-primary: #c2410c;
+  --color-fd-primary-foreground: #fffbf2;
+  --color-fd-secondary: #ede0c8;
+  --color-fd-secondary-foreground: #2a2320;
+  --color-fd-accent: rgba(232, 150, 58, 0.18);
+  --color-fd-accent-foreground: #2a2320;
+  --color-fd-ring: #e8963a;
+  --color-fd-overlay: rgba(20, 15, 10, 0.35);
+
+  /* extra brand tokens, referenced directly via var(--color-…) */
+  --color-gold: #b8860b;
+  --color-brand-accent: #1f6f78;
+}
+
+.dark {
+  --color-fd-background: #14121c;
+  --color-fd-foreground: #ede6d8;
+  --color-fd-muted: #1d1a28;
+  --color-fd-muted-foreground: rgba(237, 230, 216, 0.7);
+  --color-fd-popover: #1a1725;
+  --color-fd-popover-foreground: #ede6d8;
+  --color-fd-card: #1b1826;
+  --color-fd-card-foreground: #ede6d8;
+  --color-fd-border: rgba(184, 134, 11, 0.25);
+  --color-fd-primary: #f0a860;
+  --color-fd-primary-foreground: #1b1826;
+  --color-fd-secondary: #232030;
+  --color-fd-secondary-foreground: #ede6d8;
+  --color-fd-accent: rgba(232, 150, 58, 0.16);
+  --color-fd-accent-foreground: #ede6d8;
+  --color-fd-ring: #f0a860;
+  --color-fd-overlay: rgba(0, 0, 0, 0.5);
+
+  --color-gold: #d9a94a;
+  --color-brand-accent: #5cc2ba;
+}
+
+@theme static {
+  --color-fd-idea: #e8963a;
+  --color-fd-info: #1f6f78;
+  --color-fd-success: #1f6f78;
+  --color-fd-warning: #b8860b;
+  --color-fd-error: oklch(63.7% 0.237 25.331);
+  --color-fd-diff-remove: rgba(200, 10, 100, 0.12);
+  --color-fd-diff-remove-symbol: rgb(230, 10, 100);
+  --color-fd-diff-add: rgba(14, 180, 100, 0.1);
+  --color-fd-diff-add-symbol: rgb(10, 200, 100);
+}
 
 html {
   scrollbar-gutter: stable;
@@ -11,3 +75,105 @@ html > body[data-scroll-locked] {
   margin-right: 0px !important;
   --removed-body-scroll-bar-size: 0px !important;
 }
+
+/* ---------- Typography ---------- */
+
+body {
+  font-family: var(--font-body), var(--font-devanagari), ui-serif, serif;
+}
+
+.font-heading,
+h1,
+h2,
+h3,
+#nd-nav h1,
+#nd-nav h2,
+[class*='fd-'] h1,
+[class*='fd-'] h2 {
+  font-family: var(--font-heading), var(--font-devanagari), ui-serif, serif;
+  letter-spacing: 0.01em;
+}
+
+.font-devanagari {
+  font-family: var(--font-devanagari), ui-serif, serif;
+}
+
+/* ---------- Reading body (.prose from fumadocs typography) ---------- */
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  font-family: var(--font-heading), var(--font-devanagari), ui-serif, serif;
+  font-weight: 600;
+}
+
+.prose h2 {
+  border-bottom: 1px solid color-mix(in srgb, var(--color-gold) 40%, transparent);
+  padding-bottom: 0.3em;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-gold);
+  background: color-mix(in srgb, var(--color-fd-card) 92%, var(--color-gold) 8%);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+  padding: 0.6em 1em;
+}
+
+.prose :not(pre) > code {
+  background: color-mix(in srgb, var(--color-fd-primary) 12%, var(--color-fd-card));
+  color: var(--color-fd-primary);
+  border: 1px solid color-mix(in srgb, var(--color-fd-primary) 25%, transparent);
+  border-radius: 0.4rem;
+  padding: 0.1em 0.45em;
+  font-weight: 500;
+}
+
+.prose table {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-fd-border);
+}
+
+.prose thead {
+  background: color-mix(in srgb, var(--color-brand-accent) 16%, var(--color-fd-card));
+}
+
+.prose tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--color-fd-muted) 60%, transparent);
+}
+
+/* ---------- Cards (landing page lecture list) ---------- */
+
+[data-card] {
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+[data-card]:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--color-gold) 18%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-card] {
+    transition: none;
+  }
+}
+
+/* ---------- Sidebar ---------- */
+
+#nd-sidebar [data-active='true'] {
+  border-left: 2px solid var(--color-fd-primary);
+  background: color-mix(in srgb, var(--color-fd-primary) 10%, transparent);
+}
+
+/* ---------- Table of contents ---------- */
+
+#nd-toc a[data-active='true'] {
+  color: var(--color-fd-primary);
+  font-weight: 600;
+}
+
