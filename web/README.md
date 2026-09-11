@@ -31,3 +31,22 @@ npm run dev      # syncs notes, then starts the dev server
 npm run sync-notes   # regenerate content/docs/ from outputs/ without starting the server
 npm run build         # syncs notes, then builds for production
 ```
+
+## Deploy to Netlify
+
+The repository-level `netlify.toml` configures Netlify to:
+
+- use `web/` as the build base;
+- install dependencies from `web/package-lock.json`;
+- run `npm run build`, which regenerates the MDX content before compiling Next.js;
+- publish the `.next` output using Node.js 22; and
+- enable Next.js deployment skew protection.
+
+To deploy, import the repository in Netlify and accept the settings from `netlify.toml`.
+No environment variables or manually installed Next.js plugin are required. Netlify's maintained
+OpenNext adapter automatically provisions the `/api/search` route and other Next.js runtime
+features.
+
+Every production deploy reads lecture sources from `outputs/`, so commit new or updated source
+notes and shared verse files before triggering the build. Do not set a static export directory or
+add a catch-all redirect; both would bypass Next.js route-handler support.
