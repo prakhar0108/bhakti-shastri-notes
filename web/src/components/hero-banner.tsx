@@ -17,6 +17,9 @@ export function HeroBanner() {
         homage unto Me. Thus you will come to Me without fail. I promise you
         this because you are My very dear friend.&rdquo; — Bhagavad-gītā 18.65
       </p>
+      <p className="mt-3 text-xs font-medium uppercase tracking-wide text-[var(--color-brand-accent)]">
+        Bhakti Shastri Course · Taught by HG Adishyam Prabhuji
+      </p>
       <div className="mx-auto mt-5 h-px w-16 bg-[var(--color-gold)]/50" />
     </div>
   );

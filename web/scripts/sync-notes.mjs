@@ -22,6 +22,68 @@ const VERSES_DIR = path.join(OUTPUTS_DIR, "shared", "verses");
 
 const verseCache = new Map();
 
+// The teacher for the whole Bhakti Shastri course; credited on every generated page.
+const TEACHER_NAME = "HG Adishyam Prabhuji";
+
+// Canonical Bhagavad-gītā chapter titles, verified against vedabase.io/en/library/bg/.
+const BG_CHAPTERS = [
+  "Observing the Armies on the Battlefield of Kurukṣetra",
+  "Contents of the Gītā Summarized",
+  "Karma-yoga",
+  "Transcendental Knowledge",
+  "Karma-yoga – Action in Kṛṣṇa Consciousness",
+  "Dhyāna-yoga",
+  "Knowledge of the Absolute",
+  "Attaining the Supreme",
+  "The Most Confidential Knowledge",
+  "The Opulence of the Absolute",
+  "The Universal Form",
+  "Devotional Service",
+  "Nature, the Enjoyer and Consciousness",
+  "The Three Modes of Material Nature",
+  "The Yoga of the Supreme Person",
+  "The Divine and Demoniac Natures",
+  "The Divisions of Faith",
+  "Conclusion – The Perfection of Renunciation",
+];
+const BG_AVAILABLE_CHAPTER = 3;
+
+// The four books of the course, for the homepage library grid.
+const BOOKS = [
+  {
+    slug: "bhagavad-gita",
+    title: "Bhagavad-gītā As It Is",
+    cover: "/covers/bhagavad-gita.avif",
+    alt: "Cover of Bhagavad-gītā As It Is",
+    status: "Chapter 3 notes available",
+    available: true,
+  },
+  {
+    slug: "nectar-of-instruction",
+    title: "The Nectar of Instruction",
+    cover: "/covers/nectar-of-instruction.avif",
+    alt: "Cover of The Nectar of Instruction",
+    status: "Coming soon",
+    available: false,
+  },
+  {
+    slug: "nectar-of-devotion",
+    title: "The Nectar of Devotion",
+    cover: "/covers/nectar-of-devotion.avif",
+    alt: "Cover of The Nectar of Devotion",
+    status: "Coming soon",
+    available: false,
+  },
+  {
+    slug: "isopanishad",
+    title: "Śrī Īśopaniṣad",
+    cover: "/covers/isopanishad.avif",
+    alt: "Cover of Śrī Īśopaniṣad",
+    status: "Coming soon",
+    available: false,
+  },
+];
+
 /** Load a canonical, vedabase.io-verified `<Shloka .../>` block for e.g. "3.7". */
 async function loadVerseBlock(verseKey) {
   if (verseCache.has(verseKey)) return verseCache.get(verseKey);
@@ -356,13 +418,18 @@ function videoLinkLine(metadata) {
   return `[\u25b6 Watch on YouTube](${metadata.video_url})\n\n`;
 }
 
+/** Credit line for the class's teacher, preferring `metadata.speaker` over the course default. */
+function teacherLine(metadata) {
+  return `*Class by ${metadata?.speaker ?? TEACHER_NAME}*\n\n`;
+}
+
 async function transformBody(rawBody, metadata) {
   let body = stripLeadingHeading(rawBody);
   body = convertAsciiArrowDiagrams(body);
   body = injectArgumentMapFlowchart(body);
   body = await injectVerses(body);
   body = commentOutSourceNote(body);
-  return `${videoLinkLine(metadata)}${body.trim()}`;
+  return `${videoLinkLine(metadata)}${teacherLine(metadata)}${body.trim()}`;
 }
 
 async function loadMetadata(parentDir) {
@@ -378,6 +445,181 @@ async function loadMetadata(parentDir) {
 function firstHeading(rawBody) {
   const match = /^#\s+(.+)$/m.exec(rawBody);
   return match ? match[1].trim() : null;
+}
+
+/** Write a generated `.mdx` doc with YAML frontmatter, creating parent folders as needed. */
+async function writeMdx(filePath, { title, description }, bodyLines) {
+  const frontmatter = [
+    "---",
+    `title: ${yamlString(title)}`,
+    `description: ${yamlString(description)}`,
+    "---",
+    "",
+  ].join("\n");
+  const body = (
+    Array.isArray(bodyLines) ? bodyLines.join("\n") : bodyLines
+  ).trim();
+  await mkdir(path.dirname(filePath), { recursive: true });
+  await writeFile(filePath, `${frontmatter}${body}\n`, "utf8");
+}
+
+/** Write a folder's `meta.json` (sidebar title + ordered `pages`), creating the folder if needed. */
+async function writeMetaFile(dir, meta) {
+  await mkdir(dir, { recursive: true });
+  await writeFile(
+    path.join(dir, "meta.json"),
+    `${JSON.stringify(meta, null, 2)}\n`,
+    "utf8",
+  );
+}
+
+/**
+ * Build the book-library homepage plus one overview page per book (Bhagavad Gita's chapter
+ * list, Chapter 3's lecture index, and "coming soon" pages for the other three books).
+ * Lecture files stay at the content root (written earlier in `main`) so their `/docs/<slug>`
+ * URLs never change; this only adds the surrounding library/chapter navigation around them.
+ */
+async function writeBookLibrary(entries) {
+  await writeMdx(
+    path.join(CONTENT_DIR, "index.mdx"),
+    {
+      title: "Bhakti Shastri Notes",
+      description: "Bhakti Shastri course notes, organized by book.",
+    },
+    [
+      "Browse the course by book, or use the search bar in the sidebar to jump to a topic.",
+      "",
+      "<BookGrid>",
+      ...BOOKS.map(
+        (b) =>
+          `  <BookCard href="/docs/${b.slug}" title={${yamlString(b.title)}} cover="${b.cover}" alt={${yamlString(b.alt)}} status={${yamlString(b.status)}} available={${b.available}} />`,
+      ),
+      "</BookGrid>",
+    ],
+  );
+  await writeMetaFile(CONTENT_DIR, {
+    title: "Bhakti Shastri Notes",
+    pages: ["index", ...BOOKS.map((b) => b.slug)],
+  });
+
+  // Bhagavad Gita — all 18 canonical chapters; only Chapter 3 links anywhere.
+  const bgDir = path.join(CONTENT_DIR, "bhagavad-gita");
+  await writeMdx(
+    path.join(bgDir, "index.mdx"),
+    {
+      title: "Bhagavad-gītā As It Is",
+      description:
+        "Bhagavad Gita chapters covered in the Bhakti Shastri course.",
+    },
+    [
+      '<BookCover src="/covers/bhagavad-gita.avif" alt="Cover of Bhagavad-gītā As It Is" />',
+      "",
+      `*Taught by ${TEACHER_NAME}*`,
+      "",
+      "Select a chapter below. Chapter Three is available now; the rest are coming soon.",
+      "",
+      "<Cards>",
+      ...BG_CHAPTERS.map((title, i) => {
+        const num = i + 1;
+        const cardTitle = yamlString(`Chapter ${num}: ${title}`);
+        return num === BG_AVAILABLE_CHAPTER
+          ? `  <Card title={${cardTitle}} description="Chapter 3 notes available" href="/docs/bhagavad-gita/chapter-3" />`
+          : `  <Card title={${cardTitle}} description="Coming soon" />`;
+      }),
+      "</Cards>",
+      "",
+      "<Cards>",
+      '  <Card title="Back to Book Library" href="/docs" />',
+      "</Cards>",
+    ],
+  );
+  await writeMetaFile(bgDir, {
+    title: "Bhagavad-gītā As It Is",
+    pages: ["index", "chapter-3"],
+  });
+
+  // Chapter 3 — the lectures currently generated from outputs/, in day order.
+  const chapter3Dir = path.join(bgDir, "chapter-3");
+  await writeMdx(
+    path.join(chapter3Dir, "index.mdx"),
+    {
+      title: "Bhagavad Gita: Chapter 3 – Karma-yoga",
+      description: "Lecture notes for Bhagavad Gita Chapter 3, in day order.",
+    },
+    [
+      `*Taught by ${TEACHER_NAME}*`,
+      "",
+      entries.length === 0
+        ? "No notes have been generated yet. Run the note generator, then re-run `npm run sync-notes`."
+        : "Lectures covering Bhagavad Gita Chapter 3, in the order they were taught.",
+      "",
+      "<Cards>",
+      ...entries.map(
+        (e) =>
+          `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
+      ),
+      "</Cards>",
+      "",
+      "<Cards>",
+      '  <Card title="Back to Bhagavad Gita chapters" href="/docs/bhagavad-gita" />',
+      "</Cards>",
+    ],
+  );
+  await writeMetaFile(chapter3Dir, {
+    title: "Chapter 3 – Karma-yoga",
+    pages: ["index"],
+  });
+
+  // Nectar of Instruction, Nectar of Devotion, Śrī Īśopaniṣad — book-specific "coming soon" pages.
+  const comingSoonBooks = [
+    {
+      slug: "nectar-of-instruction",
+      title: "The Nectar of Instruction",
+      cover: "/covers/nectar-of-instruction.avif",
+      alt: "Cover of The Nectar of Instruction",
+      description:
+        "Notes for the eleven texts of Śrī Upadeśāmṛta — coming soon.",
+      body: "Notes for the eleven texts of *Śrī Upadeśāmṛta* (The Nectar of Instruction) will appear here as they are prepared.",
+    },
+    {
+      slug: "nectar-of-devotion",
+      title: "The Nectar of Devotion",
+      cover: "/covers/nectar-of-devotion.avif",
+      alt: "Cover of The Nectar of Devotion",
+      description:
+        "Notes for the chapters of The Nectar of Devotion — coming soon.",
+      body: "Notes for the chapters of *The Nectar of Devotion* (a summary study of Śrīla Rūpa Gosvāmī's Bhakti-rasāmṛta-sindhu) will appear here as they are prepared.",
+    },
+    {
+      slug: "isopanishad",
+      title: "Śrī Īśopaniṣad",
+      cover: "/covers/isopanishad.avif",
+      alt: "Cover of Śrī Īśopaniṣad",
+      description:
+        "Notes for the invocation and eighteen mantras of Śrī Īśopaniṣad — coming soon.",
+      body: "Notes for the invocation and eighteen mantras of *Śrī Īśopaniṣad* will appear here as they are prepared.",
+    },
+  ];
+
+  for (const book of comingSoonBooks) {
+    const dir = path.join(CONTENT_DIR, book.slug);
+    await writeMdx(
+      path.join(dir, "index.mdx"),
+      { title: book.title, description: book.description },
+      [
+        `<BookCover src="${book.cover}" alt={${yamlString(book.alt)}} />`,
+        "",
+        `*Taught by ${TEACHER_NAME}*`,
+        "",
+        `**Coming soon.** ${book.body}`,
+        "",
+        "<Cards>",
+        '  <Card title="Back to Book Library" href="/docs" />',
+        "</Cards>",
+      ],
+    );
+    await writeMetaFile(dir, { title: book.title, pages: ["index"] });
+  }
 }
 
 async function main() {
@@ -422,34 +664,7 @@ async function main() {
     return a.title.localeCompare(b.title);
   });
 
-  const indexBody = [
-    "---",
-    `title: ${yamlString("Bhakti Shastri Notes")}`,
-    `description: ${yamlString("All lecture notes, generated from the outputs/ transcripts.")}`,
-    "---",
-    "",
-    entries.length === 0
-      ? "No notes have been generated yet. Run the note generator, then re-run `npm run sync-notes`."
-      : "Browse every lecture below, or use the search bar in the sidebar to jump to a topic.",
-    "",
-    "<Cards>",
-    ...entries.map(
-      (e) => `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
-    ),
-    "</Cards>",
-    "",
-  ].join("\n");
-  await writeFile(path.join(CONTENT_DIR, "index.mdx"), indexBody, "utf8");
-
-  const meta = {
-    title: "Bhakti Shastri Notes",
-    pages: ["index", ...entries.map((e) => e.slug)],
-  };
-  await writeFile(
-    path.join(CONTENT_DIR, "meta.json"),
-    `${JSON.stringify(meta, null, 2)}\n`,
-    "utf8",
-  );
+  await writeBookLibrary(entries);
 
   console.log(
     `Synced ${entries.length} note(s) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
