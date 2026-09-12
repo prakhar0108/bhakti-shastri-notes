@@ -342,12 +342,27 @@ function injectArgumentMapFlowchart(body) {
   return newLines.join("\n");
 }
 
-async function transformBody(rawBody) {
+/** Hide the `> **Source note:** ...` disclaimer from the rendered page while keeping it in the generated source as an MDX JS-comment (MDX doesn't support raw `<!-- -->` HTML comments). */
+function commentOutSourceNote(body) {
+  return body.replace(
+    /^>\s*\*\*Source note:\*\*.*$/m,
+    (line) => `{/* ${line.replace(/^>\s*/, "").replace(/\*\//g, "* /")} */}`,
+  );
+}
+
+/** Build a "watch on YouTube" link line from `metadata.video_url`, or an empty string if absent. */
+function videoLinkLine(metadata) {
+  if (!metadata?.video_url) return "";
+  return `[\u25b6 Watch on YouTube](${metadata.video_url})\n\n`;
+}
+
+async function transformBody(rawBody, metadata) {
   let body = stripLeadingHeading(rawBody);
   body = convertAsciiArrowDiagrams(body);
   body = injectArgumentMapFlowchart(body);
   body = await injectVerses(body);
-  return body.trim();
+  body = commentOutSourceNote(body);
+  return `${videoLinkLine(metadata)}${body.trim()}`;
 }
 
 async function loadMetadata(parentDir) {
@@ -393,7 +408,7 @@ async function main() {
         "",
       ].join("\n");
 
-      const content = `${frontmatter}${await transformBody(rawBody)}\n`;
+      const content = `${frontmatter}${await transformBody(rawBody, metadata)}\n`;
       await writeFile(path.join(CONTENT_DIR, `${slug}.mdx`), content, "utf8");
 
       entries.push({ slug, title, day: extractDayNumber(title) });

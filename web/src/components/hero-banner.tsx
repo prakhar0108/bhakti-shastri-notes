@@ -3,8 +3,8 @@ import { BrandMark } from "@/components/brand-mark";
 /** Devotional hero shown above the lecture index at `/docs`. */
 export function HeroBanner() {
   return (
-    <div className="not-prose mb-8 overflow-hidden rounded-2xl border border-fd-border/60 bg-gradient-to-br from-[var(--color-brand-accent)]/10 via-fd-card to-fd-background px-6 py-8 text-center sm:px-10">
-      <BrandMark className="mx-auto mb-4 size-10 text-[var(--color-brand-accent)]" />
+    <div className="not-prose mb-8 overflow-hidden rounded-2xl border border-fd-border/60 bg-gradient-to-br from-[var(--color-gold)]/10 via-fd-card to-fd-background px-6 py-8 text-center sm:px-10">
+      <BrandMark className="mx-auto mb-4 size-10 text-[var(--color-gold)]" />
       <p
         lang="sa"
         className="font-devanagari text-xl text-fd-foreground sm:text-2xl"
