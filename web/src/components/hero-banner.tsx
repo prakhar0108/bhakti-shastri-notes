@@ -9,11 +9,13 @@ export function HeroBanner() {
         lang="sa"
         className="font-devanagari text-xl text-fd-foreground sm:text-2xl"
       >
-        कर्मण्येवाधिकारस्ते मा फलेषु कदाचन
+        मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु । मामेवैष्यसि सत्यं ते प्रतिजाने
+        प्रियोऽसि मे ॥
       </p>
       <p className="mt-1.5 text-sm italic text-fd-muted-foreground">
-        &ldquo;You have a right to perform your prescribed duties, but you are
-        not entitled to the fruits of your actions.&rdquo; — Bhagavad-gītā 2.47
+        &ldquo;Always think of Me, become My devotee, worship Me and offer your
+        homage unto Me. Thus you will come to Me without fail. I promise you
+        this because you are My very dear friend.&rdquo; — Bhagavad-gītā 18.65
       </p>
       <div className="mx-auto mt-5 h-px w-16 bg-[var(--color-gold)]/50" />
     </div>
