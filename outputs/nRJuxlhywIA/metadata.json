@@ -1,0 +1,12 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=nRJuxlhywIA",
+  "title": "Day 34 | BG 3.26 - 3.30 | Karma - yoga | Bhakti Shastri Course",
+  "duration": "1:29:16",
+  "caption_language": "nRJuxlhywIA.hi-orig.vtt",
+  "line_count": 1766,
+  "transcript_path": "/Users/prakharagrawal/Source/myprojects/bs-notes/outputs/nRJuxlhywIA/transcripts/nRJuxlhywIA-clean-transcript.txt",
+  "notes_source_path": "/Users/prakharagrawal/Source/myprojects/bs-notes/outputs/nRJuxlhywIA/transcripts/nRJuxlhywIA-notes-source.md",
+  "notes_path": "/Users/prakharagrawal/Source/myprojects/bs-notes/outputs/nRJuxlhywIA/notes/nRJuxlhywIA-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. Main verse reference blocks are separately verified directly against vedabase.io; uncertain captioned recitations remain flagged."
+}
