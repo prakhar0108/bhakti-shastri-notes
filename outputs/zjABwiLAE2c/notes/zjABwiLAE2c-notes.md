@@ -32,10 +32,10 @@
 
 **Key Terms Explained by the Teacher**
 
-- **Karmaṇā:** Through work. The teacher emphasizes that perfection is not restricted to external renunciation. [07:56 – 08:09]
-- **Saṁsiddhim:** Complete or highest perfection. [08:00 – 08:09]
-- **Janakādayaḥ:** Janaka and others; the plural broadens the evidence beyond one exceptional king. [08:13 – 08:38]
-- **Loka-saṅgraham:** Acting to hold society together and present a proper example for people in general. [08:41 – 09:33]
+- _Karmaṇā_: Through work. The teacher emphasizes that perfection is not restricted to external renunciation. [07:56 – 08:09]
+- _Saṁsiddhim_: Complete or highest perfection. [08:00 – 08:09]
+- _Janakādayaḥ_: Janaka and others; the plural broadens the evidence beyond one exceptional king. [08:13 – 08:38]
+- _Loka-saṅgraham_: Acting to hold society together and present a proper example for people in general. [08:41 – 09:33]
 
 #### Janaka broadens Arjuna's conception [09:09 – 09:33]
 
@@ -64,7 +64,7 @@ Perfection does not require abandoning responsible action. Like Janaka and other
 
 ---
 
-### Bhagavad-gita 3.21 [17:32 – 39:53]
+### Bhagavad-gita 3.21 [17:32 – 39:26]
 
 <!-- verse:3.21 -->
 
@@ -72,10 +72,10 @@ Perfection does not require abandoning responsible action. Like Janaka and other
 
 **Key Terms Explained by the Teacher**
 
-- **Yad yad ācarati:** Whatever conduct or behavior a person performs. [17:54 – 18:08]
-- **Śreṣṭhaḥ:** A great or leading person. [18:08 – 18:11]
-- **Pramāṇam:** The standard established through one's own conduct. [18:28 – 18:44]
-- **Anuvartate:** Others follow or reproduce that standard. [18:44 – 18:51]
+- _Yad yad ācarati_: Whatever conduct or behavior a person performs. [17:54 – 18:08]
+- _Śreṣṭhaḥ_: A great or leading person. [18:08 – 18:11]
+- _Pramāṇam_: The standard established through one's own conduct. [18:28 – 18:44]
+- _Anuvartate_: Others follow or reproduce that standard. [18:44 – 18:51]
 
 #### No action is isolated [18:54 – 21:25]
 
@@ -98,13 +98,14 @@ In the story of the boy who ate too much jaggery, a saint asked the mother to re
 
 #### Replace criticism with responsible contribution [26:35 – 33:38]
 
+- The teacher cites a survey according to which even a very introverted person influences at least 10,000 people in a lifetime, so this principle is not limited to those holding formal leadership. [26:35 – 27:04]
 - People are quick to criticize managers, teachers, temple leaders, and other authorities while overlooking their own influence.
 - Each person moves among three roles: leader, equal, and subordinate.
 - Growth comes from asking:
   - As a leader, how well am I serving those entrusted to me?
   - As an equal, how good a friend and collaborator am I?
   - As a subordinate, how well am I serving and cooperating?
-- Radhanath Maharaja's foundational question, as quoted by the teacher, is: “How can I best serve in every situation?” [29:39 – 30:08]
+- The teacher relates that when Radheshyam Prabhu asked Radhanath Maharaja what the foundational principle for handling so many situations and people should be, the answer was: “How can I best serve in every situation?” [29:39 – 30:08]
 - No material management system, mutual understanding, or leader is perfect. Krishna alone perfectly understands every living being. Therefore, one should improve one's own contribution instead of becoming only a critic. [30:18 – 33:38]
 
 #### The power of example [33:45 – 39:26]
@@ -129,11 +130,11 @@ Leadership begins with conduct, not title. Because every person influences other
 
 **Key Terms Explained by the Teacher**
 
-- **Kartavyam:** Prescribed duty. Duties apply according to social and spiritual position, but Krishna is under no such obligation. [40:24 – 40:55]
-- **Triṣu lokeṣu:** In the three worlds; the teacher expands this as all planetary realms. [40:55 – 41:03]
-- **Anavāptam:** Nothing Krishna desires remains unattained. [41:03 – 41:18]
-- **Avāptavyam:** Nothing remains that Krishna needs to obtain. [41:18 – 42:05]
-- **Varta eva ca karmaṇi:** Nevertheless, Krishna remains engaged in work. [42:05 – 42:13]
+- _Kartavyam_: Prescribed duty. Duties apply according to social and spiritual position, but Krishna is under no such obligation. [40:24 – 40:55]
+- _Triṣu lokeṣu_: In the three worlds; the teacher expands this as all planetary realms. [40:55 – 41:03]
+- _Anavāptam_: Nothing Krishna desires remains unattained. [41:03 – 41:18]
+- _Avāptavyam_: Nothing remains that Krishna needs to obtain. [41:18 – 42:05]
+- _Varta eva ca karmaṇi_: Nevertheless, Krishna remains engaged in work. [42:05 – 42:13]
 
 #### Krishna's answer to the qualified renunciant [42:13 – 43:20]
 
@@ -163,11 +164,11 @@ The highest freedom from personal need does not imply careless inactivity. Krish
 
 **Key Terms Explained by the Teacher**
 
-- **Yadi:** If. [46:05 – 46:16]
-- **Na varteyam:** If Krishna did not remain engaged. [46:16 – 46:22]
-- **Jātu:** At any time, even momentarily in the teacher's explanation. [49:59 – 50:11]
-- **Atandritaḥ:** Attentive, alert, and free from laziness or drowsy negligence. [46:22 – 46:40]
-- **Mama vartma anuvartante:** People would follow Krishna's path. [46:40 – 46:55]
+- _Yadi_: If. [46:05 – 46:16]
+- _Na varteyam_: If Krishna did not remain engaged. [46:16 – 46:22]
+- _Jātu_: At any time, even momentarily in the teacher's explanation. [49:59 – 50:11]
+- _Atandritaḥ_: Attentive, alert, and free from laziness or drowsy negligence. [46:22 – 46:40]
+- _Mama vartma anuvartante_: People would follow Krishna's path. [46:40 – 46:55]
 
 #### Krishna's attentive household example [47:11 – 47:55]
 
@@ -198,10 +199,10 @@ Responsible action must be attentive action. A leader's momentary negligence can
 
 **Key Terms Explained by the Teacher**
 
-- **Utsīdeyuḥ ime lokāḥ:** These worlds would be ruined or destroyed. [51:49 – 52:09]
-- **Na kuryāṁ karma:** If Krishna did not perform prescribed work. [52:09 – 52:17]
-- **Saṅkarasya kartā:** He would become the cause of social and generational disorder. [52:17 – 52:32]
-- **Upahanyām imāḥ prajāḥ:** The population would be harmed rather than protected. [51:33 – 52:32]
+- _Utsīdeyuḥ ime lokāḥ_: These worlds would be ruined or destroyed. [51:49 – 52:09]
+- _Na kuryāṁ karma_: If Krishna did not perform prescribed work. [52:09 – 52:17]
+- _Saṅkarasya kartā_: He would become the cause of social and generational disorder. [52:17 – 52:32]
+- _Upahanyām imāḥ prajāḥ_: The population would be harmed rather than protected. [51:33 – 52:32]
 
 #### Krishna reverses Arjuna's social argument [52:32 – 53:49]
 
@@ -242,11 +243,11 @@ When leaders abandon duty, imitation magnifies the damage into social disorder. 
 
 **Key Terms Explained by the Teacher**
 
-- **Saktāḥ:** Attached to work and its results. [01:02:56 – 01:03:21]
-- **Avidvāṁsaḥ:** Ignorant or not spiritually learned. [01:02:42 – 01:03:26]
-- **Vidvān:** A learned person. [01:03:29 – 01:03:55]
-- **Asaktaḥ:** Without attachment. [01:03:33 – 01:03:57]
-- **Cikīrṣuḥ loka-saṅgraham:** Desiring to act for the guidance and welfare of society. [01:03:57 – 01:04:01]
+- _Saktāḥ_: Attached to work and its results. [01:02:56 – 01:03:21]
+- _Avidvāṁsaḥ_: Ignorant or not spiritually learned. [01:02:42 – 01:03:26]
+- _Vidvān_: A learned person. [01:03:29 – 01:03:55]
+- _Asaktaḥ_: Without attachment. [01:03:33 – 01:03:57]
+- _Cikīrṣuḥ loka-saṅgraham_: Desiring to act for the guidance and welfare of society. [01:03:57 – 01:04:01]
 
 #### Same external action, different consciousness [01:03:41 – 01:04:39]
 
@@ -345,7 +346,7 @@ BG 3.25: The learned therefore perform necessary work like the attached, but wit
 - **Following vs. imitation:** Follow divine instruction and conduct consistent with it; do not imitate extraordinary acts of powerful _īśvaras_.
 - **BG 3.25:** _Avidvāṁsaḥ_ act with attachment; the _vidvān_ may perform the same external duty _asaktaḥ_, for _loka-saṅgraha_.
 - **Central distinction:** External activity can be identical while inner motive and consciousness are entirely different.
-- **Foundational service question:** “How can I best serve in every situation?” [29:57 – 30:08]
+- **Foundational service question:** Radhanath Maharaja's answer, as related by the teacher — “How can I best serve in every situation?” [29:57 – 30:08]
 
 ### Core Analogies & Metaphors
 
@@ -361,7 +362,7 @@ BG 3.25: The learned therefore perform necessary work like the attached, but wit
 ## Transcript Verification Flags
 
 - `3.20`: Verse recitation is caption-corrupted; exact Sanskrit is not taken from the transcript. The teacher's labels for types of temporary renunciation around `09:51`–`10:01` are uncertain.
-- `3.21`: Verse recitation and several English quotations are caption-corrupted. The unsourced survey claim that an introvert influences 10,000 people over a lifetime is preserved only as the teacher's reported claim, not independently verified. [26:35 – 27:04]
+- `3.21`: Verse recitation and several English quotations are caption-corrupted. [17:49 – 27:04]
 - `3.22`: Verse recitation and the purport's Upanishadic Sanskrit citations are caption-corrupted; exact Sanskrit is omitted. [40:15 – 45:00]
 - `3.23`: Verse recitation is caption-corrupted. The transcript alternates among _tandrā_, attention, and inattention; the explanatory distinction is retained without treating the captions as exact Sanskrit. [46:05 – 50:15]
 - `3.24`: Verse recitation and Srimad-Bhagavatam 10.33.30–31 recitation are caption-corrupted; exact quoted Sanskrit is omitted. [51:49 – 01:00:05]

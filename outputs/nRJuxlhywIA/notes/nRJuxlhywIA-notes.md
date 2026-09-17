@@ -64,9 +64,9 @@
 Srila Prabhupada's example is presented as personal steadiness combined with patient engagement of others:
 
 - He maintained his own devotional practice while introducing his early hosts to prasada, despite their different habits.
-- A carpenter was engaged in practical service.
+- Shyamasundar Prabhu, a carpenter, was engaged in practical service.
 - An English professor was engaged in editing.
-- Translation ability was engaged in regional-language book projects, with the teacher naming Gour Govinda Maharaja and Bhakti Charu Swami.
+- Translation ability was engaged in regional-language book projects: the teacher names Gour Govinda Maharaja for Oriya and Bhakti Charu Swami for Bengali.
 
 The principle is to ask how a person's present talent can serve Krishna instead of first declaring their entire life useless.
 
@@ -108,11 +108,11 @@ Teach through your own responsible conduct and help others direct their present 
 
 The teacher describes three _doers_ (_kartā_) behind every action and explains that scripture presents the same act from whichever angle a particular listener needs to hear:
 
-| Doer             | Role emphasized in the lecture                                                        | Angle from which the teacher explains it                                                    |
-| :--------------- | :------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------ |
+| Doer             | Role emphasized in the lecture                                                        | Angle from which the teacher explains it                                                     |
+| :--------------- | :------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------- |
 | The living being | Desires and initiates the process                                                     | Spoken to the person who says "I am doing nothing; God is doing everything" to avoid results |
-| Material nature  | Supplies the body, senses, and material means; facilitates activity through the modes | Spoken to the person in false ego who says "I have accomplished all this"                   |
-| The Supreme Lord | Gives the final sanction                                                              | Spoken to show that without sanction, desire and material means alone accomplish nothing    |
+| Material nature  | Supplies the body, senses, and material means; facilitates activity through the modes | Spoken to the person in false ego who says "I have accomplished all this"                    |
+| The Supreme Lord | Gives the final sanction                                                              | Spoken to show that without sanction, desire and material means alone accomplish nothing     |
 
 - This verse is spoken from the second angle, addressing the person in false ego. [30:00 – 38:00]
 - The teacher explicitly rejects using it to excuse wrongdoing, calling that a misquoting of philosophy. A court anecdote illustrates the misuse.
@@ -128,7 +128,7 @@ The woodcutter and axe illustrate complementary roles:
 
 The teacher attributes this analogy to Baladeva Vidyabhushana's commentary and mentions that the factors of action will be discussed further later in the Gita.
 
-#### Purifying desire changes the direction of life [34:00 – 42:00]
+#### Purifying desire changes the direction of life [34:00 – 38:00; 40:00 – 42:00]
 
 - Hearing scripture and reading the prayers of pure devotees expose us to purified desires.
 - An action often begins mentally before it appears externally, as with planning a house or wanting a car.
@@ -181,7 +181,7 @@ Recognize bodily and sensory processes without confusing them with your identity
 
 ---
 
-### Bhagavad-gita 3.29 [48:00 – 60:00]
+### Bhagavad-gita 3.29 [48:00 – 62:00]
 
 <!-- verse:3.29 -->
 
@@ -305,7 +305,7 @@ BG 3.30: Offer work to Krishna in spiritual consciousness, without selfish expec
 | 3.26  | Sensitive guidance           | _Buddhi-bheda_, _joṣayet_                                         | Premature withdrawal can unsettle people lacking qualification.      | Model responsible action and engage existing talents. [10:00 – 28:00]        |
 | 3.27  | Dependent agency             | _Prakṛti_, _guṇa_, _ahaṅkāra_                                     | The soul desires, the Lord sanctions, and nature facilitates.        | Reject pride and fatalistic excuses; purify desires. [28:00 – 44:00]         |
 | 3.28  | Knowledge without attachment | _Tattva-vit_, _na sajjate_                                        | The self is distinct from sensory interactions.                      | Recognize and redirect bodily and mental habits. [44:00 – 48:00]             |
-| 3.29  | Protecting gradual progress  | _Guṇa-sammūḍhāḥ_, _na vicālayet_                                  | Removing an existing support without a higher one may stop progress. | Give practical support and positive devotional alternatives. [48:00 – 60:00] |
+| 3.29  | Protecting gradual progress  | _Guṇa-sammūḍhāḥ_, _na vicālayet_                                  | Removing an existing support without a higher one may stop progress. | Give practical support and positive devotional alternatives. [48:00 – 62:00] |
 | 3.30  | Work offered to Krishna      | _Mayi_, _adhyātma-cetasā_, _nirāśīḥ_, _nirmamaḥ_, _vigata-jvaraḥ_ | Relationship transforms relinquishment into loving offering.         | Serve with disciplined effort and without proprietorship. [62:00 – 80:00]    |
 
 ---
@@ -371,11 +371,11 @@ BG 3.30: Offer work to Krishna in spiritual consciousness, without selfish expec
 
 - **Sanskrit:** [exact Sanskrit omitted: auto-captions uncertain] applies to the opening prayers, main verse recitations, and incidental scriptural quotations. Do not use the captioned recitations as exact quotations.
 - **Historical numbers [14:00 – 16:00]:** The C. R. Das anecdote repeats the same salary amount while describing a large reduction. The original amount and reduction require audio verification.
-- **Names and biographies [18:00 – 22:00]:** The early host's name, the editing-service recipient, and details of the translation assignments are imperfectly captioned; no missing identities have been supplied from memory.
-- **Court anecdote [30:00 – 34:00]:** The teacher's example of a defendant misusing philosophy is not independently verified as a historical legal case.
+- **Names and biographies [18:00 – 22:00]:** The early host's name and the editing-service recipient are imperfectly captioned; no missing identities have been supplied from memory.
+- **Court anecdote [30:00 – 34:00]:** The teacher's example of a defendant misusing philosophy is retained as his illustration; the captions do not identify a case, and none has been supplied.
 - **Vocabulary [48:00 – 50:00]:** Captions obscure the Sanskrit distinction between partial and complete knowledge; the conceptual explanation is retained without reconstructing the recited forms.
-- **Exceptional renunciation [60:00 – 62:00]:** The Sridhara Swami account is retained only at the level of the teacher's qualification-dependent point. Its biographical details are not independently verified or generalized into advice to leave dependents.
+- **Exceptional renunciation [60:00 – 62:00]:** The Sridhara Swami account is retained only at the level of the teacher's qualification-dependent point, and is not generalized into advice to leave dependents.
 - **Incidental quotation [66:00 – 68:00]:** A captioned reference during the chapter recap does not clearly identify its verse location; no chapter or verse number has been inferred.
-- **Devotional anecdotes [68:00 – 72:00]:** Individual offerings and reciprocation stories are summarized as the teacher's illustrations, not independently authenticated historical details.
+- **Devotional anecdotes [68:00 – 72:00]:** Individual offerings and reciprocation stories are summarized as the teacher's illustrations; captioned names and details were not reconstructed where unclear.
 - **Earlier-chapter references [80:00 – 88:00]:** Some spoken or captioned ranges and references are uncertain. The conceptual answers are preserved without repairing scripture numbering from memory.
 - **Timing:** Section anchors indicate the two-minute transcript source windows, not reconstructed second-level precision; the final range ends at the video's reported duration.
