@@ -104,15 +104,19 @@ Teach through your own responsible conduct and help others direct their present 
 - _Ahaṅkāra-vimūḍhātmā_: The soul bewildered by false ego. [28:00 – 32:00]
 - _Kartāham_: The claim that I am the doer, understood here as claiming independent or exclusive agency. [28:00 – 32:00; 38:00 – 40:00]
 
-#### Three roles in the action process [30:00 – 38:00]
+#### Three doers and the three angles of explanation [30:00 – 38:00]
 
-| Perspective      | Role emphasized in the lecture                                                        | Error corrected                                                       |
-| :--------------- | :------------------------------------------------------------------------------------ | :-------------------------------------------------------------------- |
-| The living being | Desires and initiates the process                                                     | Evading responsibility by saying that everything is God's action      |
-| Material nature  | Supplies the body, senses, and material means; facilitates activity through the modes | Proudly claiming to accomplish everything independently               |
-| The Supreme Lord | Gives the final sanction                                                              | Assuming that desire and material resources alone guarantee execution |
+The teacher describes three _doers_ (_kartā_) behind every action and explains that scripture presents the same act from whichever angle a particular listener needs to hear:
 
-The teacher explicitly rejects using this verse to excuse wrongdoing. The living being receives consequences because desire initiates the process; dependence on nature and divine sanction does not erase accountability. A court anecdote illustrates this misuse of philosophy. [32:00 – 38:00]
+| Doer             | Role emphasized in the lecture                                                        | Angle from which the teacher explains it                                                    |
+| :--------------- | :------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------ |
+| The living being | Desires and initiates the process                                                     | Spoken to the person who says "I am doing nothing; God is doing everything" to avoid results |
+| Material nature  | Supplies the body, senses, and material means; facilitates activity through the modes | Spoken to the person in false ego who says "I have accomplished all this"                   |
+| The Supreme Lord | Gives the final sanction                                                              | Spoken to show that without sanction, desire and material means alone accomplish nothing    |
+
+- This verse is spoken from the second angle, addressing the person in false ego. [30:00 – 38:00]
+- The teacher explicitly rejects using it to excuse wrongdoing, calling that a misquoting of philosophy. A court anecdote illustrates the misuse.
+- The living being receives the results because desire initiates the process; dependence on nature and on divine sanction does not erase accountability. [32:00 – 38:00]
 
 #### Not the only doer does not mean no role at all [38:00 – 40:00]
 
