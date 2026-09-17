@@ -1,0 +1,13 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=yARAADx_nnY",
+  "video_id": "yARAADx_nnY",
+  "title": "Day 19 | BG 2.22 - 2.30 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "duration": "52:15",
+  "caption_language": "day-19-bg-2.22-2.30.hi-orig.vtt",
+  "line_count": 969,
+  "transcript_path": "transcripts/day-19-bg-2.22-2.30-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-19-bg-2.22-2.30-notes-source.md",
+  "notes_path": "notes/day-19-bg-2.22-2.30-notes.md",
+  "notes_generator": "deterministic-extractive",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}

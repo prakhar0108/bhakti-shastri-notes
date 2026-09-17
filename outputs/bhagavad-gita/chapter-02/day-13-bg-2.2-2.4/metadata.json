@@ -1,0 +1,14 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=zkVI8PO--1c",
+  "video_id": "zkVI8PO--1c",
+  "title": "Day 13 | BG 2.2 - 2.4 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "speaker": "HG Adishyam Prabhuji",
+  "duration": "1:11:32",
+  "caption_language": "day-13-bg-2.2-2.4.hi-orig.vtt",
+  "line_count": 1345,
+  "transcript_path": "transcripts/day-13-bg-2.2-2.4-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-13-bg-2.2-2.4-notes-source.md",
+  "notes_path": "notes/day-13-bg-2.2-2.4-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. Main verse reference blocks are separately verified directly against vedabase.io; uncertain captioned recitations remain flagged."
+}

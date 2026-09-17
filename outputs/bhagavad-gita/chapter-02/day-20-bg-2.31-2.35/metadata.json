@@ -1,0 +1,13 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=IL2Pz9hzN_g",
+  "video_id": "IL2Pz9hzN_g",
+  "title": "Day 20 | BG 2.31 - 2.35 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "duration": "56:15",
+  "caption_language": "day-20-bg-2.31-2.35.hi-orig.vtt",
+  "line_count": 1105,
+  "transcript_path": "transcripts/day-20-bg-2.31-2.35-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-20-bg-2.31-2.35-notes-source.md",
+  "notes_path": "notes/day-20-bg-2.31-2.35-notes.md",
+  "notes_generator": "deterministic-extractive",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}

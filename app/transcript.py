@@ -13,9 +13,9 @@ from typing import Any
 TIMESTAMP_RE = re.compile(r"(?P<h>\d{2}):(?P<m>\d{2}):(?P<s>\d{2}\.\d{3})")
 INLINE_TAG_RE = re.compile(r"<[^>]+>")
 
-# Matches lecture titles like "Day 31 | BG 3.8 - 3.13 | Karma - yoga | Bhakti Shastri Course".
+# Matches lecture titles like "Day 31 | BG 3.8 - 3.13 | ..." or "Day 12 | Overview + BG - 2.1 | ...".
 LECTURE_TITLE_RE = re.compile(
-    r"day\s*(?P<day>\d+)\s*\|\s*bg\s*(?P<chapter>\d+)\.(?P<start>\d+)"
+    r"day\s*(?P<day>\d+)\b.*?\bbg\s*[-\u2013]?\s*(?P<chapter>\d+)\.(?P<start>\d+)"
     r"(?:\s*[-\u2013]\s*(?:(?P<end_chapter>\d+)\.)?(?P<end>\d+))?",
     re.IGNORECASE,
 )

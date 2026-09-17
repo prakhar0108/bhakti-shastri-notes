@@ -1,0 +1,13 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=JuyqRYIbH58",
+  "video_id": "JuyqRYIbH58",
+  "title": "Day 25 | BG 2.50 - 2.55 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "duration": "1:03:43",
+  "caption_language": "day-25-bg-2.50-2.55.hi-orig.vtt",
+  "line_count": 1187,
+  "transcript_path": "transcripts/day-25-bg-2.50-2.55-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-25-bg-2.50-2.55-notes-source.md",
+  "notes_path": "notes/day-25-bg-2.50-2.55-notes.md",
+  "notes_generator": "deterministic-extractive",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}

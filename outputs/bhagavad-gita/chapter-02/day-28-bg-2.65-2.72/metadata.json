@@ -1,0 +1,13 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=OWoEwH-Dt4U",
+  "video_id": "OWoEwH-Dt4U",
+  "title": "Day 28 | BG 2.65 - 2.72 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "duration": "1:14:07",
+  "caption_language": "day-28-bg-2.65-2.72.hi-orig.vtt",
+  "line_count": 1335,
+  "transcript_path": "transcripts/day-28-bg-2.65-2.72-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-28-bg-2.65-2.72-notes-source.md",
+  "notes_path": "notes/day-28-bg-2.65-2.72-notes.md",
+  "notes_generator": "deterministic-extractive",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}

@@ -1,0 +1,13 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=eF-o4Fasoes",
+  "video_id": "eF-o4Fasoes",
+  "title": "Day 16 | BG 2.11 - 2.13 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "duration": "1:14:02",
+  "caption_language": "day-16-bg-2.11-2.13.hi-orig.vtt",
+  "line_count": 1425,
+  "transcript_path": "transcripts/day-16-bg-2.11-2.13-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-16-bg-2.11-2.13-notes-source.md",
+  "notes_path": "notes/day-16-bg-2.11-2.13-notes.md",
+  "notes_generator": "deterministic-extractive",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}

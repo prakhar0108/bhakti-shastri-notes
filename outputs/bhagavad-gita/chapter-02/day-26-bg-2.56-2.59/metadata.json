@@ -1,0 +1,13 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=ZMbksrYQHXo",
+  "video_id": "ZMbksrYQHXo",
+  "title": "Day 26 | BG 2.56 - 2.59 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "duration": "1:12:57",
+  "caption_language": "day-26-bg-2.56-2.59.hi-orig.vtt",
+  "line_count": 1381,
+  "transcript_path": "transcripts/day-26-bg-2.56-2.59-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-26-bg-2.56-2.59-notes-source.md",
+  "notes_path": "notes/day-26-bg-2.56-2.59-notes.md",
+  "notes_generator": "deterministic-extractive",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}

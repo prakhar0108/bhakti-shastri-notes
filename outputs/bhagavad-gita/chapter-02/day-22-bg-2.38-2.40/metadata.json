@@ -1,0 +1,13 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=IGEmzv3FZHc",
+  "video_id": "IGEmzv3FZHc",
+  "title": "Day 22 | BG 2.38 - 2.40 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "duration": "1:19:01",
+  "caption_language": "day-22-bg-2.38-2.40.hi-orig.vtt",
+  "line_count": 1589,
+  "transcript_path": "transcripts/day-22-bg-2.38-2.40-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-22-bg-2.38-2.40-notes-source.md",
+  "notes_path": "notes/day-22-bg-2.38-2.40-notes.md",
+  "notes_generator": "deterministic-extractive",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}

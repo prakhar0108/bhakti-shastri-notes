@@ -1,0 +1,13 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=pDAGv4lpbG8",
+  "video_id": "pDAGv4lpbG8",
+  "title": "Day 27 | BG 2.60 - 2.64 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "duration": "1:26:25",
+  "caption_language": "day-27-bg-2.60-2.64.hi-orig.vtt",
+  "line_count": 1665,
+  "transcript_path": "transcripts/day-27-bg-2.60-2.64-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-27-bg-2.60-2.64-notes-source.md",
+  "notes_path": "notes/day-27-bg-2.60-2.64-notes.md",
+  "notes_generator": "deterministic-extractive",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}

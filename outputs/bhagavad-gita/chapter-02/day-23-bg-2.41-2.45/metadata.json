@@ -1,0 +1,13 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=WSRmiMu073A",
+  "video_id": "WSRmiMu073A",
+  "title": "Day 23 | BG 2.41 - 2.45 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "duration": "1:27:42",
+  "caption_language": "day-23-bg-2.41-2.45.hi-orig.vtt",
+  "line_count": 1641,
+  "transcript_path": "transcripts/day-23-bg-2.41-2.45-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-23-bg-2.41-2.45-notes-source.md",
+  "notes_path": "notes/day-23-bg-2.41-2.45-notes.md",
+  "notes_generator": "deterministic-extractive",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}

@@ -1,0 +1,13 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=GDouLSYBTw0",
+  "video_id": "GDouLSYBTw0",
+  "title": "Day 14 | BG 2.5 - 2.7 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "duration": "59:59",
+  "caption_language": "day-14-bg-2.5-2.7.hi-orig.vtt",
+  "line_count": 1112,
+  "transcript_path": "transcripts/day-14-bg-2.5-2.7-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-14-bg-2.5-2.7-notes-source.md",
+  "notes_path": "notes/day-14-bg-2.5-2.7-notes.md",
+  "notes_generator": "deterministic-extractive",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}

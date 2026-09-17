@@ -46,8 +46,6 @@ const BG_CHAPTERS = [
   "The Divisions of Faith",
   "Conclusion – The Perfection of Renunciation",
 ];
-const BG_AVAILABLE_CHAPTER = 3;
-
 // The four books of the course, for the homepage library grid.
 const BOOKS = [
   {
@@ -55,7 +53,7 @@ const BOOKS = [
     title: "Bhagavad-gītā As It Is",
     cover: "/covers/bhagavad-gita.avif",
     alt: "Cover of Bhagavad-gītā As It Is",
-    status: "Chapter 3 notes available",
+    status: "Notes available",
     available: true,
   },
   {
@@ -163,6 +161,20 @@ function slugify(text) {
 function extractDayNumber(title) {
   const match = /day\s+(\d+)/i.exec(title ?? "");
   return match ? Number(match[1]) : null;
+}
+
+/** Read the Bhagavad Gita chapter number out of a lecture title, e.g. "BG 2.1 - 2.4" -> 2. */
+function extractChapterNumber(title) {
+  const match = /\bbg\s*[-–]?\s*(\d+)\.\d+/i.exec(title ?? "");
+  return match ? Number(match[1]) : null;
+}
+
+/** Human-readable list of available chapters, e.g. "Chapters 2 and 3 available". */
+function chapterStatus(chapters) {
+  if (chapters.length === 0) return "Coming soon";
+  if (chapters.length === 1) return `Chapter ${chapters[0]} notes available`;
+  const list = `${chapters.slice(0, -1).join(", ")} and ${chapters.at(-1)}`;
+  return `Chapters ${list} notes available`;
 }
 
 function stripLeadingHeading(body) {
@@ -483,7 +495,14 @@ async function writeMetaFile(dir, meta) {
  * Lecture files stay at the content root (written earlier in `main`) so their `/docs/<slug>`
  * URLs never change; this only adds the surrounding library/chapter navigation around them.
  */
-async function writeBookLibrary(entries) {
+async function writeBookLibrary(entriesByChapter) {
+  const availableChapters = [...entriesByChapter.keys()].sort((a, b) => a - b);
+  const books = BOOKS.map((book) =>
+    book.slug === "bhagavad-gita"
+      ? { ...book, status: chapterStatus(availableChapters) }
+      : book,
+  );
+
   await writeMdx(
     path.join(CONTENT_DIR, "index.mdx"),
     {
@@ -494,7 +513,7 @@ async function writeBookLibrary(entries) {
       "Browse the course by book, or use the search bar in the sidebar to jump to a topic.",
       "",
       "<BookGrid>",
-      ...BOOKS.map(
+      ...books.map(
         (b) =>
           `  <BookCard href="/docs/${b.slug}" title={${yamlString(b.title)}} cover="${b.cover}" alt={${yamlString(b.alt)}} status={${yamlString(b.status)}} available={${b.available}} />`,
       ),
@@ -503,10 +522,10 @@ async function writeBookLibrary(entries) {
   );
   await writeMetaFile(CONTENT_DIR, {
     title: "Bhakti Shastri Notes",
-    pages: ["index", ...BOOKS.map((b) => b.slug)],
+    pages: ["index", ...books.map((b) => b.slug)],
   });
 
-  // Bhagavad Gita — all 18 canonical chapters; only Chapter 3 links anywhere.
+  // Bhagavad Gita — all 18 canonical chapters; only chapters with notes link anywhere.
   const bgDir = path.join(CONTENT_DIR, "bhagavad-gita");
   await writeMdx(
     path.join(bgDir, "index.mdx"),
@@ -520,14 +539,14 @@ async function writeBookLibrary(entries) {
       "",
       `*Taught by ${TEACHER_NAME}*`,
       "",
-      "Select a chapter below. Chapter Three is available now; the rest are coming soon.",
+      `Select a chapter below. ${chapterStatus(availableChapters)}; the rest are coming soon.`,
       "",
       "<Cards>",
       ...BG_CHAPTERS.map((title, i) => {
         const num = i + 1;
         const cardTitle = yamlString(`Chapter ${num}: ${title}`);
-        return num === BG_AVAILABLE_CHAPTER
-          ? `  <Card title={${cardTitle}} description="Chapter 3 notes available" href="/docs/bhagavad-gita/chapter-3" />`
+        return availableChapters.includes(num)
+          ? `  <Card title={${cardTitle}} description="${entriesByChapter.get(num).length} lecture notes" href="/docs/bhagavad-gita/chapter-${num}" />`
           : `  <Card title={${cardTitle}} description="Coming soon" />`;
       }),
       "</Cards>",
@@ -539,40 +558,42 @@ async function writeBookLibrary(entries) {
   );
   await writeMetaFile(bgDir, {
     title: "Bhagavad-gītā As It Is",
-    pages: ["index", "chapter-3"],
+    pages: ["index", ...availableChapters.map((num) => `chapter-${num}`)],
   });
 
-  // Chapter 3 — the lectures currently generated from outputs/, in day order.
-  const chapter3Dir = path.join(bgDir, "chapter-3");
-  await writeMdx(
-    path.join(chapter3Dir, "index.mdx"),
-    {
-      title: "Bhagavad Gita: Chapter 3 – Karma-yoga",
-      description: "Lecture notes for Bhagavad Gita Chapter 3, in day order.",
-    },
-    [
-      `*Taught by ${TEACHER_NAME}*`,
-      "",
-      entries.length === 0
-        ? "No notes have been generated yet. Run the note generator, then re-run `npm run sync-notes`."
-        : "Lectures covering Bhagavad Gita Chapter 3, in the order they were taught.",
-      "",
-      "<Cards>",
-      ...entries.map(
-        (e) =>
-          `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
-      ),
-      "</Cards>",
-      "",
-      "<Cards>",
-      '  <Card title="Back to Bhagavad Gita chapters" href="/docs/bhagavad-gita" />',
-      "</Cards>",
-    ],
-  );
-  await writeMetaFile(chapter3Dir, {
-    title: "Chapter 3 – Karma-yoga",
-    pages: ["index"],
-  });
+  // One index page per chapter that has notes, listing its lectures in day order.
+  for (const num of availableChapters) {
+    const chapterName = BG_CHAPTERS[num - 1];
+    const chapterDir = path.join(bgDir, `chapter-${num}`);
+    const chapterEntries = entriesByChapter.get(num);
+    await writeMdx(
+      path.join(chapterDir, "index.mdx"),
+      {
+        title: `Bhagavad Gita: Chapter ${num} – ${chapterName}`,
+        description: `Lecture notes for Bhagavad Gita Chapter ${num}, in day order.`,
+      },
+      [
+        `*Taught by ${TEACHER_NAME}*`,
+        "",
+        `Lectures covering Bhagavad Gita Chapter ${num}, in the order they were taught.`,
+        "",
+        "<Cards>",
+        ...chapterEntries.map(
+          (e) =>
+            `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
+        ),
+        "</Cards>",
+        "",
+        "<Cards>",
+        '  <Card title="Back to Bhagavad Gita chapters" href="/docs/bhagavad-gita" />',
+        "</Cards>",
+      ],
+    );
+    await writeMetaFile(chapterDir, {
+      title: `Chapter ${num} – ${chapterName}`,
+      pages: ["index"],
+    });
+  }
 
   // Nectar of Instruction, Nectar of Devotion, Śrī Īśopaniṣad — book-specific "coming soon" pages.
   const comingSoonBooks = [
@@ -657,7 +678,12 @@ async function main() {
       const content = `${frontmatter}${await transformBody(rawBody, metadata)}\n`;
       await writeFile(path.join(CONTENT_DIR, `${slug}.mdx`), content, "utf8");
 
-      entries.push({ slug, title, day: extractDayNumber(title) });
+      entries.push({
+        slug,
+        title,
+        day: extractDayNumber(title),
+        chapter: extractChapterNumber(title),
+      });
     }
   }
 
@@ -668,7 +694,15 @@ async function main() {
     return a.title.localeCompare(b.title);
   });
 
-  await writeBookLibrary(entries);
+  const entriesByChapter = new Map();
+  for (const entry of entries) {
+    if (entry.chapter == null) continue;
+    const chapterEntries = entriesByChapter.get(entry.chapter) ?? [];
+    chapterEntries.push(entry);
+    entriesByChapter.set(entry.chapter, chapterEntries);
+  }
+
+  await writeBookLibrary(entriesByChapter);
 
   console.log(
     `Synced ${entries.length} note(s) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
