@@ -174,7 +174,7 @@ One can test inner absorption by observing what happens when external supports a
 - How disturbed does one become when position, recognition, expected food, or convenience is withdrawn?
 - How much do other people's responses, respect, or failure to meet expectations shake the mind?
 
-Absorption grows by investing time in devotional practice. The teacher recalls Ghanashyam Baba [name and temple details uncertain in auto-captions], who sang for the Deities for hours without an audience and sometimes noticed a visitor only much later.
+Absorption grows by investing time in devotional practice. The teacher recalls Ghanashyam Baba, who sang for the Deities for hours without an audience and sometimes noticed a visitor only much later.
 
 #### Satisfaction does not mean passivity [54:55 – 63:40]
 
@@ -308,7 +308,7 @@ BG 3.19: Therefore one should constantly perform duty without attachment, becaus
 2. Provide necessities, education, example, and Krishna conscious connection for spouse, children, and parents.
 3. Worship the Deities so consciousness shifts from personal enjoyment toward service.
 4. Invite, serve, and hear from sadhus; householder life rises through _sadhu-sanga_.
-5. Offer resources through _prana_, _artha_, _dhiya_, and _vaca_ [exact cited source and wording uncertain in auto-captions]: life-energy, wealth, intelligence, and speech.
+5. Offer resources through _prana_, _artha_, _dhiya_, and _vaca_: life-energy, wealth, intelligence, and speech.
 6. Maintain an active service that uses intelligence for the mission, and identify oneself as Srila Prabhupada's servant rather than merely by one's occupation.
 
 ### 6. Krishna consciousness and unperformed Vedic rites [107:45 – 109:10]

@@ -86,6 +86,17 @@ Notes on this template:
   do not repeat a disclaimer per verse.
 - Each verse gets exactly one `<Callout type="idea" title="Takeaway">`. Do not box every
   paragraph in a callout.
+- `Transcript Verification Flags` is repository-only editorial material. Keep the section in
+  `outputs/**/notes/*.md`, but exclude it from generated website notes, navigation, and search
+  content in `sync-notes.mjs`. Do not publish it as a callout or a collapsible section.
+- Summarize the speaker's teachings, examples, and anecdotes respectfully and faithfully.
+  Do not independently fact-check the speaker's statements unless explicitly requested, or add
+  audience-facing caveats such as "unsourced claim", "not independently verified", or
+  "not authenticated historical details". Ordinary attribution ("the teacher explains") is
+  sufficient; do not frame the notes as an evaluation of the speaker's credibility.
+- Keep transcription and editorial concerns in the repository-only flags section, not in
+  audience-facing commentary. Do not invent missing details or silently repair uncertain
+  captions. This does not relax the separate strict verification of exact scripture below.
 - Use `####` sub-headings for each reasoning sub-topic instead of bold lead-ins buried inside one
   long bullet (e.g. prefer `#### Four levels of practitioners` + a bullet list over a single
   paragraph starting "Level 1 — ... Level 2 — ...").
@@ -135,8 +146,10 @@ Notes on this template:
 - **Timestamps** are unobtrusive anchors — `` `mm:ss` `` or `[mm:ss – mm:ss]` — placed near the
   claim or heading they support. Never invent a narrower timestamp than the transcript/prior
   note actually supports.
-- Keep `[exact Sanskrit omitted: auto-captions uncertain]`-style flags from the grounded draft
-  wherever the transcript itself was uncertain; do not silently resolve them during restructuring.
+- Preserve `[exact Sanskrit omitted: auto-captions uncertain]`-style concerns from the grounded
+  draft in the repository-only `Transcript Verification Flags` section, with their timestamps.
+  In public commentary, retain the grounded explanation in plain language without these markers;
+  never fill missing Sanskrit from memory or leave broken sentences or empty table cells.
 
 ## File & directory conventions
 

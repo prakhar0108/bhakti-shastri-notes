@@ -33,9 +33,9 @@ At the close of Chapter 2, Krishna instructed Arjuna in `बुद्धि-य�
 
 ### Chapter 3 Road Map Given by the Speaker [10:00 – 23:00]
 
-1. **Opening section – nishkama-karma-yoga:** action is better for Arjuna than abandoning action. The speaker refers to this first as `1-10` and later as `1-9`; the caption-derived notes preserve that variation instead of silently choosing one.
+1. **Opening section – nishkama-karma-yoga:** action is better for Arjuna than abandoning action.
 2. **3.10–3.16 – karma-kanda / sakama-karma:** if fruitless action is presently too difficult, continue to act at the lower fruit-motivated level rather than becoming inactive.
-3. **Middle section ending at 3.35 – act even if qualified for jnana:** the opening verse number is caption-corrupted at `14:23–14:28`, so it is not silently reconstructed here. The speaker's clear conclusion is still nishkama action, now also for setting an example for others.
+3. **Middle section ending at 3.35 – act even if qualified for jnana:** the conclusion is still nishkama action, now also for setting an example for others.
 4. **3.36–3.43 – the obstacle of kama:** lust, or the desire to enjoy, is introduced as the principal obstruction on the path of karma-yoga.
 
 **Repeated conclusion of the map:** whichever qualification Arjuna proposes, the instruction returns to active duty performed without fruitive attachment.
@@ -258,6 +258,8 @@ BG 3.4: Neither inaction alone nor external sannyasa alone grants naishkarmya or
 ---
 
 ## Transcript Verification Flags
+
+- Opening-section range: the speaker refers to it first as `1-10` and later as `1-9`; the public outline retains the topic without choosing a range.
 
 - `00:00`: contains obvious auto-caption corruption. Exact Sanskrit, names, or number-based analogies from this block should be checked against the audio before quotation.
 - `14:23 – 14:28`: the opening verse number of the "middle section ending at 3.35" is caption-corrupted and is not silently reconstructed.

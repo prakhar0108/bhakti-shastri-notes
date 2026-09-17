@@ -182,7 +182,7 @@ The teacher recalls Narada Muni's visit to Krishna's palaces in Dvaraka. Krishna
 
 #### Maya asks for one moment at a time [49:59 – 51:20]
 
-Spiritual life is shaped by moment-to-moment choices. The teacher cites Ajamila, Indra's neglect of Brihaspati, Romaharshana Suta's failure to honor Balarama, and Indradyumna Maharaja's neglect of Agastya Muni as examples where brief inattention carried grave consequences. Exact proper names and episode details remain subject to transcript verification.
+Spiritual life is shaped by moment-to-moment choices. The teacher cites Ajamila, Indra's neglect of Brihaspati, Romaharshana Suta's failure to honor Balarama, and Indradyumna Maharaja's neglect of Agastya Muni as examples where brief inattention carried grave consequences.
 
 <Callout type="idea" title="Takeaway">
 Responsible action must be attentive action. A leader's momentary negligence can become another person's lifelong precedent, and devotional steadiness is likewise protected one attentive choice at a time. [46:22 – 51:20]
@@ -226,7 +226,7 @@ The teacher distinguishes _anusaraṇa_ (following instruction and authorized ex
 - One cannot imitate Krishna lifting Govardhana Hill or Lord Shiva drinking poison.
 - The sun remains uncontaminated while purifying dirty places; an ordinary person does not possess that capacity.
 - Krishna's Dvaraka pastimes display His exemplary conduct as a king, while extraordinary intimate pastimes are not a license for imitation.
-- The lecture cites Srimad-Bhagavatam 10.33.30–31 in this connection; exact Sanskrit recitation is omitted because the captions are uncertain. [57:33 – 01:02:10]
+- The lecture cites Srimad-Bhagavatam 10.33.30–31 in this connection. [57:33 – 01:02:10]
 
 <Callout type="idea" title="Takeaway">
 When leaders abandon duty, imitation magnifies the damage into social disorder. Follow Krishna's teachings and authorized example, but never imitate extraordinary divine acts without the corresponding qualification and guidance. [51:23 – 01:02:10]
@@ -288,14 +288,14 @@ BG 3.25: The learned therefore perform necessary work like the attached, but wit
 
 ### Comparative Summary Table
 
-| Verse | Primary Theme | Core Sanskrit Terms Explained | Central Mechanism / Principle | Practical Imperative |
-| :---- | :------------ | :---------------------------- | :---------------------------- | :------------------- |
-| **3.20** | Perfection through duty | _Saṁsiddhim_, _Janakādayaḥ_, _loka-saṅgraham_ [07:56] | Realized kings attained perfection while continuing responsible work for society. | Build spiritual connection and perform prescribed duty without selfish attachment. |
-| **3.21** | Leadership by example | _Ācarati_, _śreṣṭhaḥ_, _pramāṇam_, _anuvartate_ [17:54] | People reproduce the conduct and standards of those they admire. | Unite disposition with position and practice what you teach. |
-| **3.22** | Krishna has nothing to gain | _Kartavyam_, _anavāptam_, _avāptavyam_ [40:24] | Freedom from personal need does not remove responsibility to guide others. | Continue exemplary duty even when no personal result is required. |
-| **3.23** | Attentive engagement | _Jātu_, _atandritaḥ_, _mama vartma_ [46:05] | Negligence by the highest authority would be imitated by everyone. | Perform duty and devotional practice with sustained attention. |
-| **3.24** | Social consequences of neglect | _Utsīdeyuḥ_, _saṅkara_, _upahanyām prajāḥ_ [51:49] | A leader's abandonment of duty can multiply into widespread disorder and harm. | Follow divine instruction and authorized example without imitating extraordinary acts. |
-| **3.25** | Consciousness differentiates action | _Saktāḥ_, _avidvāṁsaḥ_, _vidvān_, _asaktaḥ_ [01:02:42] | Attached and learned persons may do the same visible work for entirely different purposes. | Work without attachment for Krishna's satisfaction and _loka-saṅgraha_. |
+| Verse    | Primary Theme                       | Core Sanskrit Terms Explained                           | Central Mechanism / Principle                                                              | Practical Imperative                                                                   |
+| :------- | :---------------------------------- | :------------------------------------------------------ | :----------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| **3.20** | Perfection through duty             | _Saṁsiddhim_, _Janakādayaḥ_, _loka-saṅgraham_ [07:56]   | Realized kings attained perfection while continuing responsible work for society.          | Build spiritual connection and perform prescribed duty without selfish attachment.     |
+| **3.21** | Leadership by example               | _Ācarati_, _śreṣṭhaḥ_, _pramāṇam_, _anuvartate_ [17:54] | People reproduce the conduct and standards of those they admire.                           | Unite disposition with position and practice what you teach.                           |
+| **3.22** | Krishna has nothing to gain         | _Kartavyam_, _anavāptam_, _avāptavyam_ [40:24]          | Freedom from personal need does not remove responsibility to guide others.                 | Continue exemplary duty even when no personal result is required.                      |
+| **3.23** | Attentive engagement                | _Jātu_, _atandritaḥ_, _mama vartma_ [46:05]             | Negligence by the highest authority would be imitated by everyone.                         | Perform duty and devotional practice with sustained attention.                         |
+| **3.24** | Social consequences of neglect      | _Utsīdeyuḥ_, _saṅkara_, _upahanyām prajāḥ_ [51:49]      | A leader's abandonment of duty can multiply into widespread disorder and harm.             | Follow divine instruction and authorized example without imitating extraordinary acts. |
+| **3.25** | Consciousness differentiates action | _Saktāḥ_, _avidvāṁsaḥ_, _vidvān_, _asaktaḥ_ [01:02:42]  | Attached and learned persons may do the same visible work for entirely different purposes. | Work without attachment for Krishna's satisfaction and _loka-saṅgraha_.                |
 
 ---
 

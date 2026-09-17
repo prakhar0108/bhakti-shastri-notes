@@ -6,7 +6,7 @@
 
 ## Class Snapshot & One-Line Argument Map
 
-- **Class Snapshot:** The class concludes the explanation of BG 3.8 and covers BG 3.9 through BG 3.13. It outlines why performing prescribed duties ([exact Sanskrit omitted: auto-captions uncertain]) is superior to inaction, how work must be offered as sacrifice ([exact Sanskrit omitted: auto-captions uncertain]) to Lord Vishnu to prevent material bondage, how the cosmic order operates on a mutual exchange between humans and demigods, and why consuming anything other than remnants of sacrifice ([exact Sanskrit omitted: auto-captions uncertain]) incurs sin.
+- **Class Snapshot:** The class concludes the explanation of BG 3.8 and covers BG 3.9 through BG 3.13. It outlines why performing prescribed duties is superior to inaction, how work must be offered as sacrifice to Lord Vishnu to prevent material bondage, how the cosmic order operates on a mutual exchange between humans and demigods, and why consuming anything other than remnants of sacrifice incurs sin.
 - **One-Line Argument Map:** Premature inaction causes mental and social disturbance; therefore, one must perform prescribed duty as a sacrifice (_yajna_) to Vishnu, which purifies the heart, maintains cosmic and bodily order, and frees the soul from the thief-like karma of selfish consumption.
 
 ---
@@ -27,7 +27,7 @@ In the section spanning BG 3.3 through 3.9, Krishna explains to Arjuna why worki
 
 <!-- verse:3.8 -->
 
-**Context.** Krishna instructs Arjuna to execute prescribed duties ([exact Sanskrit omitted: auto-captions uncertain]), stating that action is superior to inaction ([exact Sanskrit omitted: auto-captions uncertain]), and that even bodily maintenance ([exact Sanskrit omitted: auto-captions uncertain]) cannot succeed without work.
+**Context.** Krishna instructs Arjuna to execute prescribed duties, stating that action is superior to inaction, and that even bodily maintenance cannot succeed without work.
 
 **Key Terms Explained by the Teacher**
 
@@ -67,7 +67,7 @@ Working faithfully in prescribed, regulated duties under guidance purifies mater
 
 <!-- verse:3.9 -->
 
-**Context.** Krishna explains that work must be done for sacrifice ([exact Sanskrit omitted: auto-captions uncertain]); otherwise, all work binds the performer to this material world ([exact Sanskrit omitted: auto-captions uncertain]).
+**Context.** Krishna explains that work must be done for sacrifice; otherwise, all work binds the performer to this material world.
 
 **Key Terms Explained by the Teacher**
 
@@ -119,7 +119,7 @@ Work performed for Lord Vishnu frees one from karmic bondage, whereas all other 
 
 #### The origin of the yajna system [38:00 – 41:30]
 
-At the beginning of creation, Prajapati created living entities along with sacrifices and stated: *"By this sacrifice, you shall prosper (*prasavishyadhvam*), and it will grant your desired necessities (*ishta-kama-dhuk*)"*. Commentators' gloss: Vishvanatha Chakravarti Thakura identifies _Prajapati_ as Lord Brahma; Baladeva Vidyabhushana applies it to Lord Vishnu. The verse cited in the purport addresses the Lord as [exact Sanskrit omitted: auto-captions uncertain], and _dhara-pati_ — confirming Vishnu as the master, intelligence giver, and protector.
+At the beginning of creation, Prajapati created living entities along with sacrifices and stated: *"By this sacrifice, you shall prosper (*prasavishyadhvam*), and it will grant your desired necessities (*ishta-kama-dhuk*)"*. Commentators' gloss: Vishvanatha Chakravarti Thakura identifies _Prajapati_ as Lord Brahma; Baladeva Vidyabhushana applies it to Lord Vishnu. The verse cited in the purport confirms Vishnu as the master, intelligence giver, and protector.
 
 #### Two purposes of the yajna system [42:00 – 43:30]
 
@@ -183,7 +183,7 @@ Performing sacrifice pleases the universal administrators, purifies food intake,
 **Key Terms Explained by the Teacher**
 
 - _Tair dattan_ [50:50 – 52:00]: Given by them (the demigods).
-- [exact Sanskrit omitted: auto-captions uncertain] [50:50 – 52:00]: He is certainly a thief.
+- **Consuming without offering:** He is certainly a thief. [50:50 – 52:00]
 
 #### Cosmic theft and its consequence [50:50 – 53:00]
 
@@ -193,7 +193,7 @@ Life necessities (sunlight, air, water) are supplied by cosmic administrators. C
 
 1. Materialists seek refined sense pleasure (e.g., from fans to coolers to air conditioning).
 2. Eventually, they aspire for heavenly planets (_svarga_) where disease, aging, and bodily odors are absent.
-3. When their pious credits are exhausted ([exact Sanskrit omitted: auto-captions uncertain]), they are sent back down.
+3. When their pious credits are exhausted, they are sent back down.
 
 Over many lifetimes, this cycle helps the soul realize the futility of fruitive desires and turn to pure devotion.
 
@@ -212,7 +212,7 @@ Enjoying material resources without offering sacrifice constitutes cosmic theft,
 **Key Terms Explained by the Teacher**
 
 - _Yajna-shishtashinah_ [56:30 – 57:45]: Those who eat the remnants of sacrifice (_prasadam_).
-- [exact Sanskrit omitted: auto-captions uncertain] [56:30 – 58:30]: Those who cook solely for personal sense satisfaction eat only sin ([exact Sanskrit omitted: auto-captions uncertain]).
+- **Cooking for oneself:** Those who cook solely for personal sense satisfaction eat only sin. [56:30 – 58:30]
 
 #### Eating sacrificial remnants vs. eating for oneself [57:30 – 61:30]
 
@@ -253,7 +253,7 @@ BG 3.10: Creation began with *yajna* (*saha-yajna*) to regulate desires and show
 BG 3.11: *Yajna* establishes mutual nourishment (*parasparam bhavayantah*) between humans & demigods.
    │
    ▼
-BG 3.12: Consuming resources without offering sacrifice makes one a thief ([exact Sanskrit omitted: auto-captions uncertain]).
+BG 3.12: Consuming resources without offering sacrifice makes one a thief.
    │
    ▼
 BG 3.13: Consuming remnants of sacrifice (*yajna-shishta*) frees one from all sin.
@@ -261,14 +261,14 @@ BG 3.13: Consuming remnants of sacrifice (*yajna-shishta*) frees one from all si
 
 ### Comparative Summary Table
 
-| Verse    | Primary Theme                                                       | Core Sanskrit Terms Explained                             | Central Mechanism / Principle                                                    | Practical Imperative                                                                                         |
-| :------- | :------------------------------------------------------------------ | :-------------------------------------------------------- | :------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |
-| **3.8**  | Superiority of Action                                               | _Niyatam karma_, _Sharira-yatra_ [04:00]                  | Inaction causes mental agitation (_mithyachari_); bodily survival requires work. | Choose clean work, balance time, refine skills.                                                              |
-| **3.9**  | Work as Sacrifice                                                   | _Yajnarthat_, _Mukta-sangah_ [23:50]                      | Non-sacrificial work binds; Vishnu-centered action liberates.                    | Dedicate career, wealth, and influence to Krishna.                                                           |
-| **3.10** | Origin of Sacrifice                                                 | _Saha-yajnah_, _Ishta-kama-dhuk_ [38:00]                  | Sacrifices instituted at creation to fulfill needs and regulate senses.          | Perform _sankirtana-yajna_, the authorized method for Kali-yuga.                                             |
-| **3.11** | Cosmic Symbiosis                                                    | [exact Sanskrit omitted: auto-captions uncertain] [44:50] | Demigods supply rain and resources in return for sacrificial offerings.          | Purify food ([exact Sanskrit omitted: auto-captions uncertain]) to purify memory and consciousness.          |
-| **3.12** | Danger of Cosmic Theft                                              | [exact Sanskrit omitted: auto-captions uncertain] [50:50] | Consuming without offering is theft, leading to karmic retribution.              | Pay cosmic utility bills by offering all necessities to the Lord.                                            |
-| **3.13** | Eating Remnants ([exact Sanskrit omitted: auto-captions uncertain]) | [exact Sanskrit omitted: auto-captions uncertain] [56:30] | Offering food removes sin; cooking for oneself means ingesting sin.              | Consume strictly Krishna [exact Sanskrit omitted: auto-captions uncertain]; avoid unoffered commercial food. |
+| Verse    | Primary Theme          | Key Terms & Concepts                     | Central Mechanism / Principle                                                    | Practical Imperative                                              |
+| :------- | :--------------------- | :--------------------------------------- | :------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
+| **3.8**  | Superiority of Action  | _Niyatam karma_, _Sharira-yatra_ [04:00] | Inaction causes mental agitation (_mithyachari_); bodily survival requires work. | Choose clean work, balance time, refine skills.                   |
+| **3.9**  | Work as Sacrifice      | _Yajnarthat_, _Mukta-sangah_ [23:50]     | Non-sacrificial work binds; Vishnu-centered action liberates.                    | Dedicate career, wealth, and influence to Krishna.                |
+| **3.10** | Origin of Sacrifice    | _Saha-yajnah_, _Ishta-kama-dhuk_ [38:00] | Sacrifices instituted at creation to fulfill needs and regulate senses.          | Perform _sankirtana-yajna_, the authorized method for Kali-yuga.  |
+| **3.11** | Cosmic Symbiosis       | Mutual exchange [44:50]                  | Demigods supply rain and resources in return for sacrificial offerings.          | Purify food to purify memory and consciousness.                   |
+| **3.12** | Danger of Cosmic Theft | Consuming without offering [50:50]       | Consuming without offering is theft, leading to karmic retribution.              | Pay cosmic utility bills by offering all necessities to the Lord. |
+| **3.13** | Eating Remnants        | Remnants of sacrifice [56:30]            | Offering food removes sin; cooking for oneself means ingesting sin.              | Consume food offered to Krishna; avoid unoffered commercial food. |
 
 ---
 
@@ -293,7 +293,7 @@ BG 3.13: Consuming remnants of sacrifice (*yajna-shishta*) frees one from all si
 
 - **Participant (Rahul Prabhu):** Maya feels naturally attractive, whereas Krishna consciousness often feels difficult. How can Krishna consciousness become our natural, attractive goal?
 - **Teacher's Clarification:**
-  - _The Jaundice Analogy [80:00 – 81:30]:_ Rupa Goswami explains ([exact Sanskrit omitted: auto-captions uncertain]) that a jaundiced tongue cannot taste sweetness in sugar candy, but sugar candy is the remedy. As purification occurs, the natural sweet taste returns ([exact Sanskrit omitted: auto-captions uncertain]).
+  - _The Jaundice Analogy [80:00 – 81:30]:_ Rupa Goswami explains that a jaundiced tongue cannot taste sweetness in sugar candy, but sugar candy is the remedy. As purification occurs, the natural sweet taste returns.
   - _Association:_ Materialists make material objects look attractive; devotee association makes Krishna attractive.
   - _Determined Treatment:_ Like a patient undergoing treatment, one must follow the purification process under guidance with willpower until the natural taste is experienced.
 
@@ -311,8 +311,8 @@ BG 3.13: Consuming remnants of sacrifice (*yajna-shishta*) frees one from all si
 - **BG 3.8:** Prescribed work (_niyatam karma_) prevents pseudo-meditation (_mithyachara_). Bodily survival (_sharira-yatra_) requires action.
 - **BG 3.9:** _Yajna_ = Lord Vishnu. Work done for any other purpose produces material bondage (_karma-bandhana_).
 - **BG 3.10:** _Prajapati_ (Brahma / Vishnu) created living beings alongside _yajna_ (_saha-yajna_), designating it as _ishta-kama-dhuk_ (the fulfiller of desires).
-- **BG 3.11:** The cosmic exchange ([exact Sanskrit omitted: auto-captions uncertain]) yields [exact Sanskrit omitted: auto-captions uncertain]. [exact Sanskrit omitted: auto-captions uncertain] (pure diet) leads to [exact Sanskrit omitted: auto-captions uncertain] (pure existence), [exact Sanskrit omitted: auto-captions uncertain] (steady memory), and spiritual liberation.
-- **BG 3.12:** Consuming universal resources without performing [exact Sanskrit omitted: auto-captions uncertain] makes one a thief ([exact Sanskrit omitted: auto-captions uncertain]).
+- **BG 3.11:** Humans and demigods participate in reciprocal exchange through sacrifice. Pure diet leads to pure existence, steady memory, and spiritual liberation.
+- **BG 3.12:** Consuming universal resources without offering sacrifice makes one a thief.
 - **BG 3.13:** Devotees eat _yajna-shishta_ (remnants of sacrifice) and become free from sins; those who cook for themselves (_atma-karanat_) eat only sin (_papam_).
 
 ### Core Analogies & Metaphors

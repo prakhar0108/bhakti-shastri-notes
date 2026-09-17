@@ -425,6 +425,10 @@ function teacherLine(metadata) {
 
 async function transformBody(rawBody, metadata) {
   let body = stripLeadingHeading(rawBody);
+  body = body.replace(
+    /^##[ \t]+Transcript Verification Flags[ \t]*\r?\n[\s\S]*?(?=^#{1,2}[ \t]+|(?![\s\S]))/gm,
+    "",
+  );
   body = convertAsciiArrowDiagrams(body);
   body = injectArgumentMapFlowchart(body);
   body = await injectVerses(body);

@@ -49,7 +49,7 @@
 - The lecture treats purity of heart as a prerequisite for the contemplative _jñāna-yoga_ path under discussion.
 - An attached person who abruptly gives up work may lose ordinary engagement without gaining spiritual absorption, risking the hypocrisy described earlier in BG 3.6.
 - Rupa and Sanatana Goswamis could leave extraordinary material opulence because of their spiritual advancement; their external renunciation cannot be separated from that qualification.
-- A contrasting freedom-movement anecdote illustrates difficulty adjusting to reduced material facilities. The captioned salary figures are inconsistent and are not reproduced as facts.
+- A contrasting freedom-movement anecdote illustrates difficulty adjusting to reduced material facilities.
 - Ordinary audiences more readily appreciate responsible, unattached activity. Deep renunciation becomes inspiring as their own spiritual appreciation matures.
 
 #### Avoid uprooting students and families [18:00 – 20:00]
@@ -68,7 +68,7 @@ Srila Prabhupada's example is presented as personal steadiness combined with pat
 - An English professor was engaged in editing.
 - Translation ability was engaged in regional-language book projects, with the teacher naming Gour Govinda Maharaja and Bhakti Charu Swami.
 
-The principle is to ask how a person's present talent can serve Krishna instead of first declaring their entire life useless. Proper names and biographical particulars in these anecdotes need audio verification.
+The principle is to ask how a person's present talent can serve Krishna instead of first declaring their entire life useless.
 
 #### The right goal requires the right method [22:00 – 28:00]
 
@@ -112,7 +112,7 @@ Teach through your own responsible conduct and help others direct their present 
 | Material nature  | Supplies the body, senses, and material means; facilitates activity through the modes | Proudly claiming to accomplish everything independently               |
 | The Supreme Lord | Gives the final sanction                                                              | Assuming that desire and material resources alone guarantee execution |
 
-The teacher explicitly rejects using this verse to excuse wrongdoing. The living being receives consequences because desire initiates the process; dependence on nature and divine sanction does not erase accountability. A court anecdote illustrates this misuse of philosophy, without establishing a verified historical case. [32:00 – 38:00]
+The teacher explicitly rejects using this verse to excuse wrongdoing. The living being receives consequences because desire initiates the process; dependence on nature and divine sanction does not erase accountability. A court anecdote illustrates this misuse of philosophy. [32:00 – 38:00]
 
 #### Not the only doer does not mean no role at all [38:00 – 40:00]
 
@@ -155,7 +155,7 @@ The soul is responsible for its desires but is not an independent executor of ac
 
 - _Tattva-vit_: One who knows the truth of how action occurs. [44:00 – 46:00]
 - _Guṇa-karma-vibhāga_: The distinctions concerning qualities and activities. [44:00 – 46:00]
-- **Senses interacting with their objects:** The teacher notes that _guṇa_ has different meanings according to context and here explains it in terms of the senses. [exact Sanskrit phrase omitted: auto-captions uncertain] [44:00 – 46:00]
+- **Senses interacting with their objects:** The teacher notes that _guṇa_ has different meanings according to context and here explains it in terms of the senses. [44:00 – 46:00]
 - _Na sajjate_: Does not become attached. [44:00 – 46:00]
 
 #### Observe sense activity without identifying with it [44:00 – 46:00]
@@ -187,7 +187,7 @@ Recognize bodily and sensory processes without confusing them with your identity
 
 - _Prakṛter guṇa-sammūḍhāḥ_: Those bewildered by the modes of nature. [48:00 – 50:00]
 - _Sajjante_: They become attached to qualities and activities. [48:00 – 50:00]
-- **Incomplete versus fuller knowledge:** The teacher contrasts those who do not understand the whole principle with those who do. [exact Sanskrit omitted: auto-captions uncertain] [48:00 – 50:00]
+- **Incomplete versus fuller knowledge:** The teacher contrasts those who do not understand the whole principle with those who do. [48:00 – 50:00]
 - _Na vicālayet_: Do not unsettle or disturb them. [48:00 – 52:00]
 
 #### Do not turn gradual advancement into no advancement [50:00 – 54:00]
@@ -255,7 +255,7 @@ Do not remove a person's current support without helping establish a higher one.
 - Giving to a loved family member feels different from losing money in an impersonal transaction.
 - The teacher contrasts easily giving to one's child with remembering a small amount owed by a neighbor, illustrating the effect of belonging and relationship.
 - _Sambandha-jñāna_, understanding one's relationship with Krishna, nourishes devotion: I belong to Krishna, and what I have is meant for His service.
-- Examples of devotees' small offerings and Krishna's generous reciprocation reinforce that devotional giving is relational, not meaningless loss. The lecture's individual anecdotal details remain subject to verification.
+- Examples of devotees' small offerings and Krishna's generous reciprocation reinforce that devotional giving is relational, not meaningless loss.
 
 #### Use what was received for its intended service [70:00 – 74:00]
 

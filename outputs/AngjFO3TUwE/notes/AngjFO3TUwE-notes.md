@@ -41,7 +41,7 @@
 
 - **Akarmakṛt (अकर्मकृत):** Remaining completely free from performing any work (`06:40`).
 - **Avaśaḥ (अवश):** Helplessly or involuntarily compelled by the modes (`07:20`, `18:40`).
-- _[exact Sanskrit omitted: auto-captions uncertain]:_ The modes born of material nature (_sattva_, _rajas_, _tamas_) that force one to act (`07:40`).
+- **Modes of material nature:** The modes born of material nature (_sattva_, _rajas_, _tamas_) that force one to act (`07:40`).
 - **Anusandhāna (अनुसंधान):** Deliberate research, planning, or scheming for sense objects (`09:40`–`10:40`).
 
 #### Activity of the soul vs. the body [10:40 – 11:20]
@@ -79,7 +79,7 @@ Inaction is unnatural and impossible. Because the soul is constitutionally activ
 - **Karmendriyāṇi saṁyamya (कर्मेन्द्रियाणि संयम्य):** Restraining the external working senses (hands, legs, speech, etc.) from physical indulgence (`20:00`, `22:20`).
 - **Manasā smaran (मनसा स्मरण):** Actively cultivating and dwelling upon sense gratification in the mind (`20:00`, `23:20`).
 - **Indriyārthān (इन्द्रियार्थान्):** Sense objects (`20:00`, `21:00`).
-- _[exact Sanskrit omitted: auto-captions uncertain]:_ A foolish, bewildered, or deluded person (`20:20`).
+- **Deluded person:** A foolish, bewildered, or deluded person (`20:20`).
 - **Mithyācāra (मिथ्याचार):** A pretender or hypocrite (`20:40`). **Hypocrisy (Teacher's Definition):** Taking advantage of the facilities of a renounced status without accepting its responsibilities (`21:40`–`22:20`).
 
 #### Distinctions: sadhaka vs. mithyācāra [23:20 – 26:20]
