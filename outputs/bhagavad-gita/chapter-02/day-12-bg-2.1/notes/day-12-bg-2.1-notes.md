@@ -55,7 +55,7 @@ Chapter One states the **problem definition**; Chapter Two begins the treatment.
 
 ## Chapter Two Roadmap [20:00 – 30:00]
 
-Śrīla Prabhupāda titles this chapter *Contents of the Gītā Summarized*, because the whole Gītā is summarised here. The teacher offers the acronym **G-I-T-A** for its four sections.
+Śrīla Prabhupāda titles this chapter _Contents of the Gītā Summarized_, because the whole Gītā is summarised here. The teacher offers the acronym **G-I-T-A** for its four sections.
 
 ```
 BG 2.1 - 2.10: G for Guru - the need of a spiritual master, because the material world is full of perplexities that one's own mind and intelligence cannot resolve
@@ -83,13 +83,13 @@ BG 2.54 - 2.72: A for Atmarama - the sthita-prajna, the devotee fixed in steady 
 
 ### Section Map
 
-| Section | Verses | Acronym cue | Central theme |
-| --- | --- | --- | --- |
-| Need of a spiritual master | 2.1 – 2.10 | **G** — Guru | Material perplexities force the surrender that makes real inquiry possible |
-| Knowledge of the self | 2.11 – 2.30 | **I** — Identity | The soul is distinct from the body; analytical (_sāṅkhya_) study |
-| Duty of the body | 2.31 – 2.38 | **T** — The prescribed duty | _Svadharma_ of a _kṣatriya_; Arjuna's own arguments reversed |
-| The same duty seen devotionally | 2.39 – 2.53 | **T** (continued) | The same work, performed without attachment to results |
-| The steady devotee | 2.54 – 2.72 | **A** — Ātmārāma | _Sthita-prajña_ — the fixed, self-satisfied devotee |
+| Section                         | Verses      | Acronym cue                 | Central theme                                                              |
+| ------------------------------- | ----------- | --------------------------- | -------------------------------------------------------------------------- |
+| Need of a spiritual master      | 2.1 – 2.10  | **G** — Guru                | Material perplexities force the surrender that makes real inquiry possible |
+| Knowledge of the self           | 2.11 – 2.30 | **I** — Identity            | The soul is distinct from the body; analytical (_sāṅkhya_) study           |
+| Duty of the body                | 2.31 – 2.38 | **T** — The prescribed duty | _Svadharma_ of a _kṣatriya_; Arjuna's own arguments reversed               |
+| The same duty seen devotionally | 2.39 – 2.53 | **T** (continued)           | The same work, performed without attachment to results                     |
+| The steady devotee              | 2.54 – 2.72 | **A** — Ātmārāma            | _Sthita-prajña_ — the fixed, self-satisfied devotee                        |
 
 ---
 
@@ -123,12 +123,12 @@ The symptoms progress in sequence: Arjuna's body began to tremble, his bow slipp
   - The scorpion bored into his hand and blood flowed until it touched Paraśurāma, who awoke — and not even a sound of pain had escaped Karṇa.
   - On that evidence Paraśurāma concluded he could not be a _brāhmaṇa_, but must be a _kṣatriya_.
 - **Weakness is exploited in war** [38:00]: as in boxing, "hit where it hurts" — once an opponent's injured spot is visible, every subsequent strike targets it. For a warrior of Arjuna's stature to show this before the assembled armies indicates extraordinary internal turmoil.
-- **The redeeming feature** [40:00]: he spoke these words *to* Kṛṣṇa — he took shelter rather than acting on his own conclusion.
+- **The redeeming feature** [40:00]: he spoke these words _to_ Kṛṣṇa — he took shelter rather than acting on his own conclusion.
 
 #### Purport point 1 — Compassion misapplied [40:00 – 44:00]
 
 - Material compassion, lamentation and tears are all signs of ignorance of the real self; compassion for the eternal soul is self-realization.
-- No one knows where compassion should be applied: *compassion for the dress of a drowning man is senseless*. Swimming out at risk to one's life and returning with only the man's coat accomplishes nothing — the man has still drowned. One who does not know this and laments for the outward dress, the gross body, is called a _śūdra_, one who laments unnecessarily.
+- No one knows where compassion should be applied: _compassion for the dress of a drowning man is senseless_. Swimming out at risk to one's life and returning with only the man's coat accomplishes nothing — the man has still drowned. One who does not know this and laments for the outward dress, the gross body, is called a _śūdra_, one who laments unnecessarily.
 - The teacher notes that Śrīla Prabhupāda pressed this point against social service and philanthropy more strongly than almost any other _ācārya_: such work is widely appreciated, but it is not the ultimate solution, because ultimately the soul has to be rescued.
 - **Balancing point** [42:00 – 44:00]: the body cannot be preserved eternally by exercise or yoga. Maintaining health is worthwhile when its purpose is service to the Lord — a healthy body turned to further sense gratification only increases future difficulty.
 
