@@ -1,12 +1,13 @@
 {
   "video_url": "https://www.youtube.com/watch?v=zjABwiLAE2c",
+  "video_id": "zjABwiLAE2c",
   "title": "Day 33 | BG 3.20 - 3.25 | Karma - yoga | Bhakti Shastri Course",
   "speaker": "HG Adishyam Prabhuji",
   "duration": "1:23:36",
-  "caption_language": "zjABwiLAE2c.hi-orig.vtt",
-  "transcript_path": "outputs/transcripts/zjABwiLAE2c-clean-transcript.txt",
-  "notes_source_path": "outputs/transcripts/zjABwiLAE2c-notes-source.md",
-  "notes_path": "outputs/zjABwiLAE2c/notes/zjABwiLAE2c-notes.md",
+  "caption_language": "day-33-bg-3.20-3.25.hi-orig.vtt",
+  "transcript_path": "transcripts/day-33-bg-3.20-3.25-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-33-bg-3.20-3.25-notes-source.md",
+  "notes_path": "notes/day-33-bg-3.20-3.25-notes.md",
   "notes_generator": "manual-transcript-grounded-draft-plus-vedabase-verse-verification",
   "grounding_rule": "Lecture commentary is generated only from the extracted transcript; canonical verse-reference blocks are separately sourced from vedabase.io and labeled as an exception."
 }

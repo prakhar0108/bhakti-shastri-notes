@@ -13,6 +13,13 @@ from typing import Any
 TIMESTAMP_RE = re.compile(r"(?P<h>\d{2}):(?P<m>\d{2}):(?P<s>\d{2}\.\d{3})")
 INLINE_TAG_RE = re.compile(r"<[^>]+>")
 
+# Matches lecture titles like "Day 31 | BG 3.8 - 3.13 | Karma - yoga | Bhakti Shastri Course".
+LECTURE_TITLE_RE = re.compile(
+    r"day\s*(?P<day>\d+)\s*\|\s*bg\s*(?P<chapter>\d+)\.(?P<start>\d+)"
+    r"(?:\s*[-\u2013]\s*(?:(?P<end_chapter>\d+)\.)?(?P<end>\d+))?",
+    re.IGNORECASE,
+)
+
 
 @dataclass(frozen=True)
 class TranscriptLine:
@@ -27,9 +34,12 @@ class TranscriptResult:
     """Files and metadata produced by transcript extraction."""
 
     video_url: str
+    video_id: str
     title: str | None
     duration: str | None
     caption_language: str
+    slug: str
+    lecture_dir: Path
     transcript_path: Path
     notes_source_path: Path
     line_count: int
@@ -237,6 +247,33 @@ def write_notes_source(lines: list[TranscriptLine], output_path: Path) -> None:
             file.write(paragraph + "\n")
 
 
+def lecture_location(
+    output_root: Path,
+    title: str | None,
+    video_id: str,
+) -> tuple[str, Path]:
+    """Map a lecture title to a readable slug and `<book>/<chapter>/<day>` folder.
+
+    "Day 31 | BG 3.8 - 3.13 | ..." becomes
+    `day-31-bg-3.8-3.13` under `bhagavad-gita/chapter-03/`. Titles that don't follow
+    the course naming fall back to the video id under `unsorted/`.
+    """
+
+    match = LECTURE_TITLE_RE.search(title or "")
+    if not match:
+        return video_id, output_root / "unsorted" / video_id
+
+    chapter = int(match.group("chapter"))
+    verses = f"{chapter}.{int(match.group('start'))}"
+    if match.group("end"):
+        end_chapter = int(match.group("end_chapter") or chapter)
+        verses += f"-{end_chapter}.{int(match.group('end'))}"
+
+    slug = f"day-{int(match.group('day')):02d}-bg-{verses}"
+    directory = output_root / "bhagavad-gita" / f"chapter-{chapter:02d}" / slug
+    return slug, directory
+
+
 def extract_transcript(
     video_url: str,
     output_dir: str | Path = "outputs",
@@ -245,31 +282,38 @@ def extract_transcript(
     """Extract captions from a YouTube URL and write transcript artifacts."""
 
     output_root = Path(output_dir).expanduser().resolve()
-    work_dir = output_root / "work"
-    transcript_dir = output_root / "transcripts"
-    work_dir.mkdir(parents=True, exist_ok=True)
-    transcript_dir.mkdir(parents=True, exist_ok=True)
+    output_root.mkdir(parents=True, exist_ok=True)
 
-    metadata = get_video_metadata(video_url, work_dir)
+    metadata = get_video_metadata(video_url, output_root)
     video_id = metadata.get("id") or "youtube-video"
     title = metadata.get("title")
     duration = metadata.get("duration_string")
 
+    slug, lecture_dir = lecture_location(output_root, title, video_id)
+    work_dir = lecture_dir / "work"
+    transcript_dir = lecture_dir / "transcripts"
+    work_dir.mkdir(parents=True, exist_ok=True)
+    transcript_dir.mkdir(parents=True, exist_ok=True)
+
     vtt_path = download_captions(video_url, work_dir, language=language)
+    vtt_path = vtt_path.rename(work_dir / f"{slug}.{vtt_path.name.split('.', 1)[1]}")
     lines = clean_vtt_text(vtt_path.read_text(encoding="utf-8"))
     if not lines:
         raise TranscriptError("Captions were downloaded but no text could be parsed.")
 
-    transcript_path = transcript_dir / f"{video_id}-clean-transcript.txt"
-    notes_source_path = transcript_dir / f"{video_id}-notes-source.md"
+    transcript_path = transcript_dir / f"{slug}-clean-transcript.txt"
+    notes_source_path = transcript_dir / f"{slug}-notes-source.md"
     write_transcript(lines, transcript_path, video_url, title)
     write_notes_source(lines, notes_source_path)
 
     return TranscriptResult(
         video_url=video_url,
+        video_id=video_id,
         title=title,
         duration=duration,
         caption_language=vtt_path.name,
+        slug=slug,
+        lecture_dir=lecture_dir,
         transcript_path=transcript_path,
         notes_source_path=notes_source_path,
         line_count=len(lines),

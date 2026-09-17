@@ -61,9 +61,7 @@ def run_notes_pipeline(
         output_dir=output_root,
         language=language,
     )
-    notes_path = output_root / "notes" / (
-        result.transcript_path.name.replace("-clean-transcript.txt", "-notes.md")
-    )
+    notes_path = result.lecture_dir / "notes" / f"{result.slug}-notes.md"
     use_gemini = notes_mode == "gemini" or (
         notes_mode == "auto" and gemini_is_configured()
     )
@@ -85,17 +83,20 @@ def run_notes_pipeline(
 
     metadata: dict[str, object] = {
         "video_url": result.video_url,
+        "video_id": result.video_id,
         "title": result.title,
         "duration": result.duration,
         "caption_language": result.caption_language,
         "line_count": result.line_count,
-        "transcript_path": str(result.transcript_path),
-        "notes_source_path": str(result.notes_source_path),
-        "notes_path": str(notes_path),
+        "transcript_path": str(result.transcript_path.relative_to(result.lecture_dir)),
+        "notes_source_path": str(
+            result.notes_source_path.relative_to(result.lecture_dir)
+        ),
+        "notes_path": str(notes_path.relative_to(result.lecture_dir)),
         "notes_generator": notes_generator,
         "grounding_rule": "Notes are generated only from extracted captions/transcript.",
     }
-    metadata_path = output_root / "metadata.json"
+    metadata_path = result.lecture_dir / "metadata.json"
     metadata_path.write_text(
         json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",

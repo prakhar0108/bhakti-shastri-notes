@@ -22,10 +22,10 @@ bs-notes/
 ## Requirements
 
 Before you begin, ensure you have:
+
 - **uv**: Python package manager (used for all dependency management in this project) - [Install](https://docs.astral.sh/uv/getting-started/installation/) ([add packages](https://docs.astral.sh/uv/concepts/dependencies/) with `uv add <package>`)
 - **agents-cli**: Agents CLI - Install with `uv tool install google-agents-cli`
 - **Google Cloud SDK**: For GCP services - [Install](https://cloud.google.com/sdk/docs/install)
-
 
 ## Quick Start
 
@@ -64,12 +64,17 @@ uv run bs-notes "https://www.youtube.com/watch?v=VIDEO_ID" --notes-mode gemini
 uv run bs-notes "https://www.youtube.com/watch?v=VIDEO_ID" --notes-mode extractive
 ```
 
-Outputs:
+Outputs are grouped per lecture, in a folder named after the class rather than the YouTube id —
+`outputs/<book>/chapter-NN/day-N-bg-X.X-X.X/`, e.g. `outputs/bhagavad-gita/chapter-03/day-31-bg-3.8-3.13/`:
 
-- `outputs/transcripts/*-clean-transcript.txt`
-- `outputs/transcripts/*-notes-source.md`
-- `outputs/notes/*-notes.md`
-- `outputs/metadata.json`
+- `transcripts/<lecture>-clean-transcript.txt`
+- `transcripts/<lecture>-notes-source.md`
+- `notes/<lecture>-notes.md`
+- `work/<lecture>.<lang>.vtt`
+- `metadata.json`
+
+Lectures whose title doesn't follow the `Day N | BG X.X - X.X | ...` course naming land in
+`outputs/unsorted/<video-id>/`.
 
 Requirements:
 
@@ -88,20 +93,20 @@ The notes generator prefers subject-study structure over raw transcript chunks. 
 
 ## Commands
 
-| Command              | Description                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------------------- |
-| `agents-cli install` | Install dependencies using uv                                                         |
-| `agents-cli playground` | Launch local development environment                                                  |
-| `agents-cli lint`    | Run code quality checks                                                               |
-| `agents-cli eval`    | Evaluate agent behavior (generate, grade, analyze, and more — see `agents-cli eval --help`) |
-| `uv run pytest tests/unit tests/integration` | Run unit and integration tests                                                        || [A2A Inspector](https://github.com/a2aproject/a2a-inspector) | Launch A2A Protocol Inspector                                                        |
+| Command                                      | Description                                                                                 |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------- | --- | ------------------------------------------------------------ | ----------------------------- |
+| `agents-cli install`                         | Install dependencies using uv                                                               |
+| `agents-cli playground`                      | Launch local development environment                                                        |
+| `agents-cli lint`                            | Run code quality checks                                                                     |
+| `agents-cli eval`                            | Evaluate agent behavior (generate, grade, analyze, and more — see `agents-cli eval --help`) |
+| `uv run pytest tests/unit tests/integration` | Run unit and integration tests                                                              |     | [A2A Inspector](https://github.com/a2aproject/a2a-inspector) | Launch A2A Protocol Inspector |
 
 ## 🛠️ Project Management
 
-| Command | What It Does |
-|---------|--------------|
-| `agents-cli scaffold enhance` | Add CI/CD pipelines and Terraform infrastructure |
-| `agents-cli infra cicd` | One-command setup of entire CI/CD pipeline + infrastructure |
+| Command                       | What It Does                                                   |
+| ----------------------------- | -------------------------------------------------------------- |
+| `agents-cli scaffold enhance` | Add CI/CD pipelines and Terraform infrastructure               |
+| `agents-cli infra cicd`       | One-command setup of entire CI/CD pipeline + infrastructure    |
 | `agents-cli scaffold upgrade` | Auto-upgrade to latest version while preserving customizations |
 
 ---

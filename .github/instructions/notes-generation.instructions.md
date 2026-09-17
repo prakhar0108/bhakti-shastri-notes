@@ -155,16 +155,25 @@ Notes on this template:
 
 ```
 outputs/
-├── <VIDEO_ID>/
-│   ├── metadata.json        # video_url, title ("Day N | BG X.X - X.X | Karma - yoga | ..."),
-│   │                         # duration, caption_language, transcript_path, notes_source_path,
-│   │                         # notes_path, grounding_rule
-│   ├── transcripts/         # *-clean-transcript.txt, *-notes-source.md
-│   ├── notes/               # *-notes.md  <- the file this document governs
-│   └── work/                # raw caption files (*.vtt)
+├── <book>/                       # bhagavad-gita (one folder per course book)
+│   └── chapter-NN/               # chapter-03 (zero-padded chapter number)
+│       └── day-N-bg-X.X-X.X/     # day-31-bg-3.8-3.13 — one folder per class
+│           ├── metadata.json     # video_url, video_id, title ("Day N | BG X.X - X.X | Karma - yoga | ..."),
+│           │                     # duration, caption_language, line_count, notes_generator,
+│           │                     # grounding_rule, plus transcript/notes paths relative to this folder
+│           ├── transcripts/      # <lecture-slug>-clean-transcript.txt, <lecture-slug>-notes-source.md
+│           ├── notes/            # <lecture-slug>-notes.md  <- the file this document governs
+│           └── work/             # raw caption files (<lecture-slug>.<lang>.vtt)
 └── shared/
-    └── verses/               # bg-<chapter>-<verse>.md, one canonical `<Shloka>` per verse
+    └── verses/                   # bg-<chapter>-<verse>.md, one canonical `<Shloka>` per verse
 ```
+
+Every file inside a lecture folder is named after that folder's slug — never the YouTube video
+id (the id lives in `metadata.json`). The slug also becomes the published page URL
+(`day-31-bg-3.8-3.13-notes.md` → `/docs/day-31-bg-3-8-3-13`), so renaming a lecture folder
+changes a live URL. `app/transcript.py` (`lecture_location`) derives the slug and folder from the
+video title, so `uv run bs-notes <url>` writes straight into this layout; titles that don't match
+the `Day N | BG X.X - X.X` shape fall back to `outputs/unsorted/<video-id>/`.
 
 `metadata.json`'s `title` (not the note's own `#` heading) is what actually renders as the page
 title and drives sidebar day-ordering (`extractDayNumber` in `web/scripts/sync-notes.mjs`) —

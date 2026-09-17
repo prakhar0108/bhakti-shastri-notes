@@ -1,0 +1,14 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=AngjFO3TUwE",
+  "video_id": "AngjFO3TUwE",
+  "title": "Day 30 | BG 3.5 - 3.8 | Karma - yoga | Bhakti Shastri Course",
+  "speaker": "HG Adishyam Prabhuji",
+  "duration": "57:33",
+  "caption_language": "day-30-bg-3.5-3.8.hi-orig.vtt",
+  "line_count": 1113,
+  "transcript_path": "transcripts/day-30-bg-3.5-3.8-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-30-bg-3.5-3.8-notes-source.md",
+  "notes_path": "notes/day-30-bg-3.5-3.8-notes.md",
+  "notes_generator": "gemini-draft-plus-grounding-audit-plus-manual-source-audit",
+  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+}
