@@ -2,12 +2,13 @@
   "video_url": "https://www.youtube.com/watch?v=8EO5P5AN0NY",
   "video_id": "8EO5P5AN0NY",
   "title": "Day 18 | BG 2.16 - 2.21 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "speaker": "HG Adishyam Prabhuji",
   "duration": "1:00:53",
   "caption_language": "day-18-bg-2.16-2.21.hi-orig.vtt",
   "line_count": 1101,
   "transcript_path": "transcripts/day-18-bg-2.16-2.21-clean-transcript.txt",
   "notes_source_path": "transcripts/day-18-bg-2.16-2.21-notes-source.md",
   "notes_path": "notes/day-18-bg-2.16-2.21-notes.md",
-  "notes_generator": "deterministic-extractive",
-  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. Main verse reference blocks are separately verified directly against vedabase.io; uncertain captioned recitations remain flagged."
 }
