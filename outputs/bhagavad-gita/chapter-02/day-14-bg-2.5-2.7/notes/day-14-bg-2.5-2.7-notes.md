@@ -6,14 +6,14 @@
 
 ## Class Snapshot & One-Line Argument Map
 
-- **Class Snapshot:** Arjuna completes his case. BG 2.5 argues that begging is better than killing worshipable teachers, and that a kingdom won that way would be tainted with blood. BG 2.6 is his fifth reason — indecision: he does not know whether victory or defeat is better, and would not wish to live even after winning. The commentaries read this same verse as showing Arjuna's *qualification* to receive knowledge, and BG 2.7 records the turn: he stops advising and formally accepts Kṛṣṇa as his spiritual master. The verse is introduced here and taken in full in the next class.
+- **Class Snapshot:** Arjuna completes his case. BG 2.5 argues that begging is better than killing worshipable teachers, and that a kingdom won that way would be tainted with blood. BG 2.6 is his fifth reason — indecision: he does not know whether victory or defeat is better, and would not wish to live even after winning. The commentaries read this same verse as showing Arjuna's _qualification_ to receive knowledge, and BG 2.7 records the turn: he stops advising and formally accepts Kṛṣṇa as his spiritual master. The verse is introduced here and taken in full in the next class.
 - **One-Line Argument Map:** Arjuna argues that even a kingdom gained by killing worshipable elders would be tainted with blood -> then admits he cannot tell whether conquering or being conquered is better, since he would not want to live either way -> this exhausts his own analysis and leaves him bewildered about duty -> so he gives up the role of advisor, declares himself Kṛṣṇa's disciple, and asks to be instructed decisively.
 
 ---
 
 ## Continuity & Recap from Preceding Class [02:00 – 10:00]
 
-- **The chapter in outline** [02:00 – 04:00]: Chapter Two has 72 verses; in Sanskrit it is known as the chapter distinguishing the self from the non-self, and Śrīla Prabhupāda titles it *Contents of the Gītā Summarized*. Its four sections were revised — _G_ for guru (2.1 – 2.10), _I_ for identity (2.11 – 2.30), the two _dharmas_ with the description of _karma-kāṇḍa_ and _niṣkāma karma-yoga_ (2.31 – 2.53), and _A_ for _ātmārāma_, the _sthita-prajña_ (2.54 – 2.72).
+- **The chapter in outline** [02:00 – 04:00]: Chapter Two has 72 verses; in Sanskrit it is known as the chapter distinguishing the self from the non-self, and Śrīla Prabhupāda titles it _Contents of the Gītā Summarized_. Its four sections were revised — _G_ for guru (2.1 – 2.10), _I_ for identity (2.11 – 2.30), the two _dharmas_ with the description of _karma-kāṇḍa_ and _niṣkāma karma-yoga_ (2.31 – 2.53), and _A_ for _ātmārāma_, the _sthita-prajña_ (2.54 – 2.72).
 - **Why identity comes first** [02:00]: whatever we identify with is what we then labour to serve, so knowing what we are must precede knowing what to do.
 - **BG 2.1 – 2.4 recapped** [06:00 – 10:00]: Arjuna's collapse and Sañjaya's report; Kṛṣṇa's question about where such impurity came from at such an hour; the three losses; the rebuke of impotence and petty weakness of heart; and Arjuna's reply that Bhīṣma and Droṇa are worshipable — one gave him his life and the other taught him archery, so they deserve a shower of flowers, not a shower of arrows.
 - **A note from the commentary** [10:00]: Baladeva Vidyābhūṣaṇa observes that Arjuna's use of two similar names in BG 2.4 — Madhusūdana and ari-sūdana — is technically a fault of repetition by the rules of grammar; but a person overwhelmed by emotion no longer attends to such things.
@@ -94,7 +94,7 @@ The teacher reconstructs the exchange implicit in the verse:
 - Arjuna's case is heavier still: not only his own future but generations to come and the whole world depend on what he decides.
 - **Where devotees face this** [30:00]: choosing an _āśrama_, or deciding from whom to take initiation when many spiritual masters are glorious — confusion of this kind consumes a person's energy until it is resolved.
 
-#### Baladeva Vidyābhūṣaṇa: this verse shows Arjuna is *qualified* [22:00 – 28:00]
+#### Baladeva Vidyābhūṣaṇa: this verse shows Arjuna is _qualified_ [22:00 – 28:00]
 
 The commentary reads the same speech as evidence that Arjuna is a fit candidate for transcendental knowledge, listing the qualifications a recipient must have:
 

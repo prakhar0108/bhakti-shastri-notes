@@ -46,13 +46,13 @@
 Viśvanātha Cakravartī Ṭhākura's reading, as the teacher presents it:
 
 - Kṛṣṇa: if you are confused about _dharma_, go and ask Vyāsadeva — you have studied so many scriptures yourself.
-- Arjuna: _pṛcchāmi tvām_ — I am asking *You*.
+- Arjuna: _pṛcchāmi tvām_ — I am asking _You_.
 - Kṛṣṇa: but you have not given Me an opportunity to speak at all; through the whole first chapter you did not even want the meaning of the Gītā.
 - Arjuna: _śiṣyas te 'ham_ — until now there was friendship; now I am Your disciple, and I will not argue.
 
 #### Why a guru is needed at all [10:00 – 14:00]
 
-- As long as we proceed on our own intelligence alone, in whatever _āśrama_ or _varṇa_, mistakes multiply. Intelligence is not discarded — it is used *to accept* a spiritual master, and afterwards used to carry out his instructions.
+- As long as we proceed on our own intelligence alone, in whatever _āśrama_ or _varṇa_, mistakes multiply. Intelligence is not discarded — it is used _to accept_ a spiritual master, and afterwards used to carry out his instructions.
 - Scripture reveals its essence to one who lives under the shelter of the guru and the _ācāryas_ — _ācāryavān puruṣo veda_.
 - **Prahlāda and Hiraṇyakaśipu** [14:00]: our position before _māyā_ is that of a small boy before a giant whose head reached the clouds. Prahlāda Mahārāja had the shelter of Lord Nṛsiṁhadeva. Practising devotion without shelter is "Prahlāda facing Hiraṇyakaśipu without Nṛsiṁhadeva" — even a very small thing can knock us down when we are unsheltered, whereas with shelter even opponents of that magnitude are survivable.
 
@@ -66,7 +66,7 @@ Viśvanātha Cakravartī Ṭhākura's reading, as the teacher presents it:
 
 #### Why sheltering is hard, and what makes learning possible [18:00]
 
-- As long as we are convinced by our own understanding — even our understanding *of devotional life* — taking shelter is difficult, because we are firmly attached to our own opinion.
+- As long as we are convinced by our own understanding — even our understanding _of devotional life_ — taking shelter is difficult, because we are firmly attached to our own opinion.
 - **Potential difference:** water falls only from a height, and electricity flows only where there is a potential difference. Knowledge transfers only when the receiver accepts that he stands lower. One who thinks "I know" cannot be taught by anyone.
 - **Ego as the block:** where ego comes between us and a devotee — a clash, a quarrel — we cannot even hear a class from that devotee. The learning is blocked. This is why Arjuna first makes himself humble: _śiṣyas te 'ham_.
 
@@ -121,7 +121,7 @@ Viśvanātha Cakravartī Ṭhākura's dialogue continues:
 - Śrīla Prabhupāda writes that although Arjuna was putting forward so many arguments based on knowledge of the principles of religion and moral codes, it appears that he was unable to solve his real problem without the help of the spiritual master.
 - And then the line the teacher calls a golden statement: **academic knowledge, scholarship and high position are all useless in solving the problems of life; help can be given only by a spiritual master like Kṛṣṇa.**
 - **Who, then, is a guru?** The purport builds it up systematically: one who is fully in Kṛṣṇa consciousness. By the Caitanya-caritāmṛta's standard, whoever knows the science of Kṛṣṇa can be a spiritual master — _varṇa_, caste and country are not the criterion.
-- **The Padma Purāṇa verse quoted in the purport:** a _brāhmaṇa_ expert in all six occupational duties and well versed in mantra and tantra is *not* fit to become a spiritual master if he is not a Vaiṣṇava; whereas a Vaiṣṇava, even one born in the lowest family, can be a spiritual master.
+- **The Padma Purāṇa verse quoted in the purport:** a _brāhmaṇa_ expert in all six occupational duties and well versed in mantra and tantra is _not_ fit to become a spiritual master if he is not a Vaiṣṇava; whereas a Vaiṣṇava, even one born in the lowest family, can be a spiritual master.
 - The teacher notes this is a revolutionary principle that Śrīla Prabhupāda not only wrote but implemented — giving _brāhmaṇa_ initiation to people of Western countries and accepting them as spiritual masters, which many still find hard to digest, though it is the conclusion of scripture.
 - **Why economic development is no answer:** the problems of material existence — birth, old age, disease and death — cannot be counteracted by accumulation of wealth or economic development. Countries with every comfort still have every problem, and the laws of material nature are so powerful that everything can be finished at any moment: a volcano, an earthquake or a tornado can end an entire city within seconds, and even elevation to the heavenly planets can be finished at one stroke.
 
@@ -134,7 +134,7 @@ Viśvanātha Cakravartī Ṭhākura's dialogue continues:
 
 #### Living without a destination [38:00]
 
-Driving requires two things: fuel in the vehicle, and a destination. With a new car and a full tank but no destination, one simply circles from place to place. Food, clothing and shelter are the *resources* we live with, not the *purpose* we live for. Arjuna's problem at this point is precisely that he cannot see the purpose — which is why he takes shelter.
+Driving requires two things: fuel in the vehicle, and a destination. With a new car and a full tank but no destination, one simply circles from place to place. Food, clothing and shelter are the _resources_ we live with, not the _purpose_ we live for. Arjuna's problem at this point is precisely that he cannot see the purpose — which is why he takes shelter.
 
 <Callout type="idea" title="Takeaway">
 Arjuna grants every possible material success — victory, a prosperous kingdom, no rivals, even heaven — and says it would still not dry up his grief; this is the confirmation that makes the instruction possible. [24:00, 28:00]
@@ -234,12 +234,12 @@ BG 2.10: The Lord smiles faintly in the midst of both armies, accepting the role
 
 ### Comparative Summary Table
 
-| Verse | Primary Theme | Core Sanskrit Terms Explained | Central Mechanism / Principle | Practical Imperative |
-| --- | --- | --- | --- | --- |
-| 2.7 | Surrender and the need of a guru | _kārpaṇya-doṣa_, _dharma-sammūḍha-cetāḥ_, _niścitam_, _śiṣyas te 'ham_ | The material world is a field of perplexities that one's own intelligence cannot resolve | Ask what your _dharma_ is, and accept the position of a student so that knowledge can flow |
-| 2.8 | Confirmation of surrender | _śokam ucchoṣaṇam indriyāṇām_, _asapatnam ṛddham rājyam_ | Nothing material — gross or subtle — can satisfy the spirit | Stop expecting a material adjustment to solve a spiritual problem |
-| 2.9 | Silence after refusal | _guḍākeśa_, _paran-tapa_, _hṛṣīkeśa_, _govinda_ | Even one who has conquered sleep and enemies is stopped when the mind is first defeated | Undertake practice with _saṅkalpa_, since the battle is first lost in the thinking |
-| 2.10 | The Lord accepts the role of teacher | _prahasann iva_, _viṣīdantam_ | What overwhelms the devotee is no difficulty for the Lord | Pray sincerely — and be prepared for the answer to the prayer |
+| Verse | Primary Theme                        | Core Sanskrit Terms Explained                                          | Central Mechanism / Principle                                                            | Practical Imperative                                                                       |
+| ----- | ------------------------------------ | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| 2.7   | Surrender and the need of a guru     | _kārpaṇya-doṣa_, _dharma-sammūḍha-cetāḥ_, _niścitam_, _śiṣyas te 'ham_ | The material world is a field of perplexities that one's own intelligence cannot resolve | Ask what your _dharma_ is, and accept the position of a student so that knowledge can flow |
+| 2.8   | Confirmation of surrender            | _śokam ucchoṣaṇam indriyāṇām_, _asapatnam ṛddham rājyam_               | Nothing material — gross or subtle — can satisfy the spirit                              | Stop expecting a material adjustment to solve a spiritual problem                          |
+| 2.9   | Silence after refusal                | _guḍākeśa_, _paran-tapa_, _hṛṣīkeśa_, _govinda_                        | Even one who has conquered sleep and enemies is stopped when the mind is first defeated  | Undertake practice with _saṅkalpa_, since the battle is first lost in the thinking         |
+| 2.10  | The Lord accepts the role of teacher | _prahasann iva_, _viṣīdantam_                                          | What overwhelms the devotee is no difficulty for the Lord                                | Pray sincerely — and be prepared for the answer to the prayer                              |
 
 ---
 
