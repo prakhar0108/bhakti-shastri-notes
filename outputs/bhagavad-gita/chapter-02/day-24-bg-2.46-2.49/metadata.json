@@ -2,12 +2,13 @@
   "video_url": "https://www.youtube.com/watch?v=7sP2NT0uOI4",
   "video_id": "7sP2NT0uOI4",
   "title": "Day 24 | BG 2.46 - 2.49 | Contents of the Gītā Summarized | Bhakti Shastri Course",
+  "speaker": "HG Adishyam Prabhuji",
   "duration": "1:16:28",
   "caption_language": "day-24-bg-2.46-2.49.hi-orig.vtt",
   "line_count": 1501,
   "transcript_path": "transcripts/day-24-bg-2.46-2.49-clean-transcript.txt",
   "notes_source_path": "transcripts/day-24-bg-2.46-2.49-notes-source.md",
   "notes_path": "notes/day-24-bg-2.46-2.49-notes.md",
-  "notes_generator": "deterministic-extractive",
-  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. Main verse reference blocks are separately verified directly against vedabase.io; uncertain captioned recitations remain flagged."
 }
