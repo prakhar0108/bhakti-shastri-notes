@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "fumadocs-core/link";
 import type { ReactNode } from "react";
+import { asset } from "@/lib/shared";
 
 /** Responsive grid for `BookCard`s: 4 columns wide, 2 on tablets, 1 on narrow phones. */
 export function BookGrid({ children }: { children: ReactNode }) {
@@ -36,7 +37,7 @@ export function BookCard({
     >
       <div className="relative aspect-[3/4] w-full bg-fd-muted">
         <Image
-          src={cover}
+          src={asset(cover)}
           alt={alt}
           fill
           sizes="(min-width: 1280px) 22vw, (min-width: 640px) 45vw, 90vw"
@@ -68,7 +69,7 @@ export function BookCover({ src, alt }: { src: string; alt: string }) {
     <div className="not-prose mx-auto mb-6 w-full max-w-[200px]">
       <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl border border-fd-border bg-fd-muted">
         <Image
-          src={src}
+          src={asset(src)}
           alt={alt}
           fill
           sizes="200px"

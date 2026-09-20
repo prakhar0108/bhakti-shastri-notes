@@ -37,7 +37,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${heading.variable} ${body.variable} ${devanagari.variable}`}
     >
       <body className="flex flex-col min-h-screen">
-        <RootProvider theme={{ defaultTheme: "light" }}>
+        <RootProvider
+          theme={{ defaultTheme: "light" }}
+          search={{
+            options: {
+              type: "static",
+              api: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/api/search`,
+            },
+          }}
+        >
           {children}
         </RootProvider>
       </body>
