@@ -227,9 +227,59 @@ h3,
   max-width: 72ch;
 }
 
+.shloka-embed {
+  margin-top: 1.5rem;
+}
+
+.shloka-embed > summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-fd-muted-foreground);
+  padding: 0.35rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--color-gold) 45%, transparent);
+  border-radius: 0.5rem;
+}
+
+.shloka-embed > summary::-webkit-details-marker {
+  display: none;
+}
+
+.shloka-embed > summary::before {
+  content: "▸";
+  font-size: 0.75rem;
+}
+
+.shloka-embed[open] > summary::before {
+  content: "▾";
+}
+
+.shloka-embed > summary:hover,
+.shloka-embed > summary:focus-visible {
+  color: var(--color-brand-accent);
+  border-color: var(--color-brand-accent);
+}
+
+.shloka-embed > iframe {
+  width: 100%;
+  /* vedabase.io renders ~250px of its own nav before the verse, so keep it tall */
+  height: clamp(420px, 70vh, 760px);
+  margin-top: 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-gold) 30%, transparent);
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
 @media (max-width: 640px) {
   .shloka-sanskrit {
     font-size: 1.1rem;
+  }
+
+  .shloka-embed > iframe {
+    height: clamp(380px, 65vh, 560px);
   }
 }
 

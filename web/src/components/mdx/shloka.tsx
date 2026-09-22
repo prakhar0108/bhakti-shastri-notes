@@ -1,3 +1,5 @@
+import { VedabaseEmbed } from "./vedabase-embed";
+
 interface ShlokaProps {
   /** e.g. "3.7" */
   number: string;
@@ -11,6 +13,8 @@ interface ShlokaProps {
   synonyms?: [term: string, meaning: string][];
   /** the exact vedabase.io translation; omit to link out instead */
   translation?: string;
+  /** set false to hide the collapsible vedabase.io embed */
+  embed?: boolean;
 }
 
 /**
@@ -27,6 +31,7 @@ export function Shloka({
   transliteration,
   synonyms,
   translation,
+  embed = true,
 }: ShlokaProps) {
   return (
     <section
@@ -81,6 +86,8 @@ export function Shloka({
           </p>
         </div>
       )}
+
+      {embed && <VedabaseEmbed number={number} href={href} />}
     </section>
   );
 }
