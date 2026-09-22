@@ -227,43 +227,25 @@ function splitProse(text) {
   return parts.map((p) => p.trim()).filter(Boolean);
 }
 
-/**
- * Emit a Mermaid flowchart followed by a "how to read this" caption and a numbered
- * step-by-step explanation list. `steps` is an array of `{ label, detail }`.
- */
-function renderFlowchartWithExplanation(mermaidBody, caption, steps) {
-  const out = ["```mermaid", mermaidBody, "```", "", `_${caption}_`, ""];
-  steps.forEach((step, i) => {
-    const lead = step.label ? `**${step.label}** — ` : "";
-    const detail = step.detail.replace(/^([a-z])/, (m) => m.toUpperCase());
-    out.push(`${i + 1}. ${lead}${detail}`);
-  });
-  return out.join("\n");
+/** Wrap a Mermaid flowchart body in a fenced code block. */
+function renderFlowchart(mermaidBody) {
+  return ["```mermaid", mermaidBody, "```"].join("\n");
 }
 
-/** Build a single vertical arrow-chain flowchart + explanation from a list of node sentences. */
+/** Build a single vertical arrow-chain flowchart from a list of node sentences. */
 function buildArrowChainDiagram(nodes) {
   const mermaidLines = ["flowchart TD"];
-  const steps = [];
   nodes.forEach((node, i) => {
     const verseMatch = /^(BG\s*\d+\.\d+)\s*[:\-–]\s*(.*)$/i.exec(node.trim());
     const label = verseMatch
       ? `${verseMatch[1]}: ${conciseLabel(verseMatch[2])}`
       : conciseLabel(node);
     mermaidLines.push(`  N${i + 1}["${escapeMermaidLabel(label)}"]`);
-    steps.push({
-      label: verseMatch ? verseMatch[1].replace(/\s+/g, " ") : null,
-      detail: (verseMatch ? verseMatch[2] : node).trim(),
-    });
   });
   for (let i = 0; i < nodes.length - 1; i++) {
     mermaidLines.push(`  N${i + 1} --> N${i + 2}`);
   }
-  return renderFlowchartWithExplanation(
-    mermaidLines.join("\n"),
-    "How to read this: each box is one step in the lecture's argument; follow the arrows from the opening premise down to the conclusion. Full wording for every step is listed below.",
-    steps,
-  );
+  return renderFlowchart(mermaidLines.join("\n"));
 }
 
 /** Turn plain (unlabelled) ASCII "│ / ▼" arrow-chain code fences into Mermaid flowcharts. */
@@ -343,7 +325,6 @@ function injectArgumentMapFlowchart(body) {
 
   const multiTrack = tracks.length > 1;
   const mermaidLines = [multiTrack ? "flowchart LR" : "flowchart TD"];
-  const steps = [];
   tracks.forEach((track, trackIdx) => {
     const segments = (
       track.includes("->")
@@ -382,10 +363,8 @@ function injectArgumentMapFlowchart(body) {
       );
       mermaidLines.push("    direction TB");
       mermaidLines.push(...chain, "  end");
-      steps.push({ label: title, detail: segments.join(" → ") });
     } else {
       mermaidLines.push(...chain);
-      segments.forEach((seg) => steps.push({ label: null, detail: seg }));
     }
   });
 
@@ -396,15 +375,11 @@ function injectArgumentMapFlowchart(body) {
     }
   }
 
-  const caption = multiTrack
-    ? "How to read this: each labelled column is a separate line of reasoning contrasted in the class — read each column top to bottom. The columns are compared side by side below."
-    : "How to read this: each box is one link in the class's core argument; follow the arrows from premise to conclusion. Full wording for every step is listed below.";
-
   const flowchartBlock = [
     "",
     "#### Argument Map Flowchart",
     "",
-    renderFlowchartWithExplanation(mermaidLines.join("\n"), caption, steps),
+    renderFlowchart(mermaidLines.join("\n")),
     "",
   ];
 

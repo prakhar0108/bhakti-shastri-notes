@@ -205,12 +205,11 @@ keep it in the `Day N | BG X.X - X.X | Karma - yoga | Bhakti Shastri Course` sha
 - ASCII `│ / ▼` arrow-chain code fences and the Class-Snapshot "Argument Map" line are
   auto-converted to Mermaid flowcharts by `convertAsciiArrowDiagrams` /
   `injectArgumentMapFlowchart` in `sync-notes.mjs` — keep that shape when writing a
-  Cross-Shloka Conceptual Progression block. The generator (a) keeps each node's **full wording**
+  Cross-Shloka Conceptual Progression block. The generator keeps each node's **full wording**
   (verbose — timestamps and markdown are stripped from the box text, but sentences are never
-  truncated or cut with an ellipsis) and (b) appends a `_How to read this: …_` caption plus a
-  **numbered step-by-step explanation list** that repeats the full wording (with timestamps) for
-  every box, so the reader always has an unambiguous, spelled-out reading of the diagram. Don't
-  hand-write the caption or explanation list; the sync step generates them.
+  truncated or cut with an ellipsis), so the diagram alone is a complete reading of the argument.
+  Only the Mermaid flowchart is emitted — don't hand-write a "How to read this" caption or a
+  numbered restatement of the boxes below it; that text is redundant.
   - **Single-chain diagrams:** author each arrow-chain node as `BG X.X: <one clear sentence>` —
     the leading `BG X.X:` becomes the node/list label, the rest becomes the node body.
   - **Contrasting/multi-line arguments** (One-Line Argument Map with a `|`-separated second
