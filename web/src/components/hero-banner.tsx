@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/shared";
 
 /** Devotional hero shown above the lecture index at `/docs`. */
 export function HeroBanner() {
@@ -7,7 +8,7 @@ export function HeroBanner() {
       {/* Artwork is white-on-transparent; a dark chip keeps it visible in both themes. */}
       <span className="mx-auto mb-4 flex size-14 items-center justify-center rounded-xl bg-neutral-900 p-2">
         <Image
-          src="/isk-gkp-logo.png"
+          src={asset("/isk-gkp-logo.png")}
           alt="ISKCON Gorakhpur"
           title="ISKCON Gorakhpur"
           width={72}

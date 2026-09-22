@@ -1,7 +1,7 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import Image from "next/image";
 import { PrabhupadaAvatar } from "@/components/prabhupada-avatar";
-import { appName } from "@/lib/shared";
+import { appName, asset } from "@/lib/shared";
 
 export function baseOptions(): BaseLayoutProps {
   return {
@@ -11,7 +11,7 @@ export function baseOptions(): BaseLayoutProps {
           {/* Artwork is white-on-transparent; a dark chip keeps it visible in both themes. */}
           <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-neutral-900 p-1">
             <Image
-              src="/isk-gkp-logo.png"
+              src={asset("/isk-gkp-logo.png")}
               alt="ISKCON Gorakhpur"
               title="ISKCON Gorakhpur"
               width={72}

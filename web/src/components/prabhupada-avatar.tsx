@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/shared";
 
 /** Circular portrait of Srila Prabhupada shown at the top-right of the site. */
 export function PrabhupadaAvatar({ className = "" }: { className?: string }) {
@@ -7,7 +8,7 @@ export function PrabhupadaAvatar({ className = "" }: { className?: string }) {
       className={`shrink-0 overflow-hidden rounded-full border border-fd-border/70 bg-fd-card shadow-sm ${className}`}
     >
       <Image
-        src="/theme/prabhupada-header.png"
+        src={asset("/theme/prabhupada-header.png")}
         alt="His Divine Grace A. C. Bhaktivedanta Swami Prabhupada"
         title="His Divine Grace A. C. Bhaktivedanta Swami Prabhupada"
         width={160}
