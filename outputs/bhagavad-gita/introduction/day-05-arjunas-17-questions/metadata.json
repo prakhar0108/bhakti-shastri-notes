@@ -10,5 +10,8 @@
   "notes_source_path": "transcripts/day-05-arjunas-17-questions-notes-source.md",
   "notes_path": "notes/day-05-arjunas-17-questions-notes.md",
   "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
-  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. This class covers no numbered Bhagavad-gita verse of its own; scriptural references mentioned in passing are cited by number only, never reproduced from memory."
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. This class covers no numbered Bhagavad-gita verse of its own; scriptural references mentioned in passing are cited by number only, never reproduced from memory.",
+  "title_hi": "दिन 5 | अर्जुन के 17 प्रश्नों के माध्यम से भगवद्गीता का प्रवाह | भक्ति शास्त्र कोर्स",
+  "notes_path_hi": "notes/day-05-arjunas-17-questions-notes.hi.md",
+  "hindi_notes_rule": "The Hindi note is written from this lecture's own original Hindi captions (the class is delivered in Hindi), not translated from the English note. Its structure, section order and timestamps mirror the English note, and it introduces no claim the English note does not also make. vedabase.io has no Hindi Bhagavad-gita edition, so its verse markers resolve to the same English-verified <Shloka> blocks."
 }

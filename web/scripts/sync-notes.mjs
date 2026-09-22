@@ -25,6 +25,50 @@ const verseCache = new Map();
 // The teacher for the whole Bhakti Shastri course; credited on every generated page.
 const TEACHER_NAME = "HG Adishyam Prabhuji";
 
+// Per-language strings for lecture pages. A note is Hindi when its filename ends in
+// `.hi.md`; its page slug is the English slug plus `-hi`, so English URLs never move.
+// `switchLabel` labels the link *to the other* language, as shown on this language's page.
+const LANGS = {
+  en: {
+    classBy: (teacher) => `Class by ${teacher}`,
+    description: (duration) =>
+      duration
+        ? `Bhakti Shastri lecture notes (${duration}).`
+        : "Bhakti Shastri lecture notes.",
+    flowchartHeading: "#### Argument Map Flowchart",
+    switchLabel: "हिन्दी में पढ़ें",
+    tabTitle: "English",
+    dir: "en",
+  },
+  hi: {
+    classBy: (teacher) => `कक्षा — ${teacher}`,
+    description: (duration) =>
+      duration
+        ? `भक्ति शास्त्र कक्षा टिप्पणी (${duration})।`
+        : "भक्ति शास्त्र कक्षा टिप्पणी।",
+    flowchartHeading: "#### तर्क-क्रम रेखाचित्र",
+    switchLabel: "Read in English",
+    tabTitle: "हिन्दी",
+    dir: "hi",
+  },
+};
+
+// Sidebar label for a lecture: the first two segments of its title, e.g.
+// "Day 36 | BG 3.36 - 3.40 | Karma - yoga | ..." -> "Day 36 · BG 3.36 - 3.40".
+function shortLectureLabel(title) {
+  return title
+    .split("|")
+    .slice(0, 2)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .join(" · ");
+}
+
+/** A `meta.json` `pages` entry linking out to a lecture that lives at the content root. */
+function lectureLink(entry) {
+  return `[${shortLectureLabel(entry.title)}](/docs/${entry.slug})`;
+}
+
 // Canonical Bhagavad-gītā chapter titles, verified against vedabase.io/en/library/bg/.
 const BG_CHAPTERS = [
   "Observing the Armies on the Battlefield of Kurukṣetra",
@@ -159,7 +203,7 @@ function slugify(text) {
 }
 
 function extractDayNumber(title) {
-  const match = /day\s+(\d+)/i.exec(title ?? "");
+  const match = /(?:day|दिन)\s+(\d+)/i.exec(title ?? "");
   return match ? Number(match[1]) : null;
 }
 
@@ -274,9 +318,10 @@ function convertAsciiArrowDiagrams(body) {
 }
 
 /** Find the "Class Snapshot / Argument Map" section and append a Mermaid flowchart of its argument chain. */
-function injectArgumentMapFlowchart(body) {
+function injectArgumentMapFlowchart(body, flowchartHeading) {
   const lines = body.split("\n");
-  const headingRe = /^(#{2,4})\s+.*(class snapshot|argument)/i;
+  const headingRe =
+    /^(#{2,4})\s+.*(class snapshot|argument|कक्षा सार|तर्क-क्रम)/i;
 
   let sectionStart = -1;
   let level = 0;
@@ -303,9 +348,10 @@ function injectArgumentMapFlowchart(body) {
   let argumentText = null;
   for (let i = 0; i < section.length; i++) {
     const line = section[i];
-    const boldMatch = /^\s*-?\s*\*\*([^*]*argument[^*]*)\*\*:?\s*(.*)$/i.exec(
-      line,
-    );
+    const boldMatch =
+      /^\s*-?\s*\*\*([^*]*(?:argument|तर्क-क्रम)[^*]*)\*\*:?\s*(.*)$/i.exec(
+        line,
+      );
     if (boldMatch) {
       argumentText = boldMatch[2]?.trim() || section[i + 1]?.trim() || null;
       break;
@@ -377,7 +423,7 @@ function injectArgumentMapFlowchart(body) {
 
   const flowchartBlock = [
     "",
-    "#### Argument Map Flowchart",
+    flowchartHeading,
     "",
     renderFlowchart(mermaidLines.join("\n")),
     "",
@@ -399,24 +445,27 @@ function commentOutSourceNote(body) {
   );
 }
 
-/** Build the compact "watch + teacher credit" meta row from a lecture's metadata. */
-function lectureMetaLine(metadata) {
+/** Build the compact "watch + language switch + teacher credit" meta row for a lecture. */
+function lectureMetaLine(metadata, strings, counterpartSlug) {
   const teacher = metadata?.speaker ?? TEACHER_NAME;
   const href = metadata?.video_url ? ` href="${metadata.video_url}"` : "";
-  return `<LectureMeta${href}>Class by ${teacher}</LectureMeta>\n\n`;
+  const translation = counterpartSlug
+    ? ` translationHref="/docs/${counterpartSlug}" translationLabel={${yamlString(strings.switchLabel)}}`
+    : "";
+  return `<LectureMeta${href}${translation}>${strings.classBy(teacher)}</LectureMeta>\n\n`;
 }
 
-async function transformBody(rawBody, metadata) {
+async function transformBody(rawBody, metadata, strings, counterpartSlug) {
   let body = stripLeadingHeading(rawBody);
   body = body.replace(
     /^##[ \t]+Transcript Verification Flags[ \t]*\r?\n[\s\S]*?(?=^#{1,2}[ \t]+|(?![\s\S]))/gm,
     "",
   );
   body = convertAsciiArrowDiagrams(body);
-  body = injectArgumentMapFlowchart(body);
+  body = injectArgumentMapFlowchart(body, strings.flowchartHeading);
   body = await injectVerses(body);
   body = commentOutSourceNote(body);
-  return `${lectureMetaLine(metadata)}${body.trim()}`;
+  return `${lectureMetaLine(metadata, strings, counterpartSlug)}${body.trim()}`;
 }
 
 async function loadMetadata(parentDir) {
@@ -461,12 +510,19 @@ async function writeMetaFile(dir, meta) {
 }
 
 /**
- * Build the book-library homepage plus one overview page per book (Bhagavad Gita's chapter
- * list, Chapter 3's lecture index, and "coming soon" pages for the other three books).
- * Lecture files stay at the content root (written earlier in `main`) so their `/docs/<slug>`
- * URLs never change; this only adds the surrounding library/chapter navigation around them.
+ * Build one language's navigation tree: the book library, the Bhagavad Gita chapter
+ * list, a per-chapter lecture index, and "coming soon" pages for the other three books.
+ * Everything is written under `content/docs/<lang>/`, whose `meta.json` carries
+ * `root: "language"` so Fumadocs renders the languages as sidebar tabs.
+ * Lecture pages themselves stay at the content root so their `/docs/<slug>` URLs never
+ * change; the sidebar reaches them through `[label](url)` entries in `meta.json`.
  */
-async function writeBookLibrary(entriesByChapter, introEntries = []) {
+async function writeBookLibrary(
+  baseDir,
+  urlPrefix,
+  entriesByChapter,
+  introEntries = [],
+) {
   const availableChapters = [...entriesByChapter.keys()].sort((a, b) => a - b);
   const books = BOOKS.map((book) =>
     book.slug === "bhagavad-gita"
@@ -475,7 +531,7 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
   );
 
   await writeMdx(
-    path.join(CONTENT_DIR, "index.mdx"),
+    path.join(baseDir, "index.mdx"),
     {
       title: "Bhakti Shastri Notes",
       description: "Bhakti Shastri course notes, organized by book.",
@@ -488,20 +544,21 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
       "<BookGrid>",
       ...books.map(
         (b) =>
-          `  <BookCard href="/docs/${b.slug}" title={${yamlString(b.title)}} cover="${b.cover}" alt={${yamlString(b.alt)}} status={${yamlString(b.status)}} available={${b.available}} />`,
+          `  <BookCard href="${urlPrefix}/${b.slug}" title={${yamlString(b.title)}} cover="${b.cover}" alt={${yamlString(b.alt)}} status={${yamlString(b.status)}} available={${b.available}} />`,
       ),
       "</BookGrid>",
     ],
   );
-  await writeMetaFile(CONTENT_DIR, {
-    title: "Bhakti Shastri Notes",
-    // "index" is intentionally omitted: its title duplicates the header title,
-    // and the page is still reachable at /docs via the header/logo link.
-    pages: books.map((b) => b.slug),
+  await writeMetaFile(baseDir, {
+    root: "language",
+    title: LANGS.en.tabTitle,
+    // "index" must be a listed child, not `pagesIndex`: the tab switcher is only rendered
+    // for pages Fumadocs can find in `children`, which includes this folder's own landing page.
+    pages: ["index", ...books.map((b) => b.slug)],
   });
 
   // Bhagavad Gita — all 18 canonical chapters; only chapters with notes link anywhere.
-  const bgDir = path.join(CONTENT_DIR, "bhagavad-gita");
+  const bgDir = path.join(baseDir, "bhagavad-gita");
   await writeMdx(
     path.join(bgDir, "index.mdx"),
     {
@@ -519,20 +576,20 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
       "<Cards>",
       ...(introEntries.length > 0
         ? [
-            `  <Card title="Introduction" description="${introEntries.length} lecture notes" href="/docs/bhagavad-gita/introduction" />`,
+            `  <Card title="Introduction" description="${introEntries.length} lecture notes" href="${urlPrefix}/bhagavad-gita/introduction" />`,
           ]
         : []),
       ...BG_CHAPTERS.map((title, i) => {
         const num = i + 1;
         const cardTitle = yamlString(`Chapter ${num}: ${title}`);
         return availableChapters.includes(num)
-          ? `  <Card title={${cardTitle}} description="${entriesByChapter.get(num).length} lecture notes" href="/docs/bhagavad-gita/chapter-${num}" />`
+          ? `  <Card title={${cardTitle}} description="${entriesByChapter.get(num).length} lecture notes" href="${urlPrefix}/bhagavad-gita/chapter-${num}" />`
           : `  <Card title={${cardTitle}} description="Coming soon" />`;
       }),
       "</Cards>",
       "",
       "<Cards>",
-      '  <Card title="Back to Book Library" href="/docs" />',
+      `  <Card title="Back to Book Library" href="${urlPrefix}" />`,
       "</Cards>",
     ],
   );
@@ -568,11 +625,14 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
         "</Cards>",
         "",
         "<Cards>",
-        '  <Card title="Back to Bhagavad Gita chapters" href="/docs/bhagavad-gita" />',
+        `  <Card title="Back to Bhagavad Gita chapters" href="${urlPrefix}/bhagavad-gita" />`,
         "</Cards>",
       ],
     );
-    await writeMetaFile(introDir, { title: "Introduction", pages: ["index"] });
+    await writeMetaFile(introDir, {
+      title: "Introduction",
+      pages: ["index", ...introEntries.map(lectureLink)],
+    });
   }
 
   // One index page per chapter that has notes, listing its lectures in day order.
@@ -599,13 +659,13 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
         "</Cards>",
         "",
         "<Cards>",
-        '  <Card title="Back to Bhagavad Gita chapters" href="/docs/bhagavad-gita" />',
+        `  <Card title="Back to Bhagavad Gita chapters" href="${urlPrefix}/bhagavad-gita" />`,
         "</Cards>",
       ],
     );
     await writeMetaFile(chapterDir, {
       title: `Chapter ${num} – ${chapterName}`,
-      pages: ["index"],
+      pages: ["index", ...chapterEntries.map(lectureLink)],
     });
   }
 
@@ -641,7 +701,7 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
   ];
 
   for (const book of comingSoonBooks) {
-    const dir = path.join(CONTENT_DIR, book.slug);
+    const dir = path.join(baseDir, book.slug);
     await writeMdx(
       path.join(dir, "index.mdx"),
       { title: book.title, description: book.description },
@@ -653,12 +713,198 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
         `**Coming soon.** ${book.body}`,
         "",
         "<Cards>",
-        '  <Card title="Back to Book Library" href="/docs" />',
+        `  <Card title="Back to Book Library" href="${urlPrefix}" />`,
         "</Cards>",
       ],
     );
     await writeMetaFile(dir, { title: book.title, pages: ["index"] });
   }
+}
+
+// Hindi chapter names, taken from the Hindi lecture notes themselves. Chapters with no
+// Hindi notes are omitted rather than given an invented title — vedabase.io has no Hindi
+// Bhagavad-gita edition to verify them against.
+const BG_CHAPTERS_HI = {
+  1: "अर्जुन विषाद योग",
+  2: "सांख्य-योग",
+  3: "कर्म-योग",
+};
+
+/** Build the Hindi navigation tree, listing only the chapters that actually have Hindi notes. */
+async function writeHindiLibrary(
+  baseDir,
+  urlPrefix,
+  entriesByChapter,
+  introEntries = [],
+) {
+  const availableChapters = [...entriesByChapter.keys()].sort((a, b) => a - b);
+  const chapterLabel = (num) =>
+    BG_CHAPTERS_HI[num]
+      ? `अध्याय ${num} – ${BG_CHAPTERS_HI[num]}`
+      : `अध्याय ${num}`;
+
+  await writeMdx(
+    path.join(baseDir, "index.mdx"),
+    {
+      title: "भक्ति शास्त्र टिप्पणी",
+      description: "भक्ति शास्त्र पाठ्यक्रम की हिन्दी टिप्पणियाँ।",
+    },
+    [
+      `शिक्षक - ${TEACHER_NAME}`,
+      "",
+      "हिन्दी में उपलब्ध सामग्री नीचे दी गई है। शेष अध्याय और पुस्तकें क्रमशः जोड़ी जाएंगी; पूर्ण पाठ्यक्रम अभी अंग्रेज़ी में ही उपलब्ध है।",
+      "",
+      "<Cards>",
+      '  <Card title="भगवद्गीता यथारूप" href="' +
+        urlPrefix +
+        '/bhagavad-gita" />',
+      "</Cards>",
+    ],
+  );
+  await writeMetaFile(baseDir, {
+    root: "language",
+    title: LANGS.hi.tabTitle,
+    pages: ["index", "bhagavad-gita"],
+  });
+
+  const bgDir = path.join(baseDir, "bhagavad-gita");
+  await writeMdx(
+    path.join(bgDir, "index.mdx"),
+    {
+      title: "भगवद्गीता यथारूप",
+      description:
+        "भक्ति शास्त्र पाठ्यक्रम के वे अध्याय जिनकी टिप्पणी हिन्दी में उपलब्ध है।",
+    },
+    [
+      '<BookCover src="/covers/bhagavad-gita.avif" alt="भगवद्गीता यथारूप का आवरण" />',
+      "",
+      `शिक्षक - ${TEACHER_NAME}`,
+      "",
+      "नीचे वे अध्याय दिए गए हैं जिनकी हिन्दी टिप्पणी तैयार है।",
+      "",
+      "<Cards>",
+      ...(introEntries.length > 0
+        ? [
+            `  <Card title="परिचय" description="${introEntries.length} कक्षा टिप्पणी" href="${urlPrefix}/bhagavad-gita/introduction" />`,
+          ]
+        : []),
+      ...availableChapters.map(
+        (num) =>
+          `  <Card title={${yamlString(chapterLabel(num))}} description="${entriesByChapter.get(num).length} कक्षा टिप्पणी" href="${urlPrefix}/bhagavad-gita/chapter-${num}" />`,
+      ),
+      "</Cards>",
+    ],
+  );
+  await writeMetaFile(bgDir, {
+    title: "भगवद्गीता यथारूप",
+    pages: [
+      "index",
+      ...(introEntries.length > 0 ? ["introduction"] : []),
+      ...availableChapters.map((num) => `chapter-${num}`),
+    ],
+  });
+
+  if (introEntries.length > 0) {
+    const introDir = path.join(bgDir, "introduction");
+    await writeMdx(
+      path.join(introDir, "index.mdx"),
+      {
+        title: "भगवद्गीता: परिचय",
+        description: "भगवद्गीता की परिचयात्मक कक्षाएँ, दिन क्रम में।",
+      },
+      [
+        `शिक्षक - ${TEACHER_NAME}`,
+        "",
+        "प्रथम अध्याय आरंभ होने से पहले की परिचयात्मक कक्षाएँ, जिस क्रम में पढ़ाई गईं।",
+        "",
+        "<Cards>",
+        ...introEntries.map(
+          (e) =>
+            `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
+        ),
+        "</Cards>",
+        "",
+        "<Cards>",
+        `  <Card title="भगवद्गीता अध्यायों पर वापस" href="${urlPrefix}/bhagavad-gita" />`,
+        "</Cards>",
+      ],
+    );
+    await writeMetaFile(introDir, {
+      title: "परिचय",
+      pages: ["index", ...introEntries.map(lectureLink)],
+    });
+  }
+
+  for (const num of availableChapters) {
+    const chapterDir = path.join(bgDir, `chapter-${num}`);
+    const chapterEntries = entriesByChapter.get(num);
+    await writeMdx(
+      path.join(chapterDir, "index.mdx"),
+      {
+        title: `भगवद्गीता: ${chapterLabel(num)}`,
+        description: `भगवद्गीता अध्याय ${num} की कक्षाएँ, दिन क्रम में।`,
+      },
+      [
+        `शिक्षक - ${TEACHER_NAME}`,
+        "",
+        `भगवद्गीता अध्याय ${num} की वे कक्षाएँ जिनकी हिन्दी टिप्पणी उपलब्ध है, जिस क्रम में पढ़ाई गईं।`,
+        "",
+        "<Cards>",
+        ...chapterEntries.map(
+          (e) =>
+            `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
+        ),
+        "</Cards>",
+        "",
+        "<Cards>",
+        `  <Card title="भगवद्गीता अध्यायों पर वापस" href="${urlPrefix}/bhagavad-gita" />`,
+        "</Cards>",
+      ],
+    );
+    await writeMetaFile(chapterDir, {
+      title: chapterLabel(num),
+      pages: ["index", ...chapterEntries.map(lectureLink)],
+    });
+  }
+}
+
+/** The `/docs` landing page, which sits outside both language tabs. */
+async function writeRootLanding(availableChapters) {
+  const books = BOOKS.map((book) =>
+    book.slug === "bhagavad-gita"
+      ? { ...book, status: chapterStatus(availableChapters) }
+      : book,
+  );
+
+  await writeMdx(
+    path.join(CONTENT_DIR, "index.mdx"),
+    {
+      title: "Bhakti Shastri Notes",
+      description: "Bhakti Shastri course notes, organized by book.",
+    },
+    [
+      "Teacher- HG Adishyam Prabhuji",
+      "",
+      "Browse the course by book, or use the search bar in the sidebar to jump to a topic.",
+      "",
+      "<BookGrid>",
+      ...books.map(
+        (b) =>
+          `  <BookCard href="/docs/en/${b.slug}" title={${yamlString(b.title)}} cover="${b.cover}" alt={${yamlString(b.alt)}} status={${yamlString(b.status)}} available={${b.available}} />`,
+      ),
+      "</BookGrid>",
+      "",
+      "<Cards>",
+      '  <Card title="हिन्दी टिप्पणी" description="Notes available in Hindi" href="/docs/hi" />',
+      "</Cards>",
+    ],
+  );
+  await writeMetaFile(CONTENT_DIR, {
+    title: "Bhakti Shastri Notes",
+    // "index" is intentionally omitted: its title duplicates the header title,
+    // and the page is still reachable at /docs via the header/logo link.
+    pages: ["en", "hi"],
+  });
 }
 
 async function main() {
@@ -668,18 +914,26 @@ async function main() {
   const groups = (await pathExists(OUTPUTS_DIR))
     ? await findNoteGroups(OUTPUTS_DIR)
     : [];
-  const entries = [];
+  const entriesByLang = { en: [], hi: [] };
+  let pageCount = 0;
 
   for (const group of groups) {
     const metadata = await loadMetadata(group.parentDir);
+    const hasHindi = group.files.some((file) => file.endsWith(".hi.md"));
     for (const file of group.files) {
       const rawBody = await readFile(path.join(group.notesDir, file), "utf8");
-      const baseName = file.replace(/\.md$/, "");
-      const slug = slugify(baseName.replace(/-notes$/, ""));
-      const title = metadata?.title ?? firstHeading(rawBody) ?? baseName;
-      const description = metadata?.duration
-        ? `Bhakti Shastri lecture notes (${metadata.duration}).`
-        : "Bhakti Shastri lecture notes.";
+      const lang = file.endsWith(".hi.md") ? "hi" : "en";
+      const strings = LANGS[lang];
+      const baseName = file.replace(/(\.hi)?\.md$/, "");
+      const baseSlug = slugify(baseName.replace(/-notes$/, ""));
+      const slug = lang === "hi" ? `${baseSlug}-hi` : baseSlug;
+      const counterpartSlug =
+        lang === "hi" ? baseSlug : hasHindi ? `${baseSlug}-hi` : null;
+      const title =
+        (lang === "hi" ? metadata?.title_hi : metadata?.title) ??
+        firstHeading(rawBody) ??
+        baseName;
+      const description = strings.description(metadata?.duration);
 
       const frontmatter = [
         "---",
@@ -689,10 +943,11 @@ async function main() {
         "",
       ].join("\n");
 
-      const content = `${frontmatter}${await transformBody(rawBody, metadata)}\n`;
+      const content = `${frontmatter}${await transformBody(rawBody, metadata, strings, counterpartSlug)}\n`;
       await writeFile(path.join(CONTENT_DIR, `${slug}.mdx`), content, "utf8");
+      pageCount++;
 
-      entries.push({
+      entriesByLang[lang].push({
         slug,
         title,
         day: extractDayNumber(title),
@@ -705,28 +960,44 @@ async function main() {
     }
   }
 
-  entries.sort((a, b) => {
-    if (a.day != null && b.day != null) return a.day - b.day;
-    if (a.day != null) return -1;
-    if (b.day != null) return 1;
-    return a.title.localeCompare(b.title);
-  });
+  /** Sort a language's lectures by day, then group them by Gita chapter. */
+  function groupByChapter(entries) {
+    entries.sort((a, b) => {
+      if (a.day != null && b.day != null) return a.day - b.day;
+      if (a.day != null) return -1;
+      if (b.day != null) return 1;
+      return a.title.localeCompare(b.title);
+    });
 
-  const entriesByChapter = new Map();
-  for (const entry of entries) {
-    if (entry.chapter == null) continue;
-    const chapterEntries = entriesByChapter.get(entry.chapter) ?? [];
-    chapterEntries.push(entry);
-    entriesByChapter.set(entry.chapter, chapterEntries);
+    const byChapter = new Map();
+    for (const entry of entries) {
+      if (entry.chapter == null) continue;
+      const chapterEntries = byChapter.get(entry.chapter) ?? [];
+      chapterEntries.push(entry);
+      byChapter.set(entry.chapter, chapterEntries);
+    }
+    return byChapter;
   }
 
+  const entries = entriesByLang.en;
+  const entriesByChapter = groupByChapter(entries);
+
+  await writeRootLanding([...entriesByChapter.keys()].sort((a, b) => a - b));
   await writeBookLibrary(
+    path.join(CONTENT_DIR, LANGS.en.dir),
+    `/docs/${LANGS.en.dir}`,
     entriesByChapter,
     entries.filter((e) => e.isIntroduction),
   );
+  await writeHindiLibrary(
+    path.join(CONTENT_DIR, LANGS.hi.dir),
+    `/docs/${LANGS.hi.dir}`,
+    groupByChapter(entriesByLang.hi),
+    entriesByLang.hi.filter((e) => e.isIntroduction),
+  );
 
   console.log(
-    `Synced ${entries.length} note(s) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
+    `Synced ${pageCount} note page(s) (${entries.length} lecture(s), ${pageCount - entries.length} translated) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
   );
 }
 

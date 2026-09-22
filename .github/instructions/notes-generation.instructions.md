@@ -175,9 +175,11 @@ outputs/
 │       └── day-N-bg-X.X-X.X/     # day-31-bg-3.8-3.13 — one folder per class
 │           ├── metadata.json     # video_url, video_id, title ("Day N | BG X.X - X.X | Karma - yoga | ..."),
 │           │                     # duration, caption_language, line_count, notes_generator,
-│           │                     # grounding_rule, plus transcript/notes paths relative to this folder
+│           │                     # grounding_rule, plus transcript/notes paths relative to this folder;
+│           │                     # title_hi / notes_path_hi / hindi_notes_rule when a Hindi note exists
 │           ├── transcripts/      # <lecture-slug>-clean-transcript.txt, <lecture-slug>-notes-source.md
 │           ├── notes/            # <lecture-slug>-notes.md  <- the file this document governs
+│           │                     # <lecture-slug>-notes.hi.md  <- optional Hindi edition
 │           └── work/             # raw caption files (<lecture-slug>.<lang>.vtt)
 └── shared/
     └── verses/                   # bg-<chapter>-<verse>.md, one canonical `<Shloka>` per verse
@@ -199,9 +201,15 @@ keep it in the `Day N | BG X.X - X.X | Karma - yoga | Bhakti Shastri Course` sha
 
 - `web/content/docs/` is **generated** by `npm run sync-notes` (also runs via `predev`/`prebuild`)
   from `outputs/**/notes/*.md`. Never hand-edit files under `content/docs/`.
+- Lecture pages are written to the **content root** (`content/docs/<slug>.mdx` → `/docs/<slug>`),
+  never inside a language or chapter folder. The sidebar reaches them through `[label](url)`
+  link entries in the generated `meta.json` (`lectureLink` in `sync-notes.mjs`), which is what
+  keeps lecture URLs stable while still listing every day in the sidebar. Only the generated
+  _navigation_ pages live under `/docs/en/...` and `/docs/hi/...`.
 - Available MDX components (registered in `web/src/components/mdx.tsx`): `Shloka`, `Callout`
-  (+ `CalloutTitle`/`CalloutDescription`), `Mermaid`, `Cards`/`Card`, and standard Fumadocs
-  defaults. Don't invent a new component name in a note without registering it there first.
+  (+ `CalloutTitle`/`CalloutDescription`), `Mermaid`, `Cards`/`Card`, `LectureMeta`,
+  `BookGrid`/`BookCard`/`BookCover`, and standard Fumadocs defaults. Don't invent a new
+  component name in a note without registering it there first.
 - ASCII `│ / ▼` arrow-chain code fences and the Class-Snapshot "Argument Map" line are
   auto-converted to Mermaid flowcharts by `convertAsciiArrowDiagrams` /
   `injectArgumentMapFlowchart` in `sync-notes.mjs` — keep that shape when writing a
@@ -224,6 +232,44 @@ acting`) — the part before the first `:` becomes the column header, so pick a 
     without the surrounding paragraph for context.
 - After editing anything under `outputs/`, run `npm run sync-notes`, then `npm run build` and
   `npm run lint` from `web/` before considering the change done.
+
+## Hindi notes (`*-notes.hi.md`)
+
+The lectures are **delivered in Hindi** — `metadata.json`'s `caption_language` is a
+`*.hi-orig.vtt` file — so a Hindi note is written by hand from the same original transcript,
+using the English note only as the structural template. It is **not** a translation of the
+English note, and it must not introduce any claim the English note does not also make.
+
+- **File & slug.** `notes/<lecture-slug>-notes.hi.md` next to the English note. Its page slug is
+  the English slug plus `-hi` (`/docs/day-36-bg-3-36-3-40-hi`). Keep folder and file names ASCII:
+  `slugify` strips non-ASCII, so a Devanagari filename would slugify to an empty string.
+- **`metadata.json`.** Add `title_hi` (same `Day N | BG X.X - X.X | ... ` shape, in Hindi),
+  `notes_path_hi`, and a `hindi_notes_rule` recording that the note is transcript-grounded rather
+  than translated. Leave every existing field untouched.
+- **Structure parity.** Same section order, same `####` sub-topics, same one
+  `<Callout type="idea" title="सार">` per verse, same `<!-- verse:X.X -->` markers in the same
+  positions, and **byte-identical timestamps** — they index the same audio.
+- **Verses.** vedabase.io has no Hindi Bhagavad-gītā (`/hi/library/bg/` returns 404), so Hindi
+  verse markers resolve to the same English-verified `<Shloka>` blocks. Never fabricate a Hindi
+  translation, transliteration, or word-for-word gloss; say so in the note's source disclaimer.
+- **Vocabulary.** Devanagari in italics (`_कर्म-योग_`), never inline code. Give the English/IAST
+  form in parentheses on first use in a section, then the Devanagari alone. The teacher
+  code-switches heavily in speech; the written note should not.
+- **Three marker strings stay literally English**, even inside a Hindi file, because
+  `sync-notes.mjs` matches them verbatim:
+  - `## Transcript Verification Flags` — translating it leaks repository-only editorial
+    material onto the published page.
+  - `> **Source note:**` — otherwise the disclaimer renders as a visible blockquote.
+  - `**One-Line Argument Map:**` and the `BG X.X:` node prefixes — translate the clauses (they
+    become Mermaid node text), keep the label and prefixes.
+- **Navigation.** `content/docs/en/` and `content/docs/hi/` each carry `"root": "language"` in
+  `meta.json`, which Fumadocs renders as the sidebar's language tabs. Two non-obvious rules:
+  a folder with `root` set does **not** adopt its `index.mdx` automatically, and `pagesIndex`
+  hides the index from `children` so the tab switcher disappears on that folder's own landing
+  page — so `"index"` must be listed in `pages`.
+- **Hindi chapter titles** live in `BG_CHAPTERS_HI` in `sync-notes.mjs` and are deliberately
+  partial: a chapter appears in the Hindi tree only once it has a Hindi note, and its title must
+  come from that note rather than being invented. Add an entry as each chapter is translated.
 
 ## Checklist for a new lecture
 

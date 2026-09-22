@@ -2,6 +2,7 @@
   "video_url": "https://www.youtube.com/watch?v=zfJMgqPQ3wM",
   "video_id": "zfJMgqPQ3wM",
   "title": "Day 36 | BG 3.36 - 3.40 | Karma - yoga | Bhakti Shastri Course",
+  "title_hi": "दिन 36 | BG 3.36 - 3.40 | कर्म-योग | भक्ति शास्त्र कोर्स",
   "speaker": "HG Adishyam Prabhuji",
   "duration": "1:15:30",
   "caption_language": "day-36-bg-3.36-3.40.hi-orig.vtt",
@@ -9,6 +10,8 @@
   "transcript_path": "transcripts/day-36-bg-3.36-3.40-clean-transcript.txt",
   "notes_source_path": "transcripts/day-36-bg-3.36-3.40-notes-source.md",
   "notes_path": "notes/day-36-bg-3.36-3.40-notes.md",
+  "notes_path_hi": "notes/day-36-bg-3.36-3.40-notes.hi.md",
   "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
-  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. Main verse reference blocks are separately verified directly against vedabase.io; uncertain captioned recitations remain flagged."
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. Main verse reference blocks are separately verified directly against vedabase.io; uncertain captioned recitations remain flagged.",
+  "hindi_notes_rule": "The Hindi note is written from this lecture's own original Hindi captions (the class is delivered in Hindi), not translated from the English note. Its structure, section order and timestamps mirror the English note, and it introduces no claim the English note does not also make. vedabase.io has no Hindi Bhagavad-gita edition, so its verse markers resolve to the same English-verified <Shloka> blocks."
 }

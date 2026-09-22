@@ -9,5 +9,8 @@
   "notes_source_path": "transcripts/day-33-bg-3.20-3.25-notes-source.md",
   "notes_path": "notes/day-33-bg-3.20-3.25-notes.md",
   "notes_generator": "manual-transcript-grounded-draft-plus-vedabase-verse-verification",
-  "grounding_rule": "Lecture commentary is generated only from the extracted transcript; canonical verse-reference blocks are separately sourced from vedabase.io and labeled as an exception."
+  "grounding_rule": "Lecture commentary is generated only from the extracted transcript; canonical verse-reference blocks are separately sourced from vedabase.io and labeled as an exception.",
+  "title_hi": "दिन 33 | BG 3.20 - 3.25 | कर्म-योग | भक्ति शास्त्र कोर्स",
+  "notes_path_hi": "notes/day-33-bg-3.20-3.25-notes.hi.md",
+  "hindi_notes_rule": "The Hindi note is written from this lecture's own original Hindi captions (the class is delivered in Hindi), not translated from the English note. Its structure, section order and timestamps mirror the English note, and it introduces no claim the English note does not also make. vedabase.io has no Hindi Bhagavad-gita edition, so its verse markers resolve to the same English-verified <Shloka> blocks."
 }

@@ -2,6 +2,7 @@
   "video_url": "https://www.youtube.com/watch?v=AngjFO3TUwE",
   "video_id": "AngjFO3TUwE",
   "title": "Day 30 | BG 3.5 - 3.8 | Karma - yoga | Bhakti Shastri Course",
+  "title_hi": "दिन 30 | BG 3.5 - 3.8 | कर्म-योग | भक्ति शास्त्र कोर्स",
   "speaker": "HG Adishyam Prabhuji",
   "duration": "57:33",
   "caption_language": "day-30-bg-3.5-3.8.hi-orig.vtt",
@@ -9,6 +10,8 @@
   "transcript_path": "transcripts/day-30-bg-3.5-3.8-clean-transcript.txt",
   "notes_source_path": "transcripts/day-30-bg-3.5-3.8-notes-source.md",
   "notes_path": "notes/day-30-bg-3.5-3.8-notes.md",
+  "notes_path_hi": "notes/day-30-bg-3.5-3.8-notes.hi.md",
   "notes_generator": "gemini-draft-plus-grounding-audit-plus-manual-source-audit",
-  "grounding_rule": "Notes are generated only from extracted captions/transcript."
+  "grounding_rule": "Notes are generated only from extracted captions/transcript.",
+  "hindi_notes_rule": "The Hindi note is written from this lecture's own original Hindi captions (the class is delivered in Hindi), not translated from the English note. Its structure, section order and timestamps mirror the English note, and it introduces no claim the English note does not also make. vedabase.io has no Hindi Bhagavad-gita edition, so its verse markers resolve to the same English-verified <Shloka> blocks."
 }
