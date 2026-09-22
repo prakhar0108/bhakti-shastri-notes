@@ -140,7 +140,7 @@ No one in this world can actually harm us; what returns to us is our own previou
 - **The comparison that stings** [46:00]: in material work a person tolerates everything — sleeping at one in the morning and still reaching the office on time, accepting any amount of rebuke from an employer with "yes sir, no problem, thank you sir" — while the same person misses the morning programme and cannot absorb a fraction of that treatment from devotees.
 - **Watch the whole film** [48:00]: in the Mahābhārata the Pāṇḍavas lose at dice and go to the forest — but do not stop there; they are victorious, they regain the kingdom, and they follow the Lord at the end. Sudāmā begins in poverty and his village is transformed. The one who takes shelter of irreligion shines for a short while, like a firefly, and gains nothing further.
 - **When life makes no sense** [48:00]: circumstances will sometimes be impossible to interpret. Even then, Kṛṣṇa remains, the purpose of life remains available, and the destination is reserved.
-- **Homework given to the class** [42:00]: a verse from the Tenth Canto (referred to by the teacher as 10.14.8) on the devotee who patiently tolerates the reactions of his own past deeds and offers respects to the Lord — such a person is the rightful claimant to liberation.
+- **Homework given to the class** [42:00]: a verse from the Tenth Canto (referred to by the teacher as 10.4.8) on the devotee who patiently tolerates the reactions of his own past deeds and offers respects to the Lord — such a person is the rightful claimant to liberation.
 - The Bhāgavatam's statement by Ṛṣabhadeva is also cited: this is the austerity by which existence is purified and by which one attains unending spiritual happiness — tolerance undertaken for _dharma_, not for its own sake.
 
 <Callout type="idea" title="Takeaway">
@@ -248,7 +248,7 @@ There is a difference between information and knowledge. At present we are recei
 - `06:00 – 08:00` The recitation of BG 2.1 – 2.20 is heavily garbled in the auto-captions. Exact Sanskrit omitted: auto-captions uncertain. Only BG 2.13 – 2.16, verified separately against vedabase.io, are presented in this note.
 - `18:00` The Ninth Chapter verse on material nature working under the Lord's direction is captioned in fragments and is paraphrased above.
 - `32:00` The Bhāgavatam passage listing the creatures destroyed through a single sense is captioned indistinctly; the examples are retained as the teacher named them, and the fifth sense was named only in passing.
-- `42:00` The Tenth Canto verse given as homework is cited by the teacher with a chapter-and-verse number that is captioned indistinctly; the reference is recorded above as spoken and should be checked against the text.
+- `42:00` The Tenth Canto verse given as homework is cited by the teacher as 10.4.8; the reference is recorded above as spoken.
 - `36:00` Ṛṣabhadeva's verse on divine austerity and the Bhāgavatam verse on the ocean of existence reduced to a calf's hoofprint are captioned imprecisely and are paraphrased rather than quoted.
 - `52:00` Vidura's statement to Dhṛtarāṣṭra from the First Canto is captioned in fragments; its sense is retained without reproducing the Sanskrit.
 - `70:00` The Fourth Chapter verse cited on knowledge that ends illusion is captioned with an unclear verse number, so the number has been omitted.

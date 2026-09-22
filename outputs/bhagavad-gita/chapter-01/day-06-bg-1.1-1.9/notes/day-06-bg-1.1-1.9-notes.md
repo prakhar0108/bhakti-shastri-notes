@@ -19,7 +19,7 @@
 
 - The teacher distinguishes _viṅgāvalokana_ (overview) from _sīmāvalokana_ (close reading), and insists the overview comes first.
 - Without knowing what each section of a chapter contains, close study of individual verses becomes disorienting.
-- He mentions Gauranga Darshan Prabhu's study guide as an example of a work that supplies the chapter overview first. [Title as captioned is uncertain; see Verification Flags.]
+- He mentions Gauranga Darshan Prabhu's _Subodhinī_ as an example of a work that supplies the chapter overview first.
 
 #### Three things to keep in your personal Gita [04:00 – 06:00]
 
@@ -419,7 +419,6 @@ BG 1.9: He closes by encouraging the rest of his army, and in doing so states th
 ## Transcript Verification Flags
 
 - **Sanskrit:** [exact Sanskrit omitted: auto-captions uncertain] applies to the opening prayers, the recitation of verses 1–11, and all incidental scriptural quotations. Do not treat captioned recitations as exact quotations.
-- **Study guide [02:00 – 04:00]:** The title of the overview work attributed to Gauranga Darshan Prabhu is captioned indistinctly and has not been reconstructed.
 - **Madhvacharya attribution [16:00 – 18:00]:** The work name and the "two Sanjayas" position are retained as the teacher presents them; the captioned title is imperfect and the position has not been checked against the original.
 - **Kurukshetra glories [20:00 – 22:00]:** The captioned Sanskrit describing Kurukshetra as a place of sacrifice for the demigods is unclear; no source has been supplied. The Parashurama and _samanta-pañcaka_ details are retained as the teacher's narration.
 - **Figure [40:00]:** The stated participant count of 64 crore is the teacher's figure as captioned and has not been independently checked.

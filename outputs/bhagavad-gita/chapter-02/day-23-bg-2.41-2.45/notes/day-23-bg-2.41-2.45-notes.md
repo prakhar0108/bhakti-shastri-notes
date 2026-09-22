@@ -137,7 +137,7 @@ Is it wrong to have a good house or vehicle? Two points:
 
 - The third consequence of absorption in enjoyment and opulence: **spiritual life begins to seem dry and tasteless** — "the books say the same thing again and again", "sixteen rounds is impractical."
 - **The chess analogy** [54:00]: to relish a game one must know its rules. A newcomer watching a chess match sees two people staring at a board and a silent audience, and understands nothing. Relishing spiritual life likewise requires that the science be understood — and requires space in the consciousness, which enjoyment and opulence occupy.
-- **The manna narrative** [54:00 – 58:00], recounted from a senior devotee's lecture: a people led out of bondage through a desert were told that a particular fruit would appear each day and would fully nourish them, on two conditions — it could not be stored for later, and **if they ate anything else, the fruit itself would taste completely tasteless.** The application: the holy name and the discussion of the Lord are that fruit. If the taste is not coming, it is because we are taking our taste elsewhere.
+- **The manna narrative** [54:00 – 58:00], recounted from a lecture by Radhanath Swami: a people led out of bondage through a desert were told that a particular fruit would appear each day and would fully nourish them, on two conditions — it could not be stored for later, and **if they ate anything else, the fruit itself would taste completely tasteless.** The application: the holy name and the discussion of the Lord are that fruit. If the taste is not coming, it is because we are taking our taste elsewhere.
 
 #### What intelligence is for [58:00]
 
@@ -222,6 +222,6 @@ The essence, as the teacher summarises it: _leave the three subjects of the frui
 - `22:00` The Caitanya-caritāmṛta definition of faith quoted in the purport is captioned in fragments and is paraphrased.
 - `26:00` The verse on Vāsudeva as the root of everything, and the invocation quoted about the spiritual master's mercy, are captioned imprecisely and are given in plain language.
 - `44:00` The verse cited on the short lifespans and limited intelligence of this age is captioned in fragments and is referred to by sense only.
-- `54:00 – 58:00` The name of the senior devotee whose lecture supplied the manna narrative, and the names within the narrative, are captioned indistinctly; the account is retained without them.
+- `54:00 – 58:00` The names within the manna narrative are captioned indistinctly; the account is retained without them.
 - `58:00` The Eighteenth Chapter verse numbers cited for intelligence in the three modes are captioned indistinctly and are recorded above as spoken.
 - `64:00` The Bhāgavatam verses cited on the topmost occupation and on Vāsudeva as the purpose of all sacrifice, austerity and yoga are captioned imprecisely and are paraphrased.

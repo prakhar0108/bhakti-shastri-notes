@@ -214,7 +214,7 @@ What is so remarkable about withdrawing the senses? **A foolish man who falls il
 - **The difference between false and real wealth:** false wealth does not bring satisfaction even after it is obtained; real wealth, once obtained, leaves no further hankering.
 - **The Biblical phrase quoted:** strive for the wealth that thieves cannot steal, that moths cannot destroy, that fire cannot burn.
 - **The bigger the man, the bigger the beggar:** the beggar at the railway station needs a few rupees; the businessman needs lakhs or crores. **Who is the greater beggar?**
-- **The illustration of real wealth** [58:00]: the account in Śrīla Prabhupāda's biography of the hostess in whose home he stayed in America, who said he was **the best guest she could have had** — because she never had to attend to him at all. He cooked for himself, chanted, kept his morning programme; she would go out about her work and he would be chanting; she would return and he would be chanting.
+- **The illustration of real wealth** [58:00]: the account in Śrīla Prabhupāda's biography of Shailee Agarwal, in whose home he stayed in America, who said he was **the best guest she could have had** — because she never had to attend to him at all. He cooked for himself, chanted, kept his morning programme; she would go out about her work and he would be chanting; she would return and he would be chanting.
 - **The definition:** the truly wealthy man is not the one who has the most but **the one who needs the least.**
 - The Sixth Chapter's statement is cited — that on gaining this, one thinks there is no greater gain than this.
 
@@ -307,5 +307,5 @@ Abstinence and freedom look identical from outside and are opposite inside: the 
 - `30:00` The details of Śrīla Prabhupāda's account of his own marriage are captioned indistinctly and should be checked against a published biography before being quoted.
 - `50:00` The Sanskrit of the principle of accepting the favourable and rejecting the unfavourable is captioned indistinctly and is given in translation only.
 - `56:00` The Biblical passage quoted about wealth that cannot be stolen, destroyed or burnt is captioned loosely and is paraphrased.
-- `58:00` The name of the hostess in the biographical account is captioned indistinctly and has been omitted.
+- `58:00` The name of the hostess in the biographical account is recorded as captioned (Shailee Agarwal); the spelling should be checked against the published biography.
 - `60:00` The Sixth Chapter verse cited on gaining that than which there is no greater gain is captioned in fragments and is referred to by sense only.
