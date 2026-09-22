@@ -27,7 +27,7 @@ export function baseOptions(): BaseLayoutProps {
       ),
       children: (
         <div className="flex flex-1 items-center justify-end md:hidden">
-          <PrabhupadaAvatar className="block size-16" />
+          <PrabhupadaAvatar className="block size-12" />
         </div>
       ),
     },

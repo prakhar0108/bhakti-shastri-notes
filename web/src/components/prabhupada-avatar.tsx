@@ -22,6 +22,6 @@ export function PrabhupadaAvatar({ className = "" }: { className?: string }) {
 /** Desktop-only pinned avatar, since the docs layout has no top bar above `md`. */
 export function PrabhupadaAvatarCorner() {
   return (
-    <PrabhupadaAvatar className="fixed end-3 top-3 z-30 hidden size-[72px] md:block" />
+    <PrabhupadaAvatar className="fixed end-3 top-3 z-30 hidden size-[54px] md:block" />
   );
 }

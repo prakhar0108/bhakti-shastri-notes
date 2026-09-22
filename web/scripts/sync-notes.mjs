@@ -424,15 +424,11 @@ function commentOutSourceNote(body) {
   );
 }
 
-/** Build a "watch on YouTube" link line from `metadata.video_url`, or an empty string if absent. */
-function videoLinkLine(metadata) {
-  if (!metadata?.video_url) return "";
-  return `[\u25b6 Watch on YouTube](${metadata.video_url})\n\n`;
-}
-
-/** Credit line for the class's teacher, preferring `metadata.speaker` over the course default. */
-function teacherLine(metadata) {
-  return `*Class by ${metadata?.speaker ?? TEACHER_NAME}*\n\n`;
+/** Build the compact "watch + teacher credit" meta row from a lecture's metadata. */
+function lectureMetaLine(metadata) {
+  const teacher = metadata?.speaker ?? TEACHER_NAME;
+  const href = metadata?.video_url ? ` href="${metadata.video_url}"` : "";
+  return `<LectureMeta${href}>Class by ${teacher}</LectureMeta>\n\n`;
 }
 
 async function transformBody(rawBody, metadata) {
@@ -445,7 +441,7 @@ async function transformBody(rawBody, metadata) {
   body = injectArgumentMapFlowchart(body);
   body = await injectVerses(body);
   body = commentOutSourceNote(body);
-  return `${videoLinkLine(metadata)}${teacherLine(metadata)}${body.trim()}`;
+  return `${lectureMetaLine(metadata)}${body.trim()}`;
 }
 
 async function loadMetadata(parentDir) {
