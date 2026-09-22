@@ -510,6 +510,8 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
       description: "Bhakti Shastri course notes, organized by book.",
     },
     [
+      "Teacher- HG Adishyam Prabhuji",
+      "",
       "Browse the course by book, or use the search bar in the sidebar to jump to a topic.",
       "",
       "<BookGrid>",
@@ -522,7 +524,9 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
   );
   await writeMetaFile(CONTENT_DIR, {
     title: "Bhakti Shastri Notes",
-    pages: ["index", ...books.map((b) => b.slug)],
+    // "index" is intentionally omitted: its title duplicates the header title,
+    // and the page is still reachable at /docs via the header/logo link.
+    pages: books.map((b) => b.slug),
   });
 
   // Bhagavad Gita — all 18 canonical chapters; only chapters with notes link anywhere.
@@ -537,7 +541,7 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
     [
       '<BookCover src="/covers/bhagavad-gita.avif" alt="Cover of Bhagavad-gītā As It Is" />',
       "",
-      `*Taught by ${TEACHER_NAME}*`,
+      `Teacher - ${TEACHER_NAME}`,
       "",
       `Select a chapter below. ${chapterStatus(availableChapters)}; the rest are coming soon.`,
       "",
@@ -581,7 +585,7 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
           "Introductory lectures on the Bhagavad Gita, in day order.",
       },
       [
-        `*Taught by ${TEACHER_NAME}*`,
+        `Teacher - ${TEACHER_NAME}`,
         "",
         "Lectures introducing the Bhagavad Gita before Chapter One begins, in the order they were taught.",
         "",
@@ -612,7 +616,7 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
         description: `Lecture notes for Bhagavad Gita Chapter ${num}, in day order.`,
       },
       [
-        `*Taught by ${TEACHER_NAME}*`,
+        `Teacher - ${TEACHER_NAME}`,
         "",
         `Lectures covering Bhagavad Gita Chapter ${num}, in the order they were taught.`,
         "",
@@ -673,7 +677,7 @@ async function writeBookLibrary(entriesByChapter, introEntries = []) {
       [
         `<BookCover src="${book.cover}" alt={${yamlString(book.alt)}} />`,
         "",
-        `*Taught by ${TEACHER_NAME}*`,
+        `Teacher - ${TEACHER_NAME}`,
         "",
         `**Coming soon.** ${book.body}`,
         "",
