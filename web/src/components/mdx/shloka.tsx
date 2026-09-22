@@ -7,17 +7,18 @@ interface ShlokaProps {
   sanskrit: string[];
   /** Roman transliteration, one array entry per printed line */
   transliteration: string[];
-  /** word-for-word meanings, in vedabase's original order */
-  synonyms: [term: string, meaning: string][];
-  /** the exact vedabase.io translation */
-  translation: string;
+  /** word-for-word meanings, in vedabase's original order; omit to link out instead */
+  synonyms?: [term: string, meaning: string][];
+  /** the exact vedabase.io translation; omit to link out instead */
+  translation?: string;
 }
 
 /**
  * Verified scripture reference (Bhagavad-gītā As It Is, vedabase.io). Renders
  * Devanagari, transliteration, word-for-word meanings, and translation as an
  * unframed, generously spaced section — distinct from surrounding lecture
- * commentary but not boxed like a card.
+ * commentary but not boxed like a card. Blocks that carry only the Sanskrit
+ * link out to vedabase.io for the word-for-word meanings and translation.
  */
 export function Shloka({
   number,
@@ -48,22 +49,38 @@ export function Shloka({
         ))}
       </div>
 
-      <div className="shloka-synonyms">
-        <h4>Word-for-Word</h4>
-        <p>
-          {synonyms.map(([term, meaning], i) => (
-            <span key={i}>
-              <em className="shloka-term">{term}</em> — {meaning}
-              {i < synonyms.length - 1 ? "; " : "."}
-            </span>
-          ))}
-        </p>
-      </div>
+      {synonyms && synonyms.length > 0 && (
+        <div className="shloka-synonyms">
+          <h4>Word-for-Word</h4>
+          <p>
+            {synonyms.map(([term, meaning], i) => (
+              <span key={i}>
+                <em className="shloka-term">{term}</em> — {meaning}
+                {i < synonyms.length - 1 ? "; " : "."}
+              </span>
+            ))}
+          </p>
+        </div>
+      )}
 
-      <div className="shloka-translation">
-        <h4>Translation</h4>
-        <p>{translation}</p>
-      </div>
+      {translation ? (
+        <div className="shloka-translation">
+          <h4>Translation</h4>
+          <p>{translation}</p>
+        </div>
+      ) : (
+        <div className="shloka-translation">
+          <h4>Translation</h4>
+          <p>
+            Read the word-for-word meanings and translation for Bhagavad-gītā{" "}
+            {number} on{" "}
+            <a href={href} target="_blank" rel="noreferrer">
+              vedabase.io
+            </a>
+            .
+          </p>
+        </div>
+      )}
     </section>
   );
 }

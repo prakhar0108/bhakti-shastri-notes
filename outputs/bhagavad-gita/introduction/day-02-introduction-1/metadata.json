@@ -1,0 +1,14 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=kyIRAIXhaMk",
+  "video_id": "kyIRAIXhaMk",
+  "title": "Day 2 | Introduction to Bhagavad Gita - 1 | Setting the Scene | Bhakti Shastri Course",
+  "speaker": "HG Adishyam Prabhuji",
+  "duration": "1:21:43",
+  "caption_language": "day-02-introduction-1.hi-orig.vtt",
+  "line_count": 1532,
+  "transcript_path": "transcripts/day-02-introduction-1-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-02-introduction-1-notes-source.md",
+  "notes_path": "notes/day-02-introduction-1-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. This lecture covers no numbered Bhagavad-gita verse of its own; scriptural references mentioned in passing are cited by number only, never reproduced from memory."
+}

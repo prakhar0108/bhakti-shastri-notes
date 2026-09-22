@@ -1,0 +1,14 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=GY5Po1CHmHA",
+  "video_id": "GY5Po1CHmHA",
+  "title": "Day 5 | Understanding the flow of Bhagavad Gita Through Arjun's 17 Questions | Bhakti Shastri Course",
+  "speaker": "HG Adishyam Prabhuji",
+  "duration": "1:21:35",
+  "caption_language": "day-05-arjunas-17-questions.hi-orig.vtt",
+  "line_count": 1524,
+  "transcript_path": "transcripts/day-05-arjunas-17-questions-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-05-arjunas-17-questions-notes-source.md",
+  "notes_path": "notes/day-05-arjunas-17-questions-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. This class covers no numbered Bhagavad-gita verse of its own; scriptural references mentioned in passing are cited by number only, never reproduced from memory."
+}

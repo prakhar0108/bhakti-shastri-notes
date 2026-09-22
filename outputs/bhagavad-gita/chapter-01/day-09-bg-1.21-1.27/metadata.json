@@ -1,0 +1,14 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=0ESV1yUK--A",
+  "video_id": "0ESV1yUK--A",
+  "title": "Day 9 | BG 1.21 - 1.27 | Observing the Armies on the Battlefield of Kurukṣetra | Bhakti Shastri Course",
+  "speaker": "HG Adishyam Prabhuji",
+  "duration": "1:00:16",
+  "caption_language": "day-09-bg-1.21-1.27.hi-orig.vtt",
+  "line_count": 1073,
+  "transcript_path": "transcripts/day-09-bg-1.21-1.27-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-09-bg-1.21-1.27-notes-source.md",
+  "notes_path": "notes/day-09-bg-1.21-1.27-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. Verse blocks carry the public-domain Sanskrit and transliteration verified against vedabase.io and link there for the word-for-word meanings and translation; uncertain captioned recitations remain flagged."
+}

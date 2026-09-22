@@ -1,0 +1,14 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=DY_NElTVH0o",
+  "video_id": "DY_NElTVH0o",
+  "title": "Day 3 | Introduction to Bhagavad Gita - 2 | Preface & Introduction | Bhakti Shastri Course",
+  "speaker": "HG Adishyam Prabhuji",
+  "duration": "1:24:02",
+  "caption_language": "day-03-introduction-2.hi-orig.vtt",
+  "line_count": 1719,
+  "transcript_path": "transcripts/day-03-introduction-2-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-03-introduction-2-notes-source.md",
+  "notes_path": "notes/day-03-introduction-2-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. This class covers no numbered Bhagavad-gita verse of its own; scriptural references mentioned in passing are cited by number only, never reproduced from memory."
+}

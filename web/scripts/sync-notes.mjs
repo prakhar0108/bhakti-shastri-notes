@@ -495,7 +495,7 @@ async function writeMetaFile(dir, meta) {
  * Lecture files stay at the content root (written earlier in `main`) so their `/docs/<slug>`
  * URLs never change; this only adds the surrounding library/chapter navigation around them.
  */
-async function writeBookLibrary(entriesByChapter) {
+async function writeBookLibrary(entriesByChapter, introEntries = []) {
   const availableChapters = [...entriesByChapter.keys()].sort((a, b) => a - b);
   const books = BOOKS.map((book) =>
     book.slug === "bhagavad-gita"
@@ -542,6 +542,11 @@ async function writeBookLibrary(entriesByChapter) {
       `Select a chapter below. ${chapterStatus(availableChapters)}; the rest are coming soon.`,
       "",
       "<Cards>",
+      ...(introEntries.length > 0
+        ? [
+            `  <Card title="Introduction" description="${introEntries.length} lecture notes" href="/docs/bhagavad-gita/introduction" />`,
+          ]
+        : []),
       ...BG_CHAPTERS.map((title, i) => {
         const num = i + 1;
         const cardTitle = yamlString(`Chapter ${num}: ${title}`);
@@ -558,8 +563,42 @@ async function writeBookLibrary(entriesByChapter) {
   );
   await writeMetaFile(bgDir, {
     title: "Bhagavad-gītā As It Is",
-    pages: ["index", ...availableChapters.map((num) => `chapter-${num}`)],
+    pages: [
+      "index",
+      ...(introEntries.length > 0 ? ["introduction"] : []),
+      ...availableChapters.map((num) => `chapter-${num}`),
+    ],
   });
+
+  // Lectures that precede Chapter One and so carry no "BG X.X" in their title.
+  if (introEntries.length > 0) {
+    const introDir = path.join(bgDir, "introduction");
+    await writeMdx(
+      path.join(introDir, "index.mdx"),
+      {
+        title: "Bhagavad Gita: Introduction",
+        description:
+          "Introductory lectures on the Bhagavad Gita, in day order.",
+      },
+      [
+        `*Taught by ${TEACHER_NAME}*`,
+        "",
+        "Lectures introducing the Bhagavad Gita before Chapter One begins, in the order they were taught.",
+        "",
+        "<Cards>",
+        ...introEntries.map(
+          (e) =>
+            `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
+        ),
+        "</Cards>",
+        "",
+        "<Cards>",
+        '  <Card title="Back to Bhagavad Gita chapters" href="/docs/bhagavad-gita" />',
+        "</Cards>",
+      ],
+    );
+    await writeMetaFile(introDir, { title: "Introduction", pages: ["index"] });
+  }
 
   // One index page per chapter that has notes, listing its lectures in day order.
   for (const num of availableChapters) {
@@ -683,6 +722,10 @@ async function main() {
         title,
         day: extractDayNumber(title),
         chapter: extractChapterNumber(title),
+        isIntroduction: path
+          .relative(OUTPUTS_DIR, group.parentDir)
+          .split(path.sep)
+          .includes("introduction"),
       });
     }
   }
@@ -702,7 +745,10 @@ async function main() {
     entriesByChapter.set(entry.chapter, chapterEntries);
   }
 
-  await writeBookLibrary(entriesByChapter);
+  await writeBookLibrary(
+    entriesByChapter,
+    entries.filter((e) => e.isIntroduction),
+  );
 
   console.log(
     `Synced ${entries.length} note(s) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
