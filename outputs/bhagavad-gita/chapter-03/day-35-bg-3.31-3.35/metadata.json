@@ -1,0 +1,14 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=0JoDDQ9-efA",
+  "video_id": "0JoDDQ9-efA",
+  "title": "Day 35 | BG 3.31 - 3.35 | Karma - yoga | Bhakti Shastri Course",
+  "speaker": "HG Adishyam Prabhuji",
+  "duration": "1:47:09",
+  "caption_language": "day-35-bg-3.31-3.35.hi-orig.vtt",
+  "line_count": 2103,
+  "transcript_path": "transcripts/day-35-bg-3.31-3.35-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-35-bg-3.31-3.35-notes-source.md",
+  "notes_path": "notes/day-35-bg-3.31-3.35-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. Main verse reference blocks are separately verified directly against vedabase.io; uncertain captioned recitations remain flagged."
+}

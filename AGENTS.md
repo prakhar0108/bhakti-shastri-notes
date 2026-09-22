@@ -22,9 +22,10 @@ Before generating a new lecture's notes, restructuring an existing note, or touc
 It documents the required note structure, the strict vedabase.io verse-sourcing protocol (fetch
 and verify every shloka — never reconstruct from memory), the shared canonical verse files under
 `outputs/shared/verses/`, and formatting conventions (lists over paragraphs, one Takeaway callout
-per verse, italics vs. inline code for Sanskrit). It also explains how that pass relates to the
-strict transcript-only grounding contract already enforced in `app/gemini_notes.py` and
-`README.md` — the two must not be conflated.
+per verse, italics vs. inline code for Sanskrit). **Notes are written by hand: the Gemini
+note-generation pass (`app/gemini_notes.py`, `uv run bs-notes`) is retired and must not be used.**
+Only caption extraction (`app/transcript.py`) is still part of the workflow, and the strict
+transcript-only grounding contract described in `README.md` still applies to the manual pass.
 
 ---
 

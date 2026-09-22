@@ -8,18 +8,33 @@ This file is the canonical reference for producing and editing lecture notes und
 It captures conventions established while building the Day 29–31 (BG 3.1–3.13) notes and the
 Fumadocs site in `web/`. Read this before generating, restructuring, or reformatting any note.
 
+## Do not use Gemini to write notes
+
+**Notes are written by hand. The Gemini note-generation pass is retired and must not be used.**
+
+- Do not run `uv run bs-notes <url>` for note generation, and do not call `app/gemini_notes.py`
+  (or any other model-generated drafting step) to produce commentary. Only the transcript
+  extraction half of the pipeline (`app/transcript.py`) is still used, to pull captions and lay
+  out the lecture folder.
+- Every lecture folder's `metadata.json` must record
+  `"notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini"`
+  and a `grounding_rule` stating that commentary was written manually from the extracted
+  captions without Gemini.
+- The grounding contract itself is unchanged and still binding: never reconstruct, complete, or
+  "correct" a Sanskrit verse from memory, and never introduce claims the transcript does not
+  support. Writing the notes by hand tightens that contract; it does not relax it.
+
 ## Two separate passes — do not conflate them
 
-1. **Transcript-grounded draft** (automated, `app/gemini_notes.py` + `app/notes.py` via
-   `uv run bs-notes <url>`). Governed by `WRITER_INSTRUCTION` / `AUDITOR_INSTRUCTION` in
-   `app/gemini_notes.py`. This pass **must never** reconstruct, complete, or "correct" a Sanskrit
-   verse from memory — see the grounding contract in `README.md` and the regex-based
-   fabrication guards (`SANSKRIT_CASE_SUFFIX_RE`, `CHAINED_SPANS_RE`, etc.) in that file. Do not
-   weaken or bypass that contract.
+1. **Transcript-grounded draft** (manual). Read the extracted transcript
+   (`transcripts/<slug>-notes-source.md`, which carries the two-minute timestamp headers) end to
+   end and write the commentary yourself, using only what the transcript actually says. Anything
+   the captions garble goes to the repository-only `Transcript Verification Flags` section rather
+   than being repaired from memory.
 2. **Verse-verification & restructuring pass** (this document). A deliberate, separate step —
    performed only with live access to vedabase.io — that (a) adds a verified scripture reference
-   for each shloka and (b) restructures the grounded draft into the template below. Run this
-   only after the grounded draft exists; never invent verse text here either — always fetch it.
+   for each shloka and (b) restructures the draft into the template below. Never invent verse
+   text here either — always fetch it.
 
 ## Required note structure ("Day 31" template)
 
@@ -146,8 +161,8 @@ Notes on this template:
 - **Timestamps** are unobtrusive anchors — `` `mm:ss` `` or `[mm:ss – mm:ss]` — placed near the
   claim or heading they support. Never invent a narrower timestamp than the transcript/prior
   note actually supports.
-- Preserve `[exact Sanskrit omitted: auto-captions uncertain]`-style concerns from the grounded
-  draft in the repository-only `Transcript Verification Flags` section, with their timestamps.
+- Preserve `[exact Sanskrit omitted: auto-captions uncertain]`-style concerns from the transcript
+  in the repository-only `Transcript Verification Flags` section, with their timestamps.
   In public commentary, retain the grounded explanation in plain language without these markers;
   never fill missing Sanskrit from memory or leave broken sentences or empty table cells.
 
@@ -172,8 +187,9 @@ Every file inside a lecture folder is named after that folder's slug — never t
 id (the id lives in `metadata.json`). The slug also becomes the published page URL
 (`day-31-bg-3.8-3.13-notes.md` → `/docs/day-31-bg-3-8-3-13`), so renaming a lecture folder
 changes a live URL. `app/transcript.py` (`lecture_location`) derives the slug and folder from the
-video title, so `uv run bs-notes <url>` writes straight into this layout; titles that don't match
-the `Day N | BG X.X - X.X` shape fall back to `outputs/unsorted/<video-id>/`.
+video title, so caption extraction writes straight into this layout; titles that don't match the
+`Day N | BG X.X - X.X` shape fall back to `outputs/unsorted/<video-id>/`. `metadata.json` and the
+`notes/` file are written by hand as part of the manual pass.
 
 `metadata.json`'s `title` (not the note's own `#` heading) is what actually renders as the page
 title and drives sidebar day-ordering (`extractDayNumber` in `web/scripts/sync-notes.mjs`) —
@@ -212,9 +228,13 @@ acting`) — the part before the first `:` becomes the column header, so pick a 
 
 ## Checklist for a new lecture
 
-1. Extract transcript + run the grounded generator (`uv run bs-notes <url> --output-dir outputs`).
-2. Confirm/normalize `metadata.json.title` to the `Day N | BG X.X - X.X | ...` shape.
-3. Restructure the grounded draft into the template above (Class Snapshot → Continuity →
+1. Extract the transcript only — no Gemini note generation. Read
+   `transcripts/<slug>-notes-source.md` in full before writing anything.
+2. Write `metadata.json` by hand: `video_url`, `video_id`, `title` in the
+   `Day N | BG X.X - X.X | ...` shape, `speaker`, `duration` (from the last caption cue),
+   `caption_language`, `line_count`, the three relative paths, and the no-Gemini
+   `notes_generator` / `grounding_rule` values described above.
+3. Write the note manually in the template above (Class Snapshot → Continuity →
    Shloka-Wise Notes → Cross-Shloka Progression + table → Q&A → Revision Sheet →
    Verification Flags).
 4. For each shloka: fetch and verify it from vedabase.io, add/reuse its
