@@ -135,7 +135,10 @@ h3,
 }
 
 .prose table {
-  overflow: hidden;
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
   border-radius: 0.75rem;
   border: 1px solid var(--color-fd-border);
 }
@@ -150,12 +153,6 @@ h3,
 
 .prose tbody tr:nth-child(even) {
   background: color-mix(in srgb, var(--color-fd-muted) 60%, transparent);
-}
-
-.prose :where(table) {
-  display: block;
-  overflow-x: auto;
-  max-width: 100%;
 }
 
 /* ---------- Verified scripture reference (Shloka component) ---------- */
