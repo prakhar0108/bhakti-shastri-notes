@@ -157,6 +157,27 @@ Krishna's first instruction is positional, not philosophical: start at the sense
 - But the problem established in 3.40 is that lust has entered **all three** intermediate layers — intelligence, mind and senses. So instead of carrying the soul up, all three pull it down. That downward pull is the gravity the person is caught in, and the whole mechanism runs in reverse.
 - **This is exactly why a boundary alone is insufficient.** The boundary prescribed in 3.41 is placed between the **senses and the sense objects** — at one point only. The mind still has lust in it, and so does the intelligence. Those must be worked on too, which is why the hierarchy is given here.
 
+```mermaid
+flowchart TD
+  Krishna["Krishna"]
+  Soul["Soul<br/>ideally moves upward"]
+  Intelligence["Intelligence<br/>lust has entered — BG 3.40"]
+  Mind["Mind<br/>lust has entered — BG 3.40"]
+  Senses["Senses<br/>lust has entered — BG 3.40"]
+  Objects["Sense objects<br/>material world"]
+
+  Krishna --> Soul
+  Soul -->|downward pull| Intelligence
+  Intelligence -->|downward pull| Mind
+  Mind -->|downward pull| Senses
+  Senses -->|"boundary set here — BG 3.41"| Objects
+
+  Objects -.-> Senses
+  Senses -.-> Mind
+  Mind -.-> Intelligence
+  Intelligence -.-> Soul
+```
+
 #### Three routes by which a person goes wrong [48:00 – 52:00]
 
 Because lust sits in three places, the failure can start in any of the three:

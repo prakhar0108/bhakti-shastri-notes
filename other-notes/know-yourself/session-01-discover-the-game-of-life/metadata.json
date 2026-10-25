@@ -1,0 +1,10 @@
+{
+  "title": "Know Yourself — Session 1 | Discover the Game of Life",
+  "speaker": "Radheshyam Das",
+  "video_url": "https://www.youtube.com/watch?v=aDJ1jTu2dK8",
+  "video_id": "aDJ1jTu2dK8",
+  "duration": "1:36:39",
+  "series": "Know Yourself",
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Presenter notes written manually from the extracted Hindi auto-captions without Gemini; no outside commentary; garbled items listed under Transcript Verification Flags."
+}

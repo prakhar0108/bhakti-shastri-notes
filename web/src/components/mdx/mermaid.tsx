@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { use, useEffect, useId, useState } from 'react';
-import { useTheme } from 'next-themes';
+import { use, useEffect, useId, useState } from "react";
+import { useTheme } from "next-themes";
 
 export function Mermaid({ chart }: { chart: string }) {
   const [mounted, setMounted] = useState(false);
@@ -17,7 +17,10 @@ export function Mermaid({ chart }: { chart: string }) {
 
 const cache = new Map<string, Promise<unknown>>();
 
-function cachePromise<T>(key: string, setPromise: () => Promise<T>): Promise<T> {
+function cachePromise<T>(
+  key: string,
+  setPromise: () => Promise<T>,
+): Promise<T> {
   const cached = cache.get(key);
   if (cached) return cached as Promise<T>;
 
@@ -29,45 +32,60 @@ function cachePromise<T>(key: string, setPromise: () => Promise<T>): Promise<T> 
 function MermaidContent({ chart }: { chart: string }) {
   const id = useId();
   const { resolvedTheme } = useTheme();
-  const { default: mermaid } = use(cachePromise('mermaid', () => import('mermaid')));
-  const isDark = resolvedTheme === 'dark';
+  const { default: mermaid } = use(
+    cachePromise("mermaid", () => import("mermaid")),
+  );
+  const isDark = resolvedTheme === "dark";
 
   mermaid.initialize({
     startOnLoad: false,
-    securityLevel: 'loose',
-    fontFamily: 'inherit',
-    themeCSS: 'margin: 1.5rem auto 0;',
-    theme: 'base',
+    securityLevel: "loose",
+    fontFamily: "inherit",
+    themeCSS: "margin: 1.5rem auto 0;",
+    theme: "base",
+    flowchart: {
+      // HTML labels size their foreignObject from an off-screen div that misses
+      // the site's serif font, so real text overflows and clips. SVG text wraps
+      // into tspans measured in place and honours wrappingWidth.
+      htmlLabels: false,
+      wrappingWidth: 440,
+      useMaxWidth: true,
+    },
     themeVariables: isDark
       ? {
-          background: '#14121c',
-          primaryColor: '#3a2c1a',
-          primaryTextColor: '#ede6d8',
-          primaryBorderColor: '#f0a860',
-          secondaryColor: '#1b2f31',
-          secondaryTextColor: '#ede6d8',
-          secondaryBorderColor: '#5cc2ba',
-          lineColor: '#d9a94a',
-          tertiaryColor: '#1b1826',
-          nodeTextColor: '#ede6d8',
+          background: "#14121c",
+          primaryColor: "#3a2c1a",
+          primaryTextColor: "#ede6d8",
+          primaryBorderColor: "#f0a860",
+          secondaryColor: "#1b2f31",
+          secondaryTextColor: "#ede6d8",
+          secondaryBorderColor: "#5cc2ba",
+          lineColor: "#d9a94a",
+          tertiaryColor: "#1b1826",
+          nodeTextColor: "#ede6d8",
         }
       : {
-          background: '#fbf7ef',
-          primaryColor: '#f6ddb8',
-          primaryTextColor: '#2a2320',
-          primaryBorderColor: '#c2410c',
-          secondaryColor: '#dcefee',
-          secondaryTextColor: '#2a2320',
-          secondaryBorderColor: '#1f6f78',
-          lineColor: '#b8860b',
-          tertiaryColor: '#fffbf2',
-          nodeTextColor: '#2a2320',
+          background: "#fbf7ef",
+          primaryColor: "#f6ddb8",
+          primaryTextColor: "#2a2320",
+          primaryBorderColor: "#c2410c",
+          secondaryColor: "#dcefee",
+          secondaryTextColor: "#2a2320",
+          secondaryBorderColor: "#1f6f78",
+          lineColor: "#b8860b",
+          tertiaryColor: "#fffbf2",
+          nodeTextColor: "#2a2320",
         },
   });
 
   const { svg, bindFunctions } = use(
-    cachePromise(`${chart}-${resolvedTheme}`, () => {
-      return mermaid.render(id, chart.replaceAll('\\n', '\n'));
+    cachePromise(`${chart}-${resolvedTheme}`, async () => {
+      // Ensure custom fonts are loaded first, or Mermaid measures label
+      // boxes against the fallback font and later clips the real text.
+      if (typeof document !== "undefined" && document.fonts) {
+        await document.fonts.ready;
+      }
+      return mermaid.render(id, chart.replaceAll("\\n", "\n"));
     }),
   );
 

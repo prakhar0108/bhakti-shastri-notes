@@ -143,6 +143,17 @@ h3,
   border: 1px solid var(--color-fd-border);
 }
 
+/* ---------- Mermaid diagrams ---------- */
+
+.prose .edgeLabel,
+.prose .edgeLabel foreignObject,
+.prose .edgeLabel div,
+.prose .edgeLabel span {
+  overflow: visible !important;
+  width: max-content !important;
+  white-space: nowrap !important;
+}
+
 .prose thead {
   background: color-mix(
     in srgb,

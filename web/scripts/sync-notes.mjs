@@ -19,6 +19,9 @@ const REPO_ROOT = path.resolve(WEB_ROOT, "..");
 const OUTPUTS_DIR = path.join(REPO_ROOT, "outputs");
 const CONTENT_DIR = path.join(WEB_ROOT, "content", "docs");
 const VERSES_DIR = path.join(OUTPUTS_DIR, "shared", "verses");
+// Standalone sessions outside the Bhakti Shastri course (e.g. Know Yourself).
+const OTHER_NOTES_DIR = path.join(REPO_ROOT, "other-notes");
+const OTHER_SESSIONS_SLUG = "other-sessions";
 
 const verseCache = new Map();
 
@@ -244,6 +247,15 @@ function escapeMermaidLabel(label) {
     .trim();
 }
 
+/**
+ * Render a Mermaid node/edge label using the "markdown string" syntax (backtick-quoted), which
+ * makes Mermaid auto-wrap long sentences to the node's `wrappingWidth` instead of sizing the box
+ * to fit the whole sentence on one line (which then overflows/clips in a narrow content column).
+ */
+function mermaidLabel(text) {
+  return `["\`${escapeMermaidLabel(text)}\`"]`;
+}
+
 /** Remove `mm:ss` timestamp anchors (bracketed, parenthesised, or inline-code) from a label. */
 function stripTimestamps(text) {
   return text
@@ -284,7 +296,7 @@ function buildArrowChainDiagram(nodes) {
     const label = verseMatch
       ? `${verseMatch[1]}: ${conciseLabel(verseMatch[2])}`
       : conciseLabel(node);
-    mermaidLines.push(`  N${i + 1}["${escapeMermaidLabel(label)}"]`);
+    mermaidLines.push(`  N${i + 1}${mermaidLabel(label)}`);
   });
   for (let i = 0; i < nodes.length - 1; i++) {
     mermaidLines.push(`  N${i + 1} --> N${i + 2}`);
@@ -292,29 +304,61 @@ function buildArrowChainDiagram(nodes) {
   return renderFlowchart(mermaidLines.join("\n"));
 }
 
-/** Turn plain (unlabelled) ASCII "│ / ▼" arrow-chain code fences into Mermaid flowcharts. */
+/**
+ * Turn plain (unlabelled) ASCII "│ / ▼" arrow-chain code fences into Mermaid flowcharts.
+ *
+ * Walks the body line-by-line and tracks fence open/close explicitly instead of using a single
+ * regex over the whole body — a regex matching bare "```\n...\n```" can't tell a language-tagged
+ * fence's closing "```" apart from some later fence's opening "```", so a hand-authored
+ * ```mermaid block earlier in the note would desync the pairing and swallow a real ASCII diagram
+ * fence further down without converting it. Only bare (no language) fences are conversion
+ * candidates; any fence with a language tag (```mermaid, ```mdx, ...) is left untouched.
+ */
 function convertAsciiArrowDiagrams(body) {
-  return body.replace(/```\n([\s\S]*?)\n```/g, (full, content) => {
-    if (!/[│▼]/.test(content)) return full;
+  const lines = body.split("\n");
+  const output = [];
+  let i = 0;
+  while (i < lines.length) {
+    const fenceMatch = /^```(\S*)\s*$/.exec(lines[i].trim());
+    if (!fenceMatch) {
+      output.push(lines[i]);
+      i++;
+      continue;
+    }
 
-    const nodes = [];
-    let buffer = [];
-    for (const rawLine of content.split("\n")) {
-      const line = rawLine.trim();
-      if (line === "" || line === "│" || line === "▼") {
-        if (buffer.length > 0) {
-          nodes.push(buffer.join(" "));
-          buffer = [];
+    const lang = fenceMatch[1];
+    let j = i + 1;
+    while (j < lines.length && lines[j].trim() !== "```") j++;
+    const contentLines = lines.slice(i + 1, j);
+    const closeLine = j < lines.length ? lines[j] : "```";
+
+    if (lang === "") {
+      const nodes = [];
+      let buffer = [];
+      for (const rawLine of contentLines) {
+        const line = rawLine.trim();
+        if (line === "" || line === "│" || line === "▼") {
+          if (buffer.length > 0) {
+            nodes.push(buffer.join(" "));
+            buffer = [];
+          }
+          continue;
         }
+        buffer.push(line);
+      }
+      if (buffer.length > 0) nodes.push(buffer.join(" "));
+
+      if (/[│▼]/.test(contentLines.join("\n")) && nodes.length >= 2) {
+        output.push(buildArrowChainDiagram(nodes));
+        i = j + 1;
         continue;
       }
-      buffer.push(line);
     }
-    if (buffer.length > 0) nodes.push(buffer.join(" "));
-    if (nodes.length < 2) return full;
 
-    return buildArrowChainDiagram(nodes);
-  });
+    output.push(lines[i], ...contentLines, closeLine);
+    i = j + 1;
+  }
+  return output.join("\n");
 }
 
 /** Find the "Class Snapshot / Argument Map" section and append a Mermaid flowchart of its argument chain. */
@@ -396,7 +440,7 @@ function injectArgumentMapFlowchart(body, flowchartHeading) {
     const chain = [];
     segments.forEach((seg, segIdx) => {
       chain.push(
-        `${indent}${idPrefix}${segIdx + 1}["${escapeMermaidLabel(conciseLabel(seg))}"]`,
+        `${indent}${idPrefix}${segIdx + 1}${mermaidLabel(conciseLabel(seg))}`,
       );
     });
     for (let i = 0; i < segments.length - 1; i++) {
@@ -522,6 +566,7 @@ async function writeBookLibrary(
   urlPrefix,
   entriesByChapter,
   introEntries = [],
+  otherEntries = [],
 ) {
   const availableChapters = [...entriesByChapter.keys()].sort((a, b) => a - b);
   const books = BOOKS.map((book) =>
@@ -554,8 +599,44 @@ async function writeBookLibrary(
     title: LANGS.en.tabTitle,
     // "index" must be a listed child, not `pagesIndex`: the tab switcher is only rendered
     // for pages Fumadocs can find in `children`, which includes this folder's own landing page.
-    pages: ["index", ...books.map((b) => b.slug)],
+    pages: [
+      "index",
+      ...books.map((b) => b.slug),
+      ...(otherEntries.length > 0 ? [OTHER_SESSIONS_SLUG] : []),
+    ],
   });
+
+  if (otherEntries.length > 0) {
+    const otherDir = path.join(baseDir, OTHER_SESSIONS_SLUG);
+    await writeMdx(
+      path.join(otherDir, "index.mdx"),
+      {
+        title: "Other Sessions",
+        description: "Session notes outside the Bhakti Shastri course.",
+      },
+      [
+        "Notes for standalone sessions that are not part of the Bhakti Shastri course.",
+        "",
+        "<Cards>",
+        ...otherEntries.map(
+          (e) =>
+            `  <Card title={${yamlString(e.title)}} description={${yamlString(e.speaker ?? "")}} href="/docs/${e.slug}" />`,
+        ),
+        "</Cards>",
+        "",
+        "<Cards>",
+        `  <Card title="Back to Book Library" href="${urlPrefix}" />`,
+        "</Cards>",
+      ],
+    );
+    await writeMetaFile(otherDir, {
+      title: "Other Sessions",
+      pages: [
+        "index",
+        ...otherEntries.map((e) => `[${e.title}](/docs/${e.slug})`),
+      ],
+    });
+  }
 
   // Bhagavad Gita — all 18 canonical chapters; only chapters with notes link anywhere.
   const bgDir = path.join(baseDir, "bhagavad-gita");
@@ -869,7 +950,7 @@ async function writeHindiLibrary(
 }
 
 /** The `/docs` landing page, which sits outside both language tabs. */
-async function writeRootLanding(availableChapters) {
+async function writeRootLanding(availableChapters, hasOtherSessions = false) {
   const books = BOOKS.map((book) =>
     book.slug === "bhagavad-gita"
       ? { ...book, status: chapterStatus(availableChapters) }
@@ -896,6 +977,11 @@ async function writeRootLanding(availableChapters) {
       "",
       "<Cards>",
       '  <Card title="हिन्दी टिप्पणी" description="Notes available in Hindi" href="/docs/hi" />',
+      ...(hasOtherSessions
+        ? [
+            `  <Card title="Other Sessions" description="Standalone session notes outside the course" href="/docs/en/${OTHER_SESSIONS_SLUG}" />`,
+          ]
+        : []),
       "</Cards>",
     ],
   );
@@ -979,15 +1065,44 @@ async function main() {
     return byChapter;
   }
 
+  const otherEntries = [];
+  const otherGroups = (await pathExists(OTHER_NOTES_DIR))
+    ? await findNoteGroups(OTHER_NOTES_DIR)
+    : [];
+  for (const group of otherGroups) {
+    const metadata = await loadMetadata(group.parentDir);
+    for (const file of group.files.filter((f) => !f.endsWith(".hi.md"))) {
+      const rawBody = await readFile(path.join(group.notesDir, file), "utf8");
+      const baseName = file.replace(/\.md$/, "");
+      const slug = slugify(path.relative(OTHER_NOTES_DIR, group.parentDir));
+      const title = metadata?.title ?? firstHeading(rawBody) ?? baseName;
+      const description = metadata?.duration
+        ? `Session notes (${metadata.duration}).`
+        : "Session notes.";
+      await writeMdx(
+        path.join(CONTENT_DIR, `${slug}.mdx`),
+        { title, description },
+        await transformBody(rawBody, metadata, LANGS.en, null),
+      );
+      pageCount++;
+      otherEntries.push({ slug, title, speaker: metadata?.speaker });
+    }
+  }
+  otherEntries.sort((a, b) => a.slug.localeCompare(b.slug));
+
   const entries = entriesByLang.en;
   const entriesByChapter = groupByChapter(entries);
 
-  await writeRootLanding([...entriesByChapter.keys()].sort((a, b) => a - b));
+  await writeRootLanding(
+    [...entriesByChapter.keys()].sort((a, b) => a - b),
+    otherEntries.length > 0,
+  );
   await writeBookLibrary(
     path.join(CONTENT_DIR, LANGS.en.dir),
     `/docs/${LANGS.en.dir}`,
     entriesByChapter,
     entries.filter((e) => e.isIntroduction),
+    otherEntries,
   );
   await writeHindiLibrary(
     path.join(CONTENT_DIR, LANGS.hi.dir),
@@ -997,7 +1112,7 @@ async function main() {
   );
 
   console.log(
-    `Synced ${pageCount} note page(s) (${entries.length} lecture(s), ${pageCount - entries.length} translated) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
+    `Synced ${pageCount} note page(s) (${entries.length} lecture(s), ${pageCount - entries.length - otherEntries.length} translated, ${otherEntries.length} other session(s)) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
   );
 }
 

@@ -230,6 +230,28 @@ acting`) — the part before the first `:` becomes the column header, so pick a 
     unattached action") will confuse the reader in both places. Prefer explicit contrastive
     wording (e.g. "knowledge-guided action, without attachment to results") that stands on its own
     without the surrounding paragraph for context.
+- **Hand-authored Mermaid diagrams for hierarchy/pull relationships.** Whenever the teacher
+  describes a fixed, named hierarchy of levels/faculties together with a directional
+  relationship running through it — e.g. "X is above Y is above Z," an intended direction one
+  way (an ideal ascent, a chain of command, a cause propagating forward) versus an actual or
+  corrupting influence running the other way, and/or a specific boundary or intervention placed
+  at one link only — write a hand-authored ` ```mermaid ` fenced block for it directly in the
+  relevant `####` sub-topic (in addition to the prose bullets, not instead of them). This is
+  distinct from the ASCII arrow-chain auto-conversion above: author the Mermaid syntax yourself,
+  since these diagrams have branching/labeled edges the auto-converter can't produce. Reference
+  shape (see `day-37-bg-3.41-3.43-notes.md`, "The diagram: why the downward pull happens"):
+  - `flowchart TD` with one node per level, in the hierarchy's stated top-to-bottom (or
+    first-to-last) order; use `<br/>` inside a node label for a short qualifier on a second line
+    (e.g. `"Intelligence<br/>lust has entered — BG 3.40"`).
+  - Solid arrows (`-->`) for the primary/intended direction through the hierarchy; label the
+    specific link where a boundary or intervention is introduced (e.g.
+    `Senses -->|"boundary set here — BG 3.41"| Objects`) rather than adding a separate node for it.
+  - Dashed arrows (`-.->`) for a reversal, corruption, or opposing force running counter to the
+    primary direction; leave these unlabeled if the solid arrows already carry the relationship's
+    name, so the label sits beside the arrow it actually describes instead of floating between
+    two arrows.
+  - Keep node text short and literal (level names plus a brief qualifier); put the full
+    explanation in the surrounding bullets, not in the diagram.
 - After editing anything under `outputs/`, run `npm run sync-notes`, then `npm run build` and
   `npm run lint` from `web/` before considering the change done.
 
