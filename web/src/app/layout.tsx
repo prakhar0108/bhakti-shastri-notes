@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { appName } from "@/lib/shared";
+import { SearchTip } from "@/components/search-tip";
 
 const heading = Cormorant_Garamond({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         >
           {children}
+          <SearchTip />
         </RootProvider>
       </body>
     </html>
