@@ -1,0 +1,17 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=o6xGb5fGOjg",
+  "video_id": "o6xGb5fGOjg",
+  "title": "Day 42 | BG 4.25 - 4.33 | Transcendental Knowledge | Bhakti Shastri Course",
+  "title_hi": "दिन 42 | BG 4.25 - 4.33 | दिव्य ज्ञान | भक्ति शास्त्र कोर्स",
+  "speaker": "HG Adishyam Prabhuji",
+  "duration": "1:18:53",
+  "caption_language": "day-42-bg-4.25-4.33.hi-orig.vtt",
+  "line_count": 1526,
+  "transcript_path": "transcripts/day-42-bg-4.25-4.33-clean-transcript.txt",
+  "notes_source_path": "transcripts/day-42-bg-4.25-4.33-notes-source.md",
+  "notes_path": "notes/day-42-bg-4.25-4.33-notes.md",
+  "notes_path_hi": "notes/day-42-bg-4.25-4.33-notes.hi.md",
+  "notes_generator": "manual-transcript-grounded-notes-plus-vedabase-verse-verification-no-gemini",
+  "grounding_rule": "Commentary is written manually only from the extracted captions/transcript, without Gemini. Main verse reference blocks are separately verified directly against vedabase.io; uncertain captioned recitations remain flagged.",
+  "hindi_notes_rule": "The Hindi note is written from this lecture's own original Hindi captions (the class is delivered in Hindi), not translated from the English note. Its structure, section order and timestamps mirror the English note, and it introduces no claim the English note does not also make. vedabase.io has no Hindi Bhagavad-gita edition, so its verse markers resolve to the same English-verified <Shloka> blocks."
+}

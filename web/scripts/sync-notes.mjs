@@ -852,6 +852,7 @@ const BG_CHAPTERS_HI = {
   1: "अर्जुन विषाद योग",
   2: "सांख्य-योग",
   3: "कर्म-योग",
+  4: "दिव्य ज्ञान",
 };
 
 /** Build the Hindi navigation tree, listing only the chapters that actually have Hindi notes. */
