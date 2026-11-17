@@ -2,6 +2,16 @@
 @import "fumadocs-ui/css/preset.css";
 @import "katex/dist/katex.min.css";
 
+/* Private (exam, other-session) links stay hidden until the phrase is entered on /admin. */
+html:not([data-private-unlocked]) a[href*="/exam-prep"],
+html:not([data-private-unlocked]) a[href*="/other-sessions"],
+html:not([data-private-unlocked])
+  [id^="nd-sidebar"]
+  div:has(> button [data-private-folder]),
+html[data-private-page]:not([data-private-unlocked]) [id^="nd-toc"] {
+  display: none !important;
+}
+
 /*
  * "Gita Editorial" theme — saffron/gold/peacock palette over a warm
  * parchment (light) / midnight-indigo (dark) base. These override the

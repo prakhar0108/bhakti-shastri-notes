@@ -43,6 +43,7 @@ jobs:
         env:
           GITHUB_PAGES: "true"
           NEXT_TELEMETRY_DISABLED: "1"
+          PRIVATE_PHRASE: ${{ secrets.PRIVATE_PHRASE }}
         run: npm run build
 
       - uses: actions/configure-pages@v5

@@ -293,6 +293,36 @@ English note, and it must not introduce any claim the English note does not also
   partial: a chapter appears in the Hindi tree only once it has a Hindi note, and its title must
   come from that note rather than being invented. Add an entry as each chapter is translated.
 
+## Exam Q&A sets (`outputs/exam-prep/`)
+
+Assessment questions with exam-ready answers are published as an **Exam Preparation** section
+in both language tabs (`/docs/en/exam-prep`, `/docs/hi/exam-prep`).
+
+- **Layout.** `outputs/exam-prep/<unit>/metadata.json` (`title`, `title_hi`, source booklet,
+  `grounding_rule`) and `outputs/exam-prep/<unit>/qa/<name>-qa.md` (+ optional `.hi.md`). The
+  folder is `qa/`, not `notes/`, so these pages are never treated as lectures. Page slug:
+  `exam-prep-<unit>-<name>` (`-hi` for Hindi); the file's `#` heading is the page title.
+  `syncExamPrep` / `writeExamPrepIndex` in `web/scripts/sync-notes.mjs` generate the pages and
+  sidebar.
+- **Source order (strict).** Answer from the lecture notes first; only where they do not cover
+  the point, use the verse's word-for-word, translation or purport **fetched live from
+  vedabase.io** and cite it. Never answer from memory or add claims beyond these sources.
+  Record any gap or reconciliation in the repository-only `## Transcript Verification Flags`
+  section (stripped on sync).
+- **Components.** Wrap a page's questions in `<ExamQuestions>` and each in
+  `<ExamQuestion n="1" refs="BG 1.1" question="… _term_ …">` (underscores in `question` render
+  as italics; avoid double quotes inside it). End each answer with a `**Source:**` line
+  (vedabase.io link + lecture link with timestamp) and an `<ExamVerse label="Show verse — BG X.Y">`
+  holding `<!-- verse:X.Y -->` markers. Hindi files pass `expandLabel` / `collapseLabel`, keep
+  the question text as printed in the booklet, link the `-hi` lecture pages, and add no claim
+  the English answer does not make.
+- **Answer style.** "List" questions → numbered list with exactly the number asked; "meaning"
+  questions → bold meaning first, then the word-for-word glosses; "why/what" → 2–4 bullets.
+  Analogy sets (`outputs/exam-prep/unit-1-analogies/`) use the analogy text as the question and
+  answer with **Context** → **Explanation (purport)** → **Application to Arjuna** → **General
+  application (class)**. Each unit folder becomes its own heading on the index and a separator
+  in the sidebar.
+
 ## Checklist for a new lecture
 
 1. Extract the transcript only — no Gemini note generation. Read

@@ -1,0 +1,18 @@
+{
+  "title": "Unit 1 · Pūrva-svādhyāya (Bhagavad-gītā Chapters 1–3)",
+  "title_hi": "इकाई 1 · पूर्व-स्वाध्याय (भगवद्गीता अध्याय 1–3)",
+  "source": "Unit 1 (Bhagavad-gītā Chapters 1–6), Pūrva-svādhyāya (Preliminary Self Study) — Questions for Closed Book Assessment, questions 1–42",
+  "answers_generator": "manual-notes-grounded-answers-plus-vedabase-purport-verification-no-gemini",
+  "grounding_rule": "Answers were written manually from the repository's lecture notes (outputs/bhagavad-gita/**/notes/*-notes.md) first; where the notes do not cover a point, from Śrīla Prabhupāda's verse, word-for-word meanings, translation and purport fetched live from vedabase.io and cited. No Gemini or other model-generated drafting; no claims beyond those sources.",
+  "hindi_answers_rule": "Hindi answers render the English answers faithfully and add no claim the English answers do not make; verse blocks remain the English vedabase.io-verified text.",
+  "qa_paths": [
+    "qa/bg-chapter-1-qa.md",
+    "qa/bg-chapter-2-qa.md",
+    "qa/bg-chapter-3-qa.md"
+  ],
+  "qa_paths_hi": [
+    "qa/bg-chapter-1-qa.hi.md",
+    "qa/bg-chapter-2-qa.hi.md",
+    "qa/bg-chapter-3-qa.hi.md"
+  ]
+}

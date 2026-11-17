@@ -1,5 +1,6 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import Image from "next/image";
+import { AdminButton } from "@/components/admin-button";
 import { PrabhupadaAvatar } from "@/components/prabhupada-avatar";
 import { appName, asset } from "@/lib/shared";
 
@@ -26,7 +27,8 @@ export function baseOptions(): BaseLayoutProps {
         </div>
       ),
       children: (
-        <div className="flex flex-1 items-center justify-end md:hidden">
+        <div className="flex flex-1 items-center justify-end gap-3 md:hidden">
+          <AdminButton />
           <PrabhupadaAvatar className="block size-12" />
         </div>
       ),

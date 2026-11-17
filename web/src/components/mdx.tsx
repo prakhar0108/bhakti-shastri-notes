@@ -4,6 +4,11 @@ import { Mermaid } from "@/components/mdx/mermaid";
 import { Shloka } from "@/components/mdx/shloka";
 import { BookGrid, BookCard, BookCover } from "@/components/mdx/book-card";
 import { LectureMeta } from "@/components/mdx/lecture-meta";
+import {
+  ExamQuestions,
+  ExamQuestion,
+  ExamVerse,
+} from "@/components/mdx/exam-qa";
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -14,6 +19,9 @@ export function getMDXComponents(components?: MDXComponents) {
     BookCard,
     BookCover,
     LectureMeta,
+    ExamQuestions,
+    ExamQuestion,
+    ExamVerse,
     ...components,
   } satisfies MDXComponents;
 }

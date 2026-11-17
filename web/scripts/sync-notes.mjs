@@ -23,10 +23,34 @@ const VERSES_DIR = path.join(OUTPUTS_DIR, "shared", "verses");
 const OTHER_NOTES_DIR = path.join(REPO_ROOT, "other-notes");
 const OTHER_SESSIONS_SLUG = "other-sessions";
 
-const verseCache = new Map();
-
 // The teacher for the whole Bhakti Shastri course; credited on every generated page.
 const TEACHER_NAME = "HG Adishyam Prabhuji";
+
+// Exam Q&A sets: outputs/exam-prep/<unit>/qa/*.md (+ .hi.md), with a unit-level metadata.json.
+const EXAM_PREP_DIR = path.join(OUTPUTS_DIR, "exam-prep");
+const EXAM_PREP_SLUG = "exam-prep";
+const EXAM_PREP_STRINGS = {
+  en: {
+    title: "Exam Preparation",
+    description: "Assessment questions with exam-ready answers.",
+    intro:
+      "Questions from the course's self-study assessments, answered from the class notes and Bhagavad-gītā As It Is. Open a question to read its answer, or use **Expand all answers** to revise a whole chapter at once.",
+    credit: `Answers drawn from ${TEACHER_NAME}'s class notes and Bhagavad-gītā As It Is`,
+    switchLabel: "हिन्दी में पढ़ें",
+    back: "Back to Exam Preparation",
+  },
+  hi: {
+    title: "परीक्षा तैयारी",
+    description: "मूल्यांकन प्रश्न और परीक्षा हेतु उत्तर।",
+    intro:
+      "पाठ्यक्रम के स्व-अध्ययन मूल्यांकन के प्रश्न, कक्षा-टिप्पणियों और भगवद्गीता यथारूप के आधार पर उत्तर सहित। उत्तर पढ़ने के लिए प्रश्न खोलें, या पूरे अध्याय की पुनरावृत्ति के लिए **सभी उत्तर खोलें** का उपयोग करें।",
+    credit: `${TEACHER_NAME} की कक्षा-टिप्पणियों और भगवद्गीता यथारूप पर आधारित उत्तर`,
+    switchLabel: "Read in English",
+    back: "परीक्षा तैयारी पर वापस",
+  },
+};
+
+const verseCache = new Map();
 
 // Per-language strings for lecture pages. A note is Hindi when its filename ends in
 // `.hi.md`; its page slug is the English slug plus `-hi`, so English URLs never move.
@@ -499,12 +523,16 @@ function lectureMetaLine(metadata, strings, counterpartSlug) {
   return `<LectureMeta${href}${translation}>${strings.classBy(teacher)}</LectureMeta>\n\n`;
 }
 
-async function transformBody(rawBody, metadata, strings, counterpartSlug) {
-  let body = stripLeadingHeading(rawBody);
-  body = body.replace(
+/** Drop the repository-only `## Transcript Verification Flags` section from published pages. */
+function stripVerificationFlags(body) {
+  return body.replace(
     /^##[ \t]+Transcript Verification Flags[ \t]*\r?\n[\s\S]*?(?=^#{1,2}[ \t]+|(?![\s\S]))/gm,
     "",
   );
+}
+
+async function transformBody(rawBody, metadata, strings, counterpartSlug) {
+  let body = stripVerificationFlags(stripLeadingHeading(rawBody));
   body = convertAsciiArrowDiagrams(body);
   body = injectArgumentMapFlowchart(body, strings.flowchartHeading);
   body = await injectVerses(body);
@@ -567,6 +595,7 @@ async function writeBookLibrary(
   entriesByChapter,
   introEntries = [],
   otherEntries = [],
+  examEntries = [],
 ) {
   const availableChapters = [...entriesByChapter.keys()].sort((a, b) => a - b);
   const books = BOOKS.map((book) =>
@@ -592,6 +621,14 @@ async function writeBookLibrary(
           `  <BookCard href="${urlPrefix}/${b.slug}" title={${yamlString(b.title)}} cover="${b.cover}" alt={${yamlString(b.alt)}} status={${yamlString(b.status)}} available={${b.available}} />`,
       ),
       "</BookGrid>",
+      ...(examEntries.length > 0
+        ? [
+            "",
+            "<Cards>",
+            `  <Card title="${EXAM_PREP_STRINGS.en.title}" description="${EXAM_PREP_STRINGS.en.description}" href="${urlPrefix}/${EXAM_PREP_SLUG}" />`,
+            "</Cards>",
+          ]
+        : []),
     ],
   );
   await writeMetaFile(baseDir, {
@@ -602,9 +639,14 @@ async function writeBookLibrary(
     pages: [
       "index",
       ...books.map((b) => b.slug),
+      ...(examEntries.length > 0 ? [EXAM_PREP_SLUG] : []),
       ...(otherEntries.length > 0 ? [OTHER_SESSIONS_SLUG] : []),
     ],
   });
+
+  if (examEntries.length > 0) {
+    await writeExamPrepIndex(baseDir, "en", examEntries);
+  }
 
   if (otherEntries.length > 0) {
     const otherDir = path.join(baseDir, OTHER_SESSIONS_SLUG);
@@ -631,6 +673,7 @@ async function writeBookLibrary(
     );
     await writeMetaFile(otherDir, {
       title: "Other Sessions",
+      icon: "private",
       pages: [
         "index",
         ...otherEntries.map((e) => `[${e.title}](/docs/${e.slug})`),
@@ -817,6 +860,7 @@ async function writeHindiLibrary(
   urlPrefix,
   entriesByChapter,
   introEntries = [],
+  examEntries = [],
 ) {
   const availableChapters = [...entriesByChapter.keys()].sort((a, b) => a - b);
   const chapterLabel = (num) =>
@@ -839,14 +883,27 @@ async function writeHindiLibrary(
       '  <Card title="भगवद्गीता यथारूप" href="' +
         urlPrefix +
         '/bhagavad-gita" />',
+      ...(examEntries.length > 0
+        ? [
+            `  <Card title="${EXAM_PREP_STRINGS.hi.title}" description="${EXAM_PREP_STRINGS.hi.description}" href="${urlPrefix}/${EXAM_PREP_SLUG}" />`,
+          ]
+        : []),
       "</Cards>",
     ],
   );
   await writeMetaFile(baseDir, {
     root: "language",
     title: LANGS.hi.tabTitle,
-    pages: ["index", "bhagavad-gita"],
+    pages: [
+      "index",
+      "bhagavad-gita",
+      ...(examEntries.length > 0 ? [EXAM_PREP_SLUG] : []),
+    ],
   });
+
+  if (examEntries.length > 0) {
+    await writeExamPrepIndex(baseDir, "hi", examEntries);
+  }
 
   const bgDir = path.join(baseDir, "bhagavad-gita");
   await writeMdx(
@@ -949,8 +1006,106 @@ async function writeHindiLibrary(
   }
 }
 
+/** Write every exam Q&A page to the content root and return the entries per language. */
+async function syncExamPrep() {
+  const entries = { en: [], hi: [] };
+  if (!(await pathExists(EXAM_PREP_DIR))) return entries;
+
+  const units = (await readdir(EXAM_PREP_DIR, { withFileTypes: true }))
+    .filter((e) => e.isDirectory())
+    .map((e) => e.name)
+    .sort();
+  for (const unit of units) {
+    const unitDir = path.join(EXAM_PREP_DIR, unit);
+    const qaDir = path.join(unitDir, "qa");
+    if (!(await pathExists(qaDir))) continue;
+    const metadata = await loadMetadata(unitDir);
+    const files = (await readdir(qaDir))
+      .filter((f) => f.endsWith(".md"))
+      .sort();
+
+    for (const file of files) {
+      const lang = file.endsWith(".hi.md") ? "hi" : "en";
+      const strings = EXAM_PREP_STRINGS[lang];
+      const baseName = file.replace(/(\.hi)?\.md$/, "").replace(/-qa$/, "");
+      const baseSlug = slugify(`${EXAM_PREP_SLUG}-${unit}-${baseName}`);
+      const slug = lang === "hi" ? `${baseSlug}-hi` : baseSlug;
+      const counterpartSlug =
+        lang === "hi"
+          ? baseSlug
+          : files.includes(file.replace(/\.md$/, ".hi.md"))
+            ? `${baseSlug}-hi`
+            : null;
+      const rawBody = await readFile(path.join(qaDir, file), "utf8");
+      const title = firstHeading(rawBody) ?? baseName;
+      const unitTitle =
+        (lang === "hi" ? metadata?.title_hi : metadata?.title) ?? unit;
+
+      let body = stripVerificationFlags(stripLeadingHeading(rawBody));
+      body = commentOutSourceNote(await injectVerses(body));
+      const translation = counterpartSlug
+        ? ` translationHref="/docs/${counterpartSlug}" translationLabel={${yamlString(strings.switchLabel)}}`
+        : "";
+      await writeMdx(
+        path.join(CONTENT_DIR, `${slug}.mdx`),
+        { title, description: unitTitle },
+        `<LectureMeta${translation}>${strings.credit}</LectureMeta>\n\n${body.trim()}`,
+      );
+      entries[lang].push({ slug, title, unitTitle });
+    }
+  }
+  return entries;
+}
+
+/** The exam-prep landing page and sidebar folder for one language tab. */
+async function writeExamPrepIndex(baseDir, lang, entries) {
+  const strings = EXAM_PREP_STRINGS[lang];
+  const dir = path.join(baseDir, EXAM_PREP_SLUG);
+  const units = [...new Set(entries.map((e) => e.unitTitle))];
+
+  await writeMdx(
+    path.join(dir, "index.mdx"),
+    { title: strings.title, description: strings.description },
+    [
+      strings.intro,
+      "",
+      ...units.flatMap((unitTitle) => [
+        `## ${unitTitle}`,
+        "",
+        "<Cards>",
+        ...entries
+          .filter((e) => e.unitTitle === unitTitle)
+          .map(
+            (e) =>
+              `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
+          ),
+        "</Cards>",
+        "",
+      ]),
+    ],
+  );
+  await writeMetaFile(dir, {
+    title: strings.title,
+    // Resolved in src/lib/source.ts to a marker that CSS uses to hide the folder while locked.
+    icon: "private",
+    pages: [
+      "index",
+      ...units.flatMap((unitTitle) => [
+        `---${unitTitle}---`,
+        ...entries
+          .filter((e) => e.unitTitle === unitTitle)
+          .map((e) => `[${e.title}](/docs/${e.slug})`),
+      ]),
+    ],
+  });
+}
+
 /** The `/docs` landing page, which sits outside both language tabs. */
-async function writeRootLanding(availableChapters, hasOtherSessions = false) {
+async function writeRootLanding(
+  availableChapters,
+  hasOtherSessions = false,
+  hasExamPrep = false,
+) {
   const books = BOOKS.map((book) =>
     book.slug === "bhagavad-gita"
       ? { ...book, status: chapterStatus(availableChapters) }
@@ -977,6 +1132,11 @@ async function writeRootLanding(availableChapters, hasOtherSessions = false) {
       "",
       "<Cards>",
       '  <Card title="हिन्दी टिप्पणी" description="Notes available in Hindi" href="/docs/hi" />',
+      ...(hasExamPrep
+        ? [
+            `  <Card title="${EXAM_PREP_STRINGS.en.title}" description="${EXAM_PREP_STRINGS.en.description}" href="/docs/en/${EXAM_PREP_SLUG}" />`,
+          ]
+        : []),
       ...(hasOtherSessions
         ? [
             `  <Card title="Other Sessions" description="Standalone session notes outside the course" href="/docs/en/${OTHER_SESSIONS_SLUG}" />`,
@@ -1074,7 +1234,10 @@ async function main() {
     for (const file of group.files.filter((f) => !f.endsWith(".hi.md"))) {
       const rawBody = await readFile(path.join(group.notesDir, file), "utf8");
       const baseName = file.replace(/\.md$/, "");
-      const slug = slugify(path.relative(OTHER_NOTES_DIR, group.parentDir));
+      // Prefixed so every session URL matches the private-path rule.
+      const slug = slugify(
+        `${OTHER_SESSIONS_SLUG}-${path.relative(OTHER_NOTES_DIR, group.parentDir)}`,
+      );
       const title = metadata?.title ?? firstHeading(rawBody) ?? baseName;
       const description = metadata?.duration
         ? `Session notes (${metadata.duration}).`
@@ -1090,12 +1253,17 @@ async function main() {
   }
   otherEntries.sort((a, b) => a.slug.localeCompare(b.slug));
 
+  const examEntries = await syncExamPrep();
+  const examPageCount = examEntries.en.length + examEntries.hi.length;
+  pageCount += examPageCount;
+
   const entries = entriesByLang.en;
   const entriesByChapter = groupByChapter(entries);
 
   await writeRootLanding(
     [...entriesByChapter.keys()].sort((a, b) => a - b),
     otherEntries.length > 0,
+    examEntries.en.length > 0,
   );
   await writeBookLibrary(
     path.join(CONTENT_DIR, LANGS.en.dir),
@@ -1103,16 +1271,18 @@ async function main() {
     entriesByChapter,
     entries.filter((e) => e.isIntroduction),
     otherEntries,
+    examEntries.en,
   );
   await writeHindiLibrary(
     path.join(CONTENT_DIR, LANGS.hi.dir),
     `/docs/${LANGS.hi.dir}`,
     groupByChapter(entriesByLang.hi),
     entriesByLang.hi.filter((e) => e.isIntroduction),
+    examEntries.hi,
   );
 
   console.log(
-    `Synced ${pageCount} note page(s) (${entries.length} lecture(s), ${pageCount - entries.length - otherEntries.length} translated, ${otherEntries.length} other session(s)) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
+    `Synced ${pageCount} note page(s) (${entries.length} lecture(s), ${pageCount - entries.length - otherEntries.length - examPageCount} translated, ${otherEntries.length} other session(s), ${examPageCount} exam Q&A page(s)) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
   );
 }
 
