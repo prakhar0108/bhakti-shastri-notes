@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=SE6frmU1JEA",
+  "video_id": "SE6frmU1JEA",
+  "title": "BS 054 | BG 2.38 - 2.46 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (054) - Bhagavad Gita Chapter 02 Text 38 to 46",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "57:03",
+  "caption_language": "bs-054-bg-2.38-2.46.en-orig.vtt",
+  "line_count": 1262,
+  "transcript_path": "transcripts/bs-054-bg-2.38-2.46-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-054-bg-2.38-2.46-notes-source.md",
+  "notes_path": "notes/bs-054-bg-2.38-2.46-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

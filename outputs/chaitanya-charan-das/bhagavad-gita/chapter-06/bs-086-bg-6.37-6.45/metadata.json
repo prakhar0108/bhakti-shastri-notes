@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=QV2ozTQRfKw",
+  "video_id": "QV2ozTQRfKw",
+  "title": "BS 086 | BG 6.37 - 6.45 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (086) - Bhagavad Gita Chapter 06 Text 37 to 45",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:00:31",
+  "caption_language": "bs-086-bg-6.37-6.45.hi-orig.vtt",
+  "line_count": 308,
+  "transcript_path": "transcripts/bs-086-bg-6.37-6.45-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-086-bg-6.37-6.45-notes-source.md",
+  "notes_path": "notes/bs-086-bg-6.37-6.45-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

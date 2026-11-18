@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=vEGhEI9A3C4",
+  "video_id": "vEGhEI9A3C4",
+  "title": "BS 071 | BG 4.14 - 4.23 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (071) - Bhagavad Gita Chapter 04 Text 14 to 23",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "59:03",
+  "caption_language": "bs-071-bg-4.14-4.23.hi-orig.vtt",
+  "line_count": 698,
+  "transcript_path": "transcripts/bs-071-bg-4.14-4.23-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-071-bg-4.14-4.23-notes-source.md",
+  "notes_path": "notes/bs-071-bg-4.14-4.23-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

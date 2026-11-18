@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=XMy05Xu4h2k",
+  "video_id": "XMy05Xu4h2k",
+  "title": "BS 050 | BG 2.13 - 2.17 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (050) - Bhagavad Gita Chapter 02 Text 13 to 17",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:04:57",
+  "caption_language": "bs-050-bg-2.13-2.17.en-orig.vtt",
+  "line_count": 1410,
+  "transcript_path": "transcripts/bs-050-bg-2.13-2.17-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-050-bg-2.13-2.17-notes-source.md",
+  "notes_path": "notes/bs-050-bg-2.13-2.17-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

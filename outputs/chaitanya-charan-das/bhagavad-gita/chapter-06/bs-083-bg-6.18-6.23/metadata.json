@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=15E6YDoFkRQ",
+  "video_id": "15E6YDoFkRQ",
+  "title": "BS 083 | BG 6.18 - 6.23 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (083) - Bhagavad Gita Chapter 06 Text 18 to 23",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:02:28",
+  "caption_language": "bs-083-bg-6.18-6.23.hi-orig.vtt",
+  "line_count": 609,
+  "transcript_path": "transcripts/bs-083-bg-6.18-6.23-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-083-bg-6.18-6.23-notes-source.md",
+  "notes_path": "notes/bs-083-bg-6.18-6.23-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

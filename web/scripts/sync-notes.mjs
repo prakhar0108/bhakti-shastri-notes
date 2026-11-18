@@ -22,6 +22,11 @@ const VERSES_DIR = path.join(OUTPUTS_DIR, "shared", "verses");
 // Standalone sessions outside the Bhakti Shastri course (e.g. Know Yourself).
 const OTHER_NOTES_DIR = path.join(REPO_ROOT, "other-notes");
 const OTHER_SESSIONS_SLUG = "other-sessions";
+// Bhakti Shastri lectures by HG Chaitanya Charan Das: a separate, private section whose
+// notes embed vedabase.io pages instead of storing verse text.
+const CCD_SLUG = "chaitanya-charan-das";
+const CCD_DIR = path.join(OUTPUTS_DIR, CCD_SLUG);
+const CCD_TEACHER = "HG Chaitanya Charan Das";
 
 // The teacher for the whole Bhakti Shastri course; credited on every generated page.
 const TEACHER_NAME = "HG Adishyam Prabhuji";
@@ -168,6 +173,15 @@ async function loadVerseBlock(verseKey) {
   return content;
 }
 
+/** Replace `<!-- vedabase:2.13 -->` markers with an embedded vedabase.io page (no stored verse text). */
+function injectVedabaseEmbeds(body) {
+  return body.replace(
+    /<!--\s*vedabase:(\d+)\.(\d+)\s*-->/g,
+    (_, chapter, verse) =>
+      `<VedabaseVerse number="${chapter}.${verse}" href="https://vedabase.io/en/library/bg/${chapter}/${verse}/" />`,
+  );
+}
+
 /** Replace `<!-- verse:3.7 -->` markers with the shared, verified verse reference. */
 async function injectVerses(body) {
   const matches = [...body.matchAll(/<!--\s*verse:(\d+\.\d+)\s*-->/g)];
@@ -208,7 +222,7 @@ async function findNoteGroups(dir, groups = []) {
 
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
-    if (["notes", "transcripts", "work", "shared"].includes(entry.name))
+    if (["notes", "transcripts", "work", "shared", CCD_SLUG].includes(entry.name))
       continue;
     await findNoteGroups(path.join(dir, entry.name), groups);
   }
@@ -536,6 +550,7 @@ async function transformBody(rawBody, metadata, strings, counterpartSlug) {
   body = convertAsciiArrowDiagrams(body);
   body = injectArgumentMapFlowchart(body, strings.flowchartHeading);
   body = await injectVerses(body);
+  body = injectVedabaseEmbeds(body);
   body = commentOutSourceNote(body);
   return `${lectureMetaLine(metadata, strings, counterpartSlug)}${body.trim()}`;
 }
@@ -596,6 +611,7 @@ async function writeBookLibrary(
   introEntries = [],
   otherEntries = [],
   examEntries = [],
+  hasCcd = false,
 ) {
   const availableChapters = [...entriesByChapter.keys()].sort((a, b) => a - b);
   const books = BOOKS.map((book) =>
@@ -621,11 +637,20 @@ async function writeBookLibrary(
           `  <BookCard href="${urlPrefix}/${b.slug}" title={${yamlString(b.title)}} cover="${b.cover}" alt={${yamlString(b.alt)}} status={${yamlString(b.status)}} available={${b.available}} />`,
       ),
       "</BookGrid>",
-      ...(examEntries.length > 0
+      ...(examEntries.length > 0 || hasCcd
         ? [
             "",
             "<Cards>",
-            `  <Card title="${EXAM_PREP_STRINGS.en.title}" description="${EXAM_PREP_STRINGS.en.description}" href="${urlPrefix}/${EXAM_PREP_SLUG}" />`,
+            ...(examEntries.length > 0
+              ? [
+                  `  <Card title="${EXAM_PREP_STRINGS.en.title}" description="${EXAM_PREP_STRINGS.en.description}" href="${urlPrefix}/${EXAM_PREP_SLUG}" />`,
+                ]
+              : []),
+            ...(hasCcd
+              ? [
+                  `  <Card title="${CCD_TEACHER}" description="Bhakti Shastri lecture notes by ${CCD_TEACHER}" href="${urlPrefix}/${CCD_SLUG}" />`,
+                ]
+              : []),
             "</Cards>",
           ]
         : []),
@@ -640,6 +665,7 @@ async function writeBookLibrary(
       "index",
       ...books.map((b) => b.slug),
       ...(examEntries.length > 0 ? [EXAM_PREP_SLUG] : []),
+      ...(hasCcd ? [CCD_SLUG] : []),
       ...(otherEntries.length > 0 ? [OTHER_SESSIONS_SLUG] : []),
     ],
   });
@@ -1106,6 +1132,7 @@ async function writeRootLanding(
   availableChapters,
   hasOtherSessions = false,
   hasExamPrep = false,
+  hasCcd = false,
 ) {
   const books = BOOKS.map((book) =>
     book.slug === "bhagavad-gita"
@@ -1138,6 +1165,11 @@ async function writeRootLanding(
             `  <Card title="${EXAM_PREP_STRINGS.en.title}" description="${EXAM_PREP_STRINGS.en.description}" href="/docs/en/${EXAM_PREP_SLUG}" />`,
           ]
         : []),
+      ...(hasCcd
+        ? [
+            `  <Card title="${CCD_TEACHER}" description="Bhakti Shastri lecture notes by ${CCD_TEACHER}" href="/docs/en/${CCD_SLUG}" />`,
+          ]
+        : []),
       ...(hasOtherSessions
         ? [
             `  <Card title="Other Sessions" description="Standalone session notes outside the course" href="/docs/en/${OTHER_SESSIONS_SLUG}" />`,
@@ -1152,6 +1184,128 @@ async function writeRootLanding(
     // and the page is still reachable at /docs via the header/logo link.
     pages: ["en", "hi"],
   });
+}
+
+/** Read the series session number out of a title, e.g. "BS 043 | BG 1.1 - 1.7 | ..." -> 43. */
+function extractSessionNumber(title) {
+  const match = /\bBS\s+(\d+)/.exec(title ?? "");
+  return match ? Number(match[1]) : null;
+}
+
+/**
+ * Sync the HG Chaitanya Charan Das section: outputs/chaitanya-charan-das/**\/notes/*.md become
+ * `/docs/chaitanya-charan-das-<slug>` pages (prefixed so they match the private-path rule),
+ * with a private sidebar folder grouped into Introduction and per-chapter lists.
+ * Returns the number of pages written.
+ */
+async function syncChaitanyaCharanDas(baseDir, urlPrefix) {
+  const groups = (await pathExists(CCD_DIR)) ? await findNoteGroups(CCD_DIR) : [];
+  const entries = [];
+  for (const group of groups) {
+    const metadata = await loadMetadata(group.parentDir);
+    for (const file of group.files.filter((f) => !f.endsWith(".hi.md"))) {
+      const rawBody = await readFile(path.join(group.notesDir, file), "utf8");
+      const baseName = file.replace(/\.md$/, "");
+      const slug = slugify(`${CCD_SLUG}-${baseName.replace(/-notes$/, "")}`);
+      const title = metadata?.title ?? firstHeading(rawBody) ?? baseName;
+      await writeMdx(
+        path.join(CONTENT_DIR, `${slug}.mdx`),
+        { title, description: LANGS.en.description(metadata?.duration) },
+        await transformBody(rawBody, metadata, LANGS.en, null),
+      );
+      entries.push({
+        slug,
+        title,
+        session: extractSessionNumber(title),
+        chapter: extractChapterNumber(title),
+      });
+    }
+  }
+  if (entries.length === 0) return 0;
+
+  entries.sort((a, b) => (a.session ?? 0) - (b.session ?? 0));
+  const intro = entries.filter((e) => e.chapter == null);
+  const byChapter = new Map();
+  for (const e of entries.filter((e) => e.chapter != null)) {
+    byChapter.set(e.chapter, [...(byChapter.get(e.chapter) ?? []), e]);
+  }
+  const chapters = [...byChapter.keys()].sort((a, b) => a - b);
+
+  const dir = path.join(baseDir, CCD_SLUG);
+  const sectionUrl = `${urlPrefix}/${CCD_SLUG}`;
+  await writeMdx(
+    path.join(dir, "index.mdx"),
+    {
+      title: `${CCD_TEACHER} — Bhagavad-gītā`,
+      description: `Bhakti Shastri lecture notes on the Bhagavad-gītā by ${CCD_TEACHER}.`,
+    },
+    [
+      `Teacher - ${CCD_TEACHER}`,
+      "",
+      "Bhakti Shastri lectures on the Bhagavad-gītā, in the order they were taught. Each verse is shown as its live vedabase.io page.",
+      "",
+      "<Cards>",
+      ...(intro.length > 0
+        ? [
+            `  <Card title="Introduction" description="${intro.length} lecture notes" href="${sectionUrl}/introduction" />`,
+          ]
+        : []),
+      ...chapters.map(
+        (num) =>
+          `  <Card title={${yamlString(`Chapter ${num}: ${BG_CHAPTERS[num - 1]}`)}} description="${byChapter.get(num).length} lecture notes" href="${sectionUrl}/chapter-${num}" />`,
+      ),
+      "</Cards>",
+      "",
+      "<Cards>",
+      `  <Card title="Back to Book Library" href="${urlPrefix}" />`,
+      "</Cards>",
+    ],
+  );
+  await writeMetaFile(dir, {
+    title: CCD_TEACHER,
+    icon: "private",
+    pages: [
+      "index",
+      ...(intro.length > 0 ? ["introduction"] : []),
+      ...chapters.map((num) => `chapter-${num}`),
+    ],
+  });
+
+  const lists = [
+    ...(intro.length > 0 ? [["introduction", "Introduction", intro]] : []),
+    ...chapters.map((num) => [
+      `chapter-${num}`,
+      `Chapter ${num} – ${BG_CHAPTERS[num - 1]}`,
+      byChapter.get(num),
+    ]),
+  ];
+  for (const [folder, label, list] of lists) {
+    await writeMdx(
+      path.join(dir, folder, "index.mdx"),
+      {
+        title: `${CCD_TEACHER}: ${label}`,
+        description: `${CCD_TEACHER}'s lecture notes — ${label}.`,
+      },
+      [
+        `Teacher - ${CCD_TEACHER}`,
+        "",
+        "<Cards>",
+        ...list.map(
+          (e) => `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
+        ),
+        "</Cards>",
+        "",
+        "<Cards>",
+        `  <Card title="Back to ${CCD_TEACHER}" href="${sectionUrl}" />`,
+        "</Cards>",
+      ],
+    );
+    await writeMetaFile(path.join(dir, folder), {
+      title: label,
+      pages: ["index", ...list.map(lectureLink)],
+    });
+  }
+  return entries.length;
 }
 
 async function main() {
@@ -1261,10 +1415,17 @@ async function main() {
   const entries = entriesByLang.en;
   const entriesByChapter = groupByChapter(entries);
 
+  const ccdPageCount = await syncChaitanyaCharanDas(
+    path.join(CONTENT_DIR, LANGS.en.dir),
+    `/docs/${LANGS.en.dir}`,
+  );
+  pageCount += ccdPageCount;
+
   await writeRootLanding(
     [...entriesByChapter.keys()].sort((a, b) => a - b),
     otherEntries.length > 0,
     examEntries.en.length > 0,
+    ccdPageCount > 0,
   );
   await writeBookLibrary(
     path.join(CONTENT_DIR, LANGS.en.dir),
@@ -1273,6 +1434,7 @@ async function main() {
     entries.filter((e) => e.isIntroduction),
     otherEntries,
     examEntries.en,
+    ccdPageCount > 0,
   );
   await writeHindiLibrary(
     path.join(CONTENT_DIR, LANGS.hi.dir),
@@ -1283,7 +1445,7 @@ async function main() {
   );
 
   console.log(
-    `Synced ${pageCount} note page(s) (${entries.length} lecture(s), ${pageCount - entries.length - otherEntries.length - examPageCount} translated, ${otherEntries.length} other session(s), ${examPageCount} exam Q&A page(s)) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
+    `Synced ${pageCount} note page(s) (${entries.length} lecture(s), ${pageCount - entries.length - otherEntries.length - examPageCount - ccdPageCount} translated, ${ccdPageCount} ${CCD_TEACHER} lecture(s), ${otherEntries.length} other session(s), ${examPageCount} exam Q&A page(s)) into ${path.relative(WEB_ROOT, CONTENT_DIR)}/`,
   );
 }
 

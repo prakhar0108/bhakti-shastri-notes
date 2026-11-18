@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=KjiTawa1Y6Q",
+  "video_id": "KjiTawa1Y6Q",
+  "title": "BS 066 | BG 3.37 - 3.40 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (066) - Bhagavad Gita Chapter 03 Text 37 to 40",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "58:18",
+  "caption_language": "bs-066-bg-3.37-3.40.en-orig.vtt",
+  "line_count": 1332,
+  "transcript_path": "transcripts/bs-066-bg-3.37-3.40-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-066-bg-3.37-3.40-notes-source.md",
+  "notes_path": "notes/bs-066-bg-3.37-3.40-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

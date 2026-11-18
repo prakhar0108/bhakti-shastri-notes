@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=JDeq6EjpcEs",
+  "video_id": "JDeq6EjpcEs",
+  "title": "BS 045 | BG 1.15 - 1.25 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (045) - Bhagavad Gita Chapter 01 Text 15 to 25",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "47:03",
+  "caption_language": "bs-045-bg-1.15-1.25.hi-orig.vtt",
+  "line_count": 333,
+  "transcript_path": "transcripts/bs-045-bg-1.15-1.25-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-045-bg-1.15-1.25-notes-source.md",
+  "notes_path": "notes/bs-045-bg-1.15-1.25-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

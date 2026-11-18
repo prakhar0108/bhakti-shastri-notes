@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=fTqrV1WC850",
+  "video_id": "fTqrV1WC850",
+  "title": "BS 056 | BG 2.54 - 2.59 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (056) - Bhagavad Gita Chapter 02 Text 54 to 59",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:01:56",
+  "caption_language": "bs-056-bg-2.54-2.59.hi-orig.vtt",
+  "line_count": 812,
+  "transcript_path": "transcripts/bs-056-bg-2.54-2.59-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-056-bg-2.54-2.59-notes-source.md",
+  "notes_path": "notes/bs-056-bg-2.54-2.59-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

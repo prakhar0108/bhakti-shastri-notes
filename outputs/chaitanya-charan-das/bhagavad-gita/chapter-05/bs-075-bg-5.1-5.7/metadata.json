@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=06uTDYqRCiI",
+  "video_id": "06uTDYqRCiI",
+  "title": "BS 075 | BG 5.1 - 5.7 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (075) - Bhagavad Gita Chapter 05 Text 01 to 07",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "57:39",
+  "caption_language": "bs-075-bg-5.1-5.7.en-orig.vtt",
+  "line_count": 1253,
+  "transcript_path": "transcripts/bs-075-bg-5.1-5.7-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-075-bg-5.1-5.7-notes-source.md",
+  "notes_path": "notes/bs-075-bg-5.1-5.7-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

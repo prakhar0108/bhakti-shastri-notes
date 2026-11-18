@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=TQcg8rA2KMs",
+  "video_id": "TQcg8rA2KMs",
+  "title": "BS 051 | BG 2.18 - 2.21 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (051) Bhagavad Gita Chapter 02 Text 18 to 21",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "58:20",
+  "caption_language": "bs-051-bg-2.18-2.21.en-orig.vtt",
+  "line_count": 1325,
+  "transcript_path": "transcripts/bs-051-bg-2.18-2.21-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-051-bg-2.18-2.21-notes-source.md",
+  "notes_path": "notes/bs-051-bg-2.18-2.21-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

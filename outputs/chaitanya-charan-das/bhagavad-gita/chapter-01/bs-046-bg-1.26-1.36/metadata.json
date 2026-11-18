@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=n3PMOdXwEb8",
+  "video_id": "n3PMOdXwEb8",
+  "title": "BS 046 | BG 1.26 - 1.36 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (046) - Bhagavad Gita Chapter 01 Text 26 to 36",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:00:56",
+  "caption_language": "bs-046-bg-1.26-1.36.hi-orig.vtt",
+  "line_count": 663,
+  "transcript_path": "transcripts/bs-046-bg-1.26-1.36-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-046-bg-1.26-1.36-notes-source.md",
+  "notes_path": "notes/bs-046-bg-1.26-1.36-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

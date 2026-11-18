@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=yNOEUpGZIMA",
+  "video_id": "yNOEUpGZIMA",
+  "title": "BS 047 | BG 1.37 - 1.46 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (047) - Bhagavad Gita Chapter 01 Text 37 to 46",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "58:46",
+  "caption_language": "bs-047-bg-1.37-1.46.hi-orig.vtt",
+  "line_count": 655,
+  "transcript_path": "transcripts/bs-047-bg-1.37-1.46-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-047-bg-1.37-1.46-notes-source.md",
+  "notes_path": "notes/bs-047-bg-1.37-1.46-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

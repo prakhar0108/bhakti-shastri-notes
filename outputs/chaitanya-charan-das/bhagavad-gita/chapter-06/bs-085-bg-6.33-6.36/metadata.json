@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=slk8nT5tj68",
+  "video_id": "slk8nT5tj68",
+  "title": "BS 085 | BG 6.33 - 6.36 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (085) - Bhagavad Gita Chapter 06 Text 33 to 36",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "55:32",
+  "caption_language": "bs-085-bg-6.33-6.36.en-orig.vtt",
+  "line_count": 1244,
+  "transcript_path": "transcripts/bs-085-bg-6.33-6.36-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-085-bg-6.33-6.36-notes-source.md",
+  "notes_path": "notes/bs-085-bg-6.33-6.36-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

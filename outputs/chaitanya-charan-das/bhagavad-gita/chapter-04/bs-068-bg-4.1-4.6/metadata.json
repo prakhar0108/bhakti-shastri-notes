@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=Vi6NXipv6Rk",
+  "video_id": "Vi6NXipv6Rk",
+  "title": "BS 068 | BG 4.1 - 4.6 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (068) - Bhagavad Gita Chapter 04 Text 01 to 06",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "58:25",
+  "caption_language": "bs-068-bg-4.1-4.6.en-orig.vtt",
+  "line_count": 1341,
+  "transcript_path": "transcripts/bs-068-bg-4.1-4.6-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-068-bg-4.1-4.6-notes-source.md",
+  "notes_path": "notes/bs-068-bg-4.1-4.6-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=s9in3s6eqYk",
+  "video_id": "s9in3s6eqYk",
+  "title": "BS 084 | BG 6.24 - 6.32 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (084) - Bhagavad Gita Chapter 06 Text 24 to 32",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:01:30",
+  "caption_language": "bs-084-bg-6.24-6.32.hi-orig.vtt",
+  "line_count": 438,
+  "transcript_path": "transcripts/bs-084-bg-6.24-6.32-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-084-bg-6.24-6.32-notes-source.md",
+  "notes_path": "notes/bs-084-bg-6.24-6.32-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

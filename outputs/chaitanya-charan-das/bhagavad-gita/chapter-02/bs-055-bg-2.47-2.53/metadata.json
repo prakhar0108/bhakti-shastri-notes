@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=PQfosyif6tE",
+  "video_id": "PQfosyif6tE",
+  "title": "BS 055 | BG 2.47 - 2.53 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (055) - Bhagavad Gita Chapter 02 Text 47 to 53",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "59:18",
+  "caption_language": "bs-055-bg-2.47-2.53.en-orig.vtt",
+  "line_count": 1286,
+  "transcript_path": "transcripts/bs-055-bg-2.47-2.53-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-055-bg-2.47-2.53-notes-source.md",
+  "notes_path": "notes/bs-055-bg-2.47-2.53-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

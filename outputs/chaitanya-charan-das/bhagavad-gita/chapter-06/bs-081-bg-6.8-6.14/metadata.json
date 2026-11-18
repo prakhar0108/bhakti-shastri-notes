@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=d_ULTqhSgJ0",
+  "video_id": "d_ULTqhSgJ0",
+  "title": "BS 081 | BG 6.8 - 6.14 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (081) - Bhagavad Gita Chapter 06 Text 08 to 14",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "56:30",
+  "caption_language": "bs-081-bg-6.8-6.14.en-orig.vtt",
+  "line_count": 1261,
+  "transcript_path": "transcripts/bs-081-bg-6.8-6.14-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-081-bg-6.8-6.14-notes-source.md",
+  "notes_path": "notes/bs-081-bg-6.8-6.14-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

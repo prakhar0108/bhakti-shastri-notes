@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=b2KXxsY2Dkw",
+  "video_id": "b2KXxsY2Dkw",
+  "title": "BS 076 | BG 5.8 - 5.14 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (076) - Bhagavad Gita Chapter 05 Text 08 to 14",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:00:49",
+  "caption_language": "bs-076-bg-5.8-5.14.en-orig.vtt",
+  "line_count": 1329,
+  "transcript_path": "transcripts/bs-076-bg-5.8-5.14-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-076-bg-5.8-5.14-notes-source.md",
+  "notes_path": "notes/bs-076-bg-5.8-5.14-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

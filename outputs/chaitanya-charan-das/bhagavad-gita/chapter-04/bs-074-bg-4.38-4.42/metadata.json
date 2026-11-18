@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=EiaMq-RHlrg",
+  "video_id": "EiaMq-RHlrg",
+  "title": "BS 074 | BG 4.38 - 4.42 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (074) - Bhagavad Gita Chapter 04 Text 38 to 42",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "57:35",
+  "caption_language": "bs-074-bg-4.38-4.42.en-orig.vtt",
+  "line_count": 1302,
+  "transcript_path": "transcripts/bs-074-bg-4.38-4.42-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-074-bg-4.38-4.42-notes-source.md",
+  "notes_path": "notes/bs-074-bg-4.38-4.42-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

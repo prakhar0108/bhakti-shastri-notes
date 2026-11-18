@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=iZEHQAfVs-0",
+  "video_id": "iZEHQAfVs-0",
+  "title": "BS 042 | BG Introduction | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (042) - Bhagavad Gita Introduction",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "52:19",
+  "caption_language": "bs-042-introduction.en-orig.vtt",
+  "line_count": 1224,
+  "transcript_path": "transcripts/bs-042-introduction-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-042-introduction-notes-source.md",
+  "notes_path": "notes/bs-042-introduction-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

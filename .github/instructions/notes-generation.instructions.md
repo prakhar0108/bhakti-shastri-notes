@@ -323,6 +323,33 @@ in both language tabs (`/docs/en/exam-prep`, `/docs/hi/exam-prep`).
   application (class)**. Each unit folder becomes its own heading on the index and a separator
   in the sidebar.
 
+## HG Chaitanya Charan Das section (`outputs/chaitanya-charan-das/`)
+
+A separate, **private**, English-only section of Bhakti Shastri lectures on the Bhagavad-gītā by
+HG Chaitanya Charan Das (YouTube series "Bhakti Shastri (042)" onwards). It differs from the main
+course notes in these ways — everything else in this document still applies:
+
+- **Layout & naming.** `outputs/chaitanya-charan-das/bhagavad-gita/{introduction|chapter-NN}/bs-NNN-bg-X.X-Y.Y/`
+  (`bs-042-introduction` for the introduction), where `NNN` is the series session number.
+  `metadata.json` `title` is `BS NNN | BG X.X - Y.Y | Bhakti Shastri | HG Chaitanya Charan Das`
+  (`BG Introduction` for the intro); the original YouTube title is kept in `youtube_title`.
+  The folder is skipped by the main course scan, and `syncChaitanyaCharanDas` in
+  `web/scripts/sync-notes.mjs` publishes each note at `/docs/chaitanya-charan-das-<slug>` with
+  navigation under `/docs/en/chaitanya-charan-das/` (Introduction + one folder per chapter).
+- **Private.** `web/src/lib/private.ts` and the private-link CSS in `globals.css` cover the
+  `chaitanya-charan-das` prefix, so pages need the admin passphrase and are excluded from search.
+- **No verse text.** Do not fetch or store Sanskrit, transliteration, word-for-word meanings or
+  translations, and do not create `outputs/shared/verses/` files for this section. Mark each verse
+  with `<!-- vedabase:X.Y -->`; sync replaces it with `<VedabaseVerse>`, which embeds only the live
+  vedabase.io page. Never use `<!-- verse:X.Y -->` here.
+- **No Hindi edition.** Write only `*-notes.md`; no `title_hi`/`notes_path_hi`.
+- **Captions.** The lectures are in English. Some videos are tagged Hindi by YouTube, so their only
+  original track (`*.hi-orig.vtt`) renders the English speech phonetically in Devanagari; read it as
+  English, and record its quirks in `Transcript Verification Flags`.
+- **Template.** Same section order as the "Day 31" template, with `BS NNN` in place of `Day N`;
+  the introduction lecture uses topic-wise `###` sections instead of verse sections. See
+  `bs-042-introduction-notes.md` as the reference note.
+
 ## Checklist for a new lecture
 
 1. Extract the transcript only — no Gemini note generation. Read

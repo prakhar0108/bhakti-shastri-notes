@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=pNYNHsCRUPU",
+  "video_id": "pNYNHsCRUPU",
+  "title": "BS 069 | BG 4.7 - 4.10 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (069) - Bhagavad Gita Chapter 04 Text 07 to 10",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:00:04",
+  "caption_language": "bs-069-bg-4.7-4.10.hi-orig.vtt",
+  "line_count": 997,
+  "transcript_path": "transcripts/bs-069-bg-4.7-4.10-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-069-bg-4.7-4.10-notes-source.md",
+  "notes_path": "notes/bs-069-bg-4.7-4.10-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

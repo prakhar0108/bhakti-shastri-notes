@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=AzSK1pcrX5o",
+  "video_id": "AzSK1pcrX5o",
+  "title": "BS 079 | BG 5.25 - 5.29 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (079) - Bhagavad Gita Chapter 05 Text 25 to 29",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:01:42",
+  "caption_language": "bs-079-bg-5.25-5.29.en-orig.vtt",
+  "line_count": 1426,
+  "transcript_path": "transcripts/bs-079-bg-5.25-5.29-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-079-bg-5.25-5.29-notes-source.md",
+  "notes_path": "notes/bs-079-bg-5.25-5.29-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

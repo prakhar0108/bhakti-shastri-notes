@@ -2,9 +2,10 @@
 @import "fumadocs-ui/css/preset.css";
 @import "katex/dist/katex.min.css";
 
-/* Private (exam, other-session) links stay hidden until the phrase is entered on /admin. */
+/* Private (exam, other-session, Chaitanya Charan Das) links stay hidden until the phrase is entered on /admin. */
 html:not([data-private-unlocked]) a[href*="/exam-prep"],
 html:not([data-private-unlocked]) a[href*="/other-sessions"],
+html:not([data-private-unlocked]) a[href*="/chaitanya-charan-das"],
 html:not([data-private-unlocked])
   [id^="nd-sidebar"]
   div:has(> button [data-private-folder]),
@@ -289,6 +290,26 @@ h3,
   border: 1px solid color-mix(in srgb, var(--color-gold) 30%, transparent);
   border-radius: 0.75rem;
   background: #fff;
+}
+
+.vedabase-verse {
+  margin: 1.25rem 0 1.5rem;
+}
+
+.vedabase-verse > iframe {
+  width: 100%;
+  /* vedabase.io renders ~250px of its own nav before the verse, so keep it tall */
+  height: clamp(420px, 70vh, 760px);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 30%, transparent);
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.vedabase-verse > figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  text-align: right;
+  color: var(--color-fd-muted-foreground);
 }
 
 @media (max-width: 640px) {

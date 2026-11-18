@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=kA-74GSsrNk",
+  "video_id": "kA-74GSsrNk",
+  "title": "BS 078 | BG 5.19 - 5.24 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (078) - Bhagavad Gita Chapter 05 Text 19 to 24",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "59:44",
+  "caption_language": "bs-078-bg-5.19-5.24.en-orig.vtt",
+  "line_count": 1369,
+  "transcript_path": "transcripts/bs-078-bg-5.19-5.24-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-078-bg-5.19-5.24-notes-source.md",
+  "notes_path": "notes/bs-078-bg-5.19-5.24-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}

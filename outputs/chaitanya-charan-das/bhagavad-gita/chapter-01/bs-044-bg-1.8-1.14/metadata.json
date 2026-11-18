@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=CEXdp5BiZpg",
+  "video_id": "CEXdp5BiZpg",
+  "title": "BS 044 | BG 1.8 - 1.14 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (044) - Bhagavad Gita Chapter 01 Text 08 to 14",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:10:19",
+  "caption_language": "bs-044-bg-1.8-1.14.hi-orig.vtt",
+  "line_count": 1203,
+  "transcript_path": "transcripts/bs-044-bg-1.8-1.14-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-044-bg-1.8-1.14-notes-source.md",
+  "notes_path": "notes/bs-044-bg-1.8-1.14-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Verses are not reproduced: each shloka is shown only as an embedded vedabase.io page."
+}
