@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=CaDJA68zwT4",
+  "video_id": "CaDJA68zwT4",
+  "title": "BS 004 | Śrī Īśopaniṣad Mantra 2 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (004) - Sri Isopanisad Mantra 02",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "55:29",
+  "caption_language": "bs-004-iso-mantra-02.en-orig.vtt",
+  "line_count": 1256,
+  "transcript_path": "transcripts/bs-004-iso-mantra-02-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-004-iso-mantra-02-notes-source.md",
+  "notes_path": "notes/bs-004-iso-mantra-02-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

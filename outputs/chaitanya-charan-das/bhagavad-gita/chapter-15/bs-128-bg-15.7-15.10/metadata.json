@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=b30c7X5kl3E",
+  "video_id": "b30c7X5kl3E",
+  "title": "BS 128 | BG 15.7 - 15.10 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (128) - Bhagavad Gita Chapter 15 Text 07 to 10",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "59:52",
+  "caption_language": "bs-128-bg-15.7-15.10.en-orig.vtt",
+  "line_count": 1327,
+  "transcript_path": "transcripts/bs-128-bg-15.7-15.10-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-128-bg-15.7-15.10-notes-source.md",
+  "notes_path": "notes/bs-128-bg-15.7-15.10-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

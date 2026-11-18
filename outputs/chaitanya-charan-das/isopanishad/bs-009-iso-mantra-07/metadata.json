@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=cMLn6axaH6g",
+  "video_id": "cMLn6axaH6g",
+  "title": "BS 009 | Śrī Īśopaniṣad Mantra 7 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (009) - Sri Isopanisad Mantra 07",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "59:24",
+  "caption_language": "bs-009-iso-mantra-07.en-orig.vtt",
+  "line_count": 1330,
+  "transcript_path": "transcripts/bs-009-iso-mantra-07-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-009-iso-mantra-07-notes-source.md",
+  "notes_path": "notes/bs-009-iso-mantra-07-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

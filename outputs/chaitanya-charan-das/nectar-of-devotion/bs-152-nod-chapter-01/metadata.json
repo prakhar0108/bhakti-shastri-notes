@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=5lDZSO2D-F0",
+  "video_id": "5lDZSO2D-F0",
+  "title": "BS 152 | Nectar of Devotion Chapter 1 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (152) Nectar of Devotion Chapter 01",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "59:31",
+  "caption_language": "bs-152-nod-chapter-01.en-orig.vtt",
+  "line_count": 1392,
+  "transcript_path": "transcripts/bs-152-nod-chapter-01-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-152-nod-chapter-01-notes-source.md",
+  "notes_path": "notes/bs-152-nod-chapter-01-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

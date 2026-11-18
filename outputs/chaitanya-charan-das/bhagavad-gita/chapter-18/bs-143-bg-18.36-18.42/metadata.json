@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=JoYyr2Q1ftI",
+  "video_id": "JoYyr2Q1ftI",
+  "title": "BS 143 | BG 18.36 - 18.42 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (143) - Bhagavad Gita Chapter 18 Text 36 to 42",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "57:17",
+  "caption_language": "bs-143-bg-18.36-18.42.en-orig.vtt",
+  "line_count": 1244,
+  "transcript_path": "transcripts/bs-143-bg-18.36-18.42-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-143-bg-18.36-18.42-notes-source.md",
+  "notes_path": "notes/bs-143-bg-18.36-18.42-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

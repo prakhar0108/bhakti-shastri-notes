@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=tGfkncVsJWI",
+  "video_id": "tGfkncVsJWI",
+  "title": "BS 144 | BG 18.43 - 18.48 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (144) - Bhagavad Gita Chapter 18 Text 43 to 48",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "46:42",
+  "caption_language": "bs-144-bg-18.43-18.48.en-orig.vtt",
+  "line_count": 999,
+  "transcript_path": "transcripts/bs-144-bg-18.43-18.48-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-144-bg-18.43-18.48-notes-source.md",
+  "notes_path": "notes/bs-144-bg-18.43-18.48-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

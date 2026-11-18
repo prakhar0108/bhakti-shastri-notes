@@ -173,13 +173,37 @@ async function loadVerseBlock(verseKey) {
   return content;
 }
 
-/** Replace `<!-- vedabase:2.13 -->` markers with an embedded vedabase.io page (no stored verse text). */
+// Labels for `<!-- vedabase:<book>/<part> -->` markers, keyed by vedabase.io book code.
+const VEDABASE_BOOKS = {
+  iso: { title: "Śrī Īśopaniṣad", unit: "Mantra" },
+  noi: { title: "The Nectar of Instruction", unit: "Text" },
+  nod: { title: "The Nectar of Devotion", unit: "Chapter" },
+};
+
+/** Label for a vedabase book page, e.g. ("iso", "3") -> "Śrī Īśopaniṣad Mantra 3". */
+function vedabasePartLabel(book, part) {
+  const { title, unit } = VEDABASE_BOOKS[book];
+  if (/^\d+$/.test(part)) return `${title} ${unit} ${Number(part)}`;
+  return `${title} ${part.charAt(0).toUpperCase()}${part.slice(1)}`;
+}
+
+/**
+ * Replace vedabase markers with an embedded vedabase.io page (no stored verse text):
+ * `<!-- vedabase:2.13 -->` for a Gītā verse, `<!-- vedabase:iso/3 -->`, `<!-- vedabase:noi/preface -->`,
+ * `<!-- vedabase:nod/12 -->` for Īśopaniṣad mantras, Nectar of Instruction texts and Nectar of Devotion chapters.
+ */
 function injectVedabaseEmbeds(body) {
-  return body.replace(
-    /<!--\s*vedabase:(\d+)\.(\d+)\s*-->/g,
-    (_, chapter, verse) =>
-      `<VedabaseVerse number="${chapter}.${verse}" href="https://vedabase.io/en/library/bg/${chapter}/${verse}/" />`,
-  );
+  return body
+    .replace(
+      /<!--\s*vedabase:(\d+)\.(\d+)\s*-->/g,
+      (_, chapter, verse) =>
+        `<VedabaseVerse label="Bhagavad-gītā ${chapter}.${verse}" href="https://vedabase.io/en/library/bg/${chapter}/${verse}/" />`,
+    )
+    .replace(
+      /<!--\s*vedabase:(iso|noi|nod)\/([a-z0-9-]+)\s*-->/g,
+      (_, book, part) =>
+        `<VedabaseVerse label={${yamlString(vedabasePartLabel(book, part))}} href="https://vedabase.io/en/library/${book}/${part}/" />`,
+    );
 }
 
 /** Replace `<!-- verse:3.7 -->` markers with the shared, verified verse reference. */
@@ -330,7 +354,10 @@ function renderFlowchart(mermaidBody) {
 function buildArrowChainDiagram(nodes) {
   const mermaidLines = ["flowchart TD"];
   nodes.forEach((node, i) => {
-    const verseMatch = /^(BG\s*\d+\.\d+)\s*[:\-–]\s*(.*)$/i.exec(node.trim());
+    const verseMatch =
+      /^(BG\s*\d+\.\d+(?:\s*[-–]\s*\d+(?:\.\d+)?)?)\s*[:\-–]\s*(.*)$/i.exec(
+        node.trim(),
+      );
     const label = verseMatch
       ? `${verseMatch[1]}: ${conciseLabel(verseMatch[2])}`
       : conciseLabel(node);
@@ -1192,17 +1219,38 @@ function extractSessionNumber(title) {
   return match ? Number(match[1]) : null;
 }
 
+// HG Chaitanya Charan Das's course books, in the order the series teaches them.
+const CCD_BOOKS = ["isopanishad", "nectar-of-instruction", "bhagavad-gita", "nectar-of-devotion"];
+
+/** Write a lecture-list page (+ sidebar meta) for one folder of the Chaitanya Charan Das section. */
+async function writeCcdLectureList(dir, { title, description, intro, back }, list) {
+  await writeMdx(path.join(dir, "index.mdx"), { title, description }, [
+    `Teacher - ${CCD_TEACHER}`,
+    "",
+    intro,
+    "",
+    "<Cards>",
+    ...list.map((e) => `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`),
+    "</Cards>",
+    "",
+    "<Cards>",
+    `  <Card title={${yamlString(back.title)}} href="${back.href}" />`,
+    "</Cards>",
+  ]);
+}
+
 /**
- * Sync the HG Chaitanya Charan Das section: outputs/chaitanya-charan-das/**\/notes/*.md become
- * `/docs/chaitanya-charan-das-<slug>` pages (prefixed so they match the private-path rule),
- * with a private sidebar folder grouped into Introduction and per-chapter lists.
- * Returns the number of pages written.
+ * Sync the HG Chaitanya Charan Das section: outputs/chaitanya-charan-das/<book>/**\/notes/*.md become
+ * `/docs/chaitanya-charan-das-<slug>` pages (prefixed so they match the private-path rule), with a
+ * private sidebar folder holding one sub-folder per book; the Bhagavad-gītā is further grouped into
+ * Introduction and per-chapter lists. Returns the number of pages written.
  */
 async function syncChaitanyaCharanDas(baseDir, urlPrefix) {
   const groups = (await pathExists(CCD_DIR)) ? await findNoteGroups(CCD_DIR) : [];
-  const entries = [];
+  const entriesByBook = new Map();
   for (const group of groups) {
     const metadata = await loadMetadata(group.parentDir);
+    const book = path.relative(CCD_DIR, group.parentDir).split(path.sep)[0];
     for (const file of group.files.filter((f) => !f.endsWith(".hi.md"))) {
       const rawBody = await readFile(path.join(group.notesDir, file), "utf8");
       const baseName = file.replace(/\.md$/, "");
@@ -1213,48 +1261,41 @@ async function syncChaitanyaCharanDas(baseDir, urlPrefix) {
         { title, description: LANGS.en.description(metadata?.duration) },
         await transformBody(rawBody, metadata, LANGS.en, null),
       );
-      entries.push({
+      const list = entriesByBook.get(book) ?? [];
+      list.push({
         slug,
         title,
         session: extractSessionNumber(title),
-        chapter: extractChapterNumber(title),
+        chapter: book === "bhagavad-gita" ? extractChapterNumber(title) : null,
       });
+      entriesByBook.set(book, list);
     }
   }
-  if (entries.length === 0) return 0;
-
-  entries.sort((a, b) => (a.session ?? 0) - (b.session ?? 0));
-  const intro = entries.filter((e) => e.chapter == null);
-  const byChapter = new Map();
-  for (const e of entries.filter((e) => e.chapter != null)) {
-    byChapter.set(e.chapter, [...(byChapter.get(e.chapter) ?? []), e]);
-  }
-  const chapters = [...byChapter.keys()].sort((a, b) => a - b);
+  const total = [...entriesByBook.values()].reduce((n, l) => n + l.length, 0);
+  if (total === 0) return 0;
 
   const dir = path.join(baseDir, CCD_SLUG);
   const sectionUrl = `${urlPrefix}/${CCD_SLUG}`;
+  const books = BOOKS.filter((b) => entriesByBook.has(b.slug)).sort(
+    (a, b) => CCD_BOOKS.indexOf(a.slug) - CCD_BOOKS.indexOf(b.slug),
+  );
   await writeMdx(
     path.join(dir, "index.mdx"),
     {
-      title: `${CCD_TEACHER} — Bhagavad-gītā`,
-      description: `Bhakti Shastri lecture notes on the Bhagavad-gītā by ${CCD_TEACHER}.`,
+      title: CCD_TEACHER,
+      description: `Bhakti Shastri lecture notes by ${CCD_TEACHER}, organized by book.`,
     },
     [
       `Teacher - ${CCD_TEACHER}`,
       "",
-      "Bhakti Shastri lectures on the Bhagavad-gītā, in the order they were taught. Each verse is shown as its live vedabase.io page.",
+      "Bhakti Shastri lectures, organized by book in the order they were taught. Each verse, text or chapter is shown as its live vedabase.io page.",
       "",
-      "<Cards>",
-      ...(intro.length > 0
-        ? [
-            `  <Card title="Introduction" description="${intro.length} lecture notes" href="${sectionUrl}/introduction" />`,
-          ]
-        : []),
-      ...chapters.map(
-        (num) =>
-          `  <Card title={${yamlString(`Chapter ${num}: ${BG_CHAPTERS[num - 1]}`)}} description="${byChapter.get(num).length} lecture notes" href="${sectionUrl}/chapter-${num}" />`,
+      "<BookGrid>",
+      ...books.map(
+        (b) =>
+          `  <BookCard href="${sectionUrl}/${b.slug}" title={${yamlString(b.title)}} cover="${b.cover}" alt={${yamlString(b.alt)}} status="${entriesByBook.get(b.slug).length} lecture notes" available={true} />`,
       ),
-      "</Cards>",
+      "</BookGrid>",
       "",
       "<Cards>",
       `  <Card title="Back to Book Library" href="${urlPrefix}" />`,
@@ -1264,48 +1305,104 @@ async function syncChaitanyaCharanDas(baseDir, urlPrefix) {
   await writeMetaFile(dir, {
     title: CCD_TEACHER,
     icon: "private",
-    pages: [
-      "index",
-      ...(intro.length > 0 ? ["introduction"] : []),
-      ...chapters.map((num) => `chapter-${num}`),
-    ],
+    pages: ["index", ...books.map((b) => b.slug)],
   });
 
-  const lists = [
-    ...(intro.length > 0 ? [["introduction", "Introduction", intro]] : []),
-    ...chapters.map((num) => [
-      `chapter-${num}`,
-      `Chapter ${num} – ${BG_CHAPTERS[num - 1]}`,
-      byChapter.get(num),
-    ]),
-  ];
-  for (const [folder, label, list] of lists) {
+  const backToSection = { title: `Back to ${CCD_TEACHER}`, href: sectionUrl };
+  for (const book of books) {
+    const entries = entriesByBook
+      .get(book.slug)
+      .sort((a, b) => (a.session ?? 0) - (b.session ?? 0));
+    const bookDir = path.join(dir, book.slug);
+    const bookUrl = `${sectionUrl}/${book.slug}`;
+
+    if (book.slug !== "bhagavad-gita") {
+      await writeCcdLectureList(
+        bookDir,
+        {
+          title: `${CCD_TEACHER}: ${book.title}`,
+          description: `${CCD_TEACHER}'s lecture notes on ${book.title}, in the order they were taught.`,
+          intro: `<BookCover src="${book.cover}" alt={${yamlString(book.alt)}} />`,
+          back: backToSection,
+        },
+        entries,
+      );
+      await writeMetaFile(bookDir, {
+        title: book.title,
+        pages: ["index", ...entries.map(lectureLink)],
+      });
+      continue;
+    }
+
+    const intro = entries.filter((e) => e.chapter == null);
+    const byChapter = new Map();
+    for (const e of entries.filter((e) => e.chapter != null)) {
+      byChapter.set(e.chapter, [...(byChapter.get(e.chapter) ?? []), e]);
+    }
+    const chapters = [...byChapter.keys()].sort((a, b) => a - b);
     await writeMdx(
-      path.join(dir, folder, "index.mdx"),
+      path.join(bookDir, "index.mdx"),
       {
-        title: `${CCD_TEACHER}: ${label}`,
-        description: `${CCD_TEACHER}'s lecture notes — ${label}.`,
+        title: `${CCD_TEACHER}: ${book.title}`,
+        description: `${CCD_TEACHER}'s Bhagavad-gītā lecture notes, by chapter.`,
       },
       [
+        `<BookCover src="${book.cover}" alt={${yamlString(book.alt)}} />`,
+        "",
         `Teacher - ${CCD_TEACHER}`,
         "",
         "<Cards>",
-        ...list.map(
-          (e) => `  <Card title={${yamlString(e.title)}} href="/docs/${e.slug}" />`,
+        ...(intro.length > 0
+          ? [
+              `  <Card title="Introduction" description="${intro.length} lecture notes" href="${bookUrl}/introduction" />`,
+            ]
+          : []),
+        ...chapters.map(
+          (num) =>
+            `  <Card title={${yamlString(`Chapter ${num}: ${BG_CHAPTERS[num - 1]}`)}} description="${byChapter.get(num).length} lecture notes" href="${bookUrl}/chapter-${num}" />`,
         ),
         "</Cards>",
         "",
         "<Cards>",
-        `  <Card title="Back to ${CCD_TEACHER}" href="${sectionUrl}" />`,
+        `  <Card title={${yamlString(backToSection.title)}} href="${backToSection.href}" />`,
         "</Cards>",
       ],
     );
-    await writeMetaFile(path.join(dir, folder), {
-      title: label,
-      pages: ["index", ...list.map(lectureLink)],
+    await writeMetaFile(bookDir, {
+      title: book.title,
+      pages: [
+        "index",
+        ...(intro.length > 0 ? ["introduction"] : []),
+        ...chapters.map((num) => `chapter-${num}`),
+      ],
     });
+
+    const lists = [
+      ...(intro.length > 0 ? [["introduction", "Introduction", intro]] : []),
+      ...chapters.map((num) => [
+        `chapter-${num}`,
+        `Chapter ${num} – ${BG_CHAPTERS[num - 1]}`,
+        byChapter.get(num),
+      ]),
+    ];
+    for (const [folder, label, list] of lists) {
+      await writeCcdLectureList(
+        path.join(bookDir, folder),
+        {
+          title: `${CCD_TEACHER}: Bhagavad-gītā ${label}`,
+          description: `${CCD_TEACHER}'s lecture notes — Bhagavad-gītā ${label}.`,
+          intro: `Lectures in the order they were taught.`,
+          back: { title: "Back to Bhagavad-gītā chapters", href: bookUrl },
+        },
+        list,
+      );
+      await writeMetaFile(path.join(bookDir, folder), {
+        title: label,
+        pages: ["index", ...list.map(lectureLink)],
+      });
+    }
   }
-  return entries.length;
+  return total;
 }
 
 async function main() {

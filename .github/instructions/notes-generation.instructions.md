@@ -325,30 +325,46 @@ in both language tabs (`/docs/en/exam-prep`, `/docs/hi/exam-prep`).
 
 ## HG Chaitanya Charan Das section (`outputs/chaitanya-charan-das/`)
 
-A separate, **private**, English-only section of Bhakti Shastri lectures on the Bhagavad-gītā by
-HG Chaitanya Charan Das (YouTube series "Bhakti Shastri (042)" onwards). It differs from the main
-course notes in these ways — everything else in this document still applies:
+A separate, **private**, English-only section holding HG Chaitanya Charan Das's complete Bhakti
+Shastri series (YouTube "Bhakti Shastri (001)"–"(162)"): Śrī Īśopaniṣad (001–022), The Nectar of
+Instruction (023–041), Bhagavad-gītā (042–149) and The Nectar of Devotion (150–162). It differs
+from the main course notes in these ways — everything else in this document still applies:
 
-- **Layout & naming.** `outputs/chaitanya-charan-das/bhagavad-gita/{introduction|chapter-NN}/bs-NNN-bg-X.X-Y.Y/`
-  (`bs-042-introduction` for the introduction), where `NNN` is the series session number.
-  `metadata.json` `title` is `BS NNN | BG X.X - Y.Y | Bhakti Shastri | HG Chaitanya Charan Das`
-  (`BG Introduction` for the intro); the original YouTube title is kept in `youtube_title`.
-  The folder is skipped by the main course scan, and `syncChaitanyaCharanDas` in
-  `web/scripts/sync-notes.mjs` publishes each note at `/docs/chaitanya-charan-das-<slug>` with
-  navigation under `/docs/en/chaitanya-charan-das/` (Introduction + one folder per chapter).
+- **Layout & naming.** `outputs/chaitanya-charan-das/<book>/...`, one folder per lecture named
+  `bs-NNN-...` after the series session number:
+  - `bhagavad-gita/{introduction|chapter-NN}/bs-NNN-bg-X.X-Y.Y/` (`bs-042-introduction` for the intro);
+  - `isopanishad/bs-NNN-iso-{introduction|invocation|mantra-NN[-part-N]}/`;
+  - `nectar-of-instruction/bs-NNN-noi-{preface-overview|text-NN[-part-N]}/`;
+  - `nectar-of-devotion/bs-NNN-nod-{preface-introduction|introduction-chapter-01|chapter-NN|chapters-NN-NN}/`.
+
+  `metadata.json` `title` is `BS NNN | <unit> | Bhakti Shastri | HG Chaitanya Charan Das`, where
+  `<unit>` is `BG X.X - Y.Y`, `BG Introduction`, `Śrī Īśopaniṣad Mantra N (Part N)`,
+  `Nectar of Instruction Text N`, `Nectar of Devotion Chapters N & M`, etc.; the original YouTube
+  title is kept in `youtube_title`. The folder is skipped by the main course scan, and
+  `syncChaitanyaCharanDas` in `web/scripts/sync-notes.mjs` publishes each note at
+  `/docs/chaitanya-charan-das-<slug>` with navigation under `/docs/en/chaitanya-charan-das/<book>/`
+  (the Gītā further split into Introduction + one folder per chapter).
 - **Private.** `web/src/lib/private.ts` and the private-link CSS in `globals.css` cover the
   `chaitanya-charan-das` prefix, so pages need the admin passphrase and are excluded from search.
-- **No verse text.** Do not fetch or store Sanskrit, transliteration, word-for-word meanings or
-  translations, and do not create `outputs/shared/verses/` files for this section. Mark each verse
-  with `<!-- vedabase:X.Y -->`; sync replaces it with `<VedabaseVerse>`, which embeds only the live
-  vedabase.io page. Never use `<!-- verse:X.Y -->` here.
+- **No scripture text.** Do not fetch or store Sanskrit, transliteration, word-for-word meanings,
+  translations or purports, and do not create `outputs/shared/verses/` files for this section. Mark
+  each verse/text/chapter with a vedabase marker; sync replaces it with `<VedabaseVerse>`, which
+  embeds only the live vedabase.io page. Never use `<!-- verse:X.Y -->` here.
+  - Gītā verse: `<!-- vedabase:2.13 -->`
+  - Īśopaniṣad: `<!-- vedabase:iso/invocation -->`, `<!-- vedabase:iso/N -->`
+  - Nectar of Instruction: `<!-- vedabase:noi/preface -->`, `<!-- vedabase:noi/N -->`
+  - Nectar of Devotion: `<!-- vedabase:nod/preface -->`, `<!-- vedabase:nod/introduction -->`, `<!-- vedabase:nod/N -->` (chapter)
 - **No Hindi edition.** Write only `*-notes.md`; no `title_hi`/`notes_path_hi`.
 - **Captions.** The lectures are in English. Some videos are tagged Hindi by YouTube, so their only
   original track (`*.hi-orig.vtt`) renders the English speech phonetically in Devanagari; read it as
   English, and record its quirks in `Transcript Verification Flags`.
-- **Template.** Same section order as the "Day 31" template, with `BS NNN` in place of `Day N`;
-  the introduction lecture uses topic-wise `###` sections instead of verse sections. See
-  `bs-042-introduction-notes.md` as the reference note.
+- **Template.** Gītā lectures use the "Day 31" template with `BS NNN` in place of `Day N`.
+  Īśopaniṣad, NOI and NOD lectures usually cover one mantra/text (often over several "Part"
+  lectures) or one or two chapters, so they use topic-wise `###` sections under
+  `## Mantra-Wise` / `## Text-Wise` / `## Chapter-Wise Notes & Analytical Commentary`, with each
+  unit's marker placed once under the section where its discussion starts, one Takeaway per `###`
+  section, and `## Conceptual Progression (...)` in place of the Cross-Shloka heading. The intro
+  lecture `bs-042-introduction-notes.md` is the reference note for the topic-wise shape.
 
 ## Checklist for a new lecture
 

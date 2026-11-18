@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=ltaqb0hMqjA",
+  "video_id": "ltaqb0hMqjA",
+  "title": "BS 127 | BG 15.1 - 15.6 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (127) - Bhagavad Gita Chapter 15 Text 01 to 06",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:02:00",
+  "caption_language": "bs-127-bg-15.1-15.6.hi-orig.vtt",
+  "line_count": 1048,
+  "transcript_path": "transcripts/bs-127-bg-15.1-15.6-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-127-bg-15.1-15.6-notes-source.md",
+  "notes_path": "notes/bs-127-bg-15.1-15.6-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

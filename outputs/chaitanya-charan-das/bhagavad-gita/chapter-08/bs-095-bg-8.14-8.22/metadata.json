@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=W8tsGwPuI4k",
+  "video_id": "W8tsGwPuI4k",
+  "title": "BS 095 | BG 8.14 - 8.22 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (095) - Bhagavad Gita Chapter 08 Text 14 to 22",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "58:24",
+  "caption_language": "bs-095-bg-8.14-8.22.en-orig.vtt",
+  "line_count": 1197,
+  "transcript_path": "transcripts/bs-095-bg-8.14-8.22-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-095-bg-8.14-8.22-notes-source.md",
+  "notes_path": "notes/bs-095-bg-8.14-8.22-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

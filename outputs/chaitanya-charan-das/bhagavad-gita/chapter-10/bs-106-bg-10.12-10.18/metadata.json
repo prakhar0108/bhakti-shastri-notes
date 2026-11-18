@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=Z3KBd9iGg7g",
+  "video_id": "Z3KBd9iGg7g",
+  "title": "BS 106 | BG 10.12 - 10.18 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (106) - Bhagavad Gita Chapter 10 Text 12 to 18",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "57:43",
+  "caption_language": "bs-106-bg-10.12-10.18.hi-orig.vtt",
+  "line_count": 611,
+  "transcript_path": "transcripts/bs-106-bg-10.12-10.18-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-106-bg-10.12-10.18-notes-source.md",
+  "notes_path": "notes/bs-106-bg-10.12-10.18-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=SFhd4DDMlXA",
+  "video_id": "SFhd4DDMlXA",
+  "title": "BS 038 | Nectar of Instruction Text 8 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (038) - The Nectar of Instruction Text 8",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "56:11",
+  "caption_language": "bs-038-noi-text-08.en-orig.vtt",
+  "line_count": 1328,
+  "transcript_path": "transcripts/bs-038-noi-text-08-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-038-noi-text-08-notes-source.md",
+  "notes_path": "notes/bs-038-noi-text-08-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

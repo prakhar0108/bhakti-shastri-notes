@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=CWUsF6y-9Gk",
+  "video_id": "CWUsF6y-9Gk",
+  "title": "BS 092 | BG 7.25 - 7.30 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (092) - Bhagavad Gita Chapter 07 Text 25 to 30",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:02:47",
+  "caption_language": "bs-092-bg-7.25-7.30.en-orig.vtt",
+  "line_count": 1376,
+  "transcript_path": "transcripts/bs-092-bg-7.25-7.30-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-092-bg-7.25-7.30-notes-source.md",
+  "notes_path": "notes/bs-092-bg-7.25-7.30-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

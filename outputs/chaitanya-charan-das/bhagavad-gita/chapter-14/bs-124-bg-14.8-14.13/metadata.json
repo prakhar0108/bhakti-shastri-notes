@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=cNEJJ9lcrXE",
+  "video_id": "cNEJJ9lcrXE",
+  "title": "BS 124 | BG 14.8 - 14.13 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (124) - Bhagavad Gita Chapter 14 Text 08 to 13",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "58:37",
+  "caption_language": "bs-124-bg-14.8-14.13.en-orig.vtt",
+  "line_count": 1321,
+  "transcript_path": "transcripts/bs-124-bg-14.8-14.13-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-124-bg-14.8-14.13-notes-source.md",
+  "notes_path": "notes/bs-124-bg-14.8-14.13-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

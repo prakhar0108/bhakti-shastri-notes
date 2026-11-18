@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=jVl7Jzu-4LQ",
+  "video_id": "jVl7Jzu-4LQ",
+  "title": "BS 090 | BG 7.13 - 7.18 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (090) - Bhagavad Gita Chapter 07 Text 13 to 18",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:01:15",
+  "caption_language": "bs-090-bg-7.13-7.18.en-orig.vtt",
+  "line_count": 1344,
+  "transcript_path": "transcripts/bs-090-bg-7.13-7.18-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-090-bg-7.13-7.18-notes-source.md",
+  "notes_path": "notes/bs-090-bg-7.13-7.18-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

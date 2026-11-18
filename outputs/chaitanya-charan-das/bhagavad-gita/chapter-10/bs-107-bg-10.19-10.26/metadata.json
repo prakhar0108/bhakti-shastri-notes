@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=9UqNlbdHJM0",
+  "video_id": "9UqNlbdHJM0",
+  "title": "BS 107 | BG 10.19 - 10.26 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (107) - Bhagavad Gita Chapter 10 Text 19 to 26",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:00:23",
+  "caption_language": "bs-107-bg-10.19-10.26.hi-orig.vtt",
+  "line_count": 634,
+  "transcript_path": "transcripts/bs-107-bg-10.19-10.26-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-107-bg-10.19-10.26-notes-source.md",
+  "notes_path": "notes/bs-107-bg-10.19-10.26-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted YouTube auto-captions without Gemini; YouTube tagged this English lecture as Hindi, so the captions render the English speech phonetically in Devanagari. No outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

@@ -1,7 +1,7 @@
 interface VedabaseVerseProps {
-  /** e.g. "2.13" */
-  number: string;
-  /** direct vedabase.io link for this verse */
+  /** e.g. "Bhagavad-gītā 2.13" or "Śrī Īśopaniṣad Mantra 3" */
+  label: string;
+  /** direct vedabase.io link for this verse, text or chapter */
   href: string;
 }
 
@@ -10,19 +10,19 @@ interface VedabaseVerseProps {
  * translation are stored in the note. The iframe is `loading="lazy"`, so verses
  * further down a long note are not fetched until scrolled near.
  */
-export function VedabaseVerse({ number, href }: VedabaseVerseProps) {
+export function VedabaseVerse({ label, href }: VedabaseVerseProps) {
   return (
     <figure className="vedabase-verse">
       <iframe
         src={href}
-        title={`Bhagavad-gītā ${number} on vedabase.io`}
+        title={`${label} on vedabase.io`}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
       />
       <figcaption>
         <a href={href} target="_blank" rel="noreferrer">
-          Bhagavad-gītā {number} on vedabase.io ↗
+          {label} on vedabase.io ↗
         </a>
       </figcaption>
     </figure>

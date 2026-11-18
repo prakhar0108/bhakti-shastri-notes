@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=vR1mKzKeqiI",
+  "video_id": "vR1mKzKeqiI",
+  "title": "BS 112 | BG 11.32 - 11.35 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (112) - Bhagavad Gita Chapter 11 Text 32 to 35",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:01:05",
+  "caption_language": "bs-112-bg-11.32-11.35.en-orig.vtt",
+  "line_count": 1388,
+  "transcript_path": "transcripts/bs-112-bg-11.32-11.35-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-112-bg-11.32-11.35-notes-source.md",
+  "notes_path": "notes/bs-112-bg-11.32-11.35-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}

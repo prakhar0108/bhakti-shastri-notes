@@ -1,0 +1,16 @@
+{
+  "video_url": "https://www.youtube.com/watch?v=vcr2P90IBMU",
+  "video_id": "vcr2P90IBMU",
+  "title": "BS 121 | BG 13.20 - 13.26 | Bhakti Shastri | HG Chaitanya Charan Das",
+  "youtube_title": "Bhakti Shastri (121) - Bhagavad Gita Chapter 13 Text 20 to 26",
+  "speaker": "HG Chaitanya Charan Das",
+  "series": "Bhakti Shastri (Chaitanya Charan Das)",
+  "duration": "1:00:58",
+  "caption_language": "bs-121-bg-13.20-13.26.en-orig.vtt",
+  "line_count": 1260,
+  "transcript_path": "transcripts/bs-121-bg-13.20-13.26-clean-transcript.txt",
+  "notes_source_path": "transcripts/bs-121-bg-13.20-13.26-notes-source.md",
+  "notes_path": "notes/bs-121-bg-13.20-13.26-notes.md",
+  "notes_generator": "manual-transcript-grounded-notes-vedabase-embed-only-no-gemini",
+  "grounding_rule": "Commentary written manually from the extracted English auto-captions without Gemini; no outside commentary. Scripture text is not reproduced: each verse, text or chapter is shown only as an embedded vedabase.io page."
+}
